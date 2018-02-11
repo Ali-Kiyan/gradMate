@@ -446,43 +446,7 @@ template {
   display: none;
 }
 
-#sideNav{
-  background-color: black;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  padding: 0;
-}
-.sideLinks{
-  background-color: #41394c;
-  color: white;
-  text-decoration: none;
-  list-style: none;
-  margin-bottom: 0px;
-  padding-left: 0px;
 
-}
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #eee;
-    background-color: #a5b9c6;
-    position: relative;
-    z-index: 1000;
-}
-.sideLinks a:hover {
-background-color: #4e4e4c;
-}
-.sideLinks a{
-  width: 100%;
-  border-radius: 0px;
-  background-color: #5e5e75;
-  /* border-color: black; */
-  border-size: 1px;
-  border-width: 0;
-  border-color: black;
-  text-align: left;
-  padding: 2vh 0px 2vh 3vh;
-  border: solid #b7c790 0.002rem;
-}
 
 /* Header */
 body{
