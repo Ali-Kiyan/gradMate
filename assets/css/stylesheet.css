@@ -548,3 +548,14 @@ body{
 .navbar{
   background-color: #b8b5b9;
 }
+.sidebar ul li a.active {
+  background-color: #3c3d35 !important;
+}
+.nav .dropdown-menu{
+  background-color: #3c3d35;
+  color: whitesmoke;
+}
+.dropdown-toggle .active{
+  background-color: #3c3d35;
+  color: whitesmoke;
+}

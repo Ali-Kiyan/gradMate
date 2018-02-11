@@ -2,12 +2,12 @@
 require_once "./header.phtml";
 ?>
 
-
+<link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
 <div id="large-header" class="large-header">
             <div id="showcase">
                 <div class="animated fadeInDown">
-                      <h1 >Job Wizard</h1>
-                      <p class="animated fadeInDown">First job repository specificay for graduates</p>
+                      <h1 style="font-family: 'Raleway Dots', cursive; font-size:4rem;">Job Wizard</h1>
+                      <p class="animated fadeInDown">First job repository specifically for graduates</p>
                 </div>
                 <br>
                 <div class="animated rotateIn">
