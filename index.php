@@ -10,8 +10,9 @@ require_once "./header.phtml";
                       <p class="animated fadeInDown">First job repository specifically for graduates</p>
                 </div>
                 <br>
-                <div class="animated rotateIn">
-                <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Enter</a>
+                <div class="animated flipInX">
+                <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> International Job seekers</a>
+                <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Companies</a>
                 </div>
             </div>
   <canvas id="demo-canvas"></canvas>
