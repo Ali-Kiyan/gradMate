@@ -11,7 +11,7 @@ require_once "./header.phtml";
                 </div>
                 <br>
                 <div class="animated flipInX">
-                <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> International Job seekers</a>
+                <a href="login.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> International Job seekers</a>
                 <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Companies</a>
                 </div>
             </div>
