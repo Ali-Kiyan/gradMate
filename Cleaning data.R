@@ -9,3 +9,8 @@ test2 <- data.frame(sp=10:29,AUC=1:20)
 z <- merge(test,test2,by=c('sp'),all.x = T)
 test 
 full_company_info <- merge(tier2,company_house,by=c('company_name'),all.x = T)
+install.packages("pdftools")
+library("pdftools")
+download.file("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/682406/2018-02-19_Tier_2_5_Register_of_Sponsors.pdf","./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
+text <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
+text
