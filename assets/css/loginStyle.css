@@ -3,7 +3,6 @@
 /* BASIC */
 * {
   box-sizing: border-box;
-  border-radius: 0px !important;
 }
 html {
   font-family: "Roboto", sans-serif;
@@ -11,14 +10,13 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
   background-color: #4e364ebb;
 
 }
-.align-middle{
-  position: relative;
-}
 .form{
-margin-top: 25vh;
-
+margin-top: 15vh;
+  height: 60vh;
+}
+.logo{
+  margin-bottom: 40%;
 }
