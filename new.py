@@ -7,4 +7,4 @@ pageobj=pdfreader.getPage(0)
 # pagefields=pdfreader.getDocumentInfo()
 print(pageobj.extractText())
 # print(pagefields)
-pagepbj
+# print(pdfreader.extractText())
