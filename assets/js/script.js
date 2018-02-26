@@ -1,3 +1,3 @@
 $('#showhide').click(function(){
-  $('#charts').slideToggle(200);
+  $('#charts').slideToggle(300);
 });

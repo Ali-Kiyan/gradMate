@@ -548,8 +548,8 @@ body{
     border-radius: 50px;
 }
 .navbar{
-  background-color: #a5b9c5 ;
   color: whitesmoke;
+  background-color: #d8dabc; 
 }
 .sidebar ul li a.active {
   background-color: #8a8a8a !important;
@@ -582,4 +582,7 @@ a.circle{
 }
 .loginLogo{
   margin-bottom: 40%;
+}
+a #charts{
+  border:none;
 }
