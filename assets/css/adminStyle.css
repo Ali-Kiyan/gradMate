@@ -5,7 +5,7 @@ body{
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #eee;
-    background-color: #d8dabc;
+    background-color: #eaeaea;
     position: relative;
     z-index: 1000;
 }

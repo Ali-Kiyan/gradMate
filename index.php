@@ -15,7 +15,7 @@ require_once "./header.phtml";
                 <br>
                 <br>
                 <br>
-                <a href="admin-panel.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Companies</a>
+                <a href="companyLogin.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Companies</a>
                 </div>
             </div>
   <canvas id="demo-canvas"></canvas>

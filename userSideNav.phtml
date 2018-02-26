@@ -3,7 +3,7 @@
 <div id="sideNav" class="col-xs-3 col-md-2 animated fadeInLeft">
   <ul class="sideLinks">
     <li><a href="#" class="btn btn-success"><i class="fa fa-user-circle" aria-hidden="true"></i>  Users</a></li>
-    <li><a href="#" class="btn btn-success" id="showhide"><i class="fa fa-chevron-down" aria-hidden="true"></i> Analysis</a>
+    <li><a href="#" class="btn btn-success" id="showhideAnalysis"><i class="fa fa-chevron-down" aria-hidden="true"></i> Analysis</a>
       <div id="charts" style="display:none;">
         <a href="#" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i> sector</a>
         <a href="#" class="btn btn-success"><i class="fa fa-pie-chart" aria-hidden="true"></i> city</a>
@@ -11,6 +11,14 @@
       </div>
     </li>
     <li><a href="#" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i> Chat</a></li>
+    <li><a href="#" class="btn btn-success" id="showhideCV"><i class="fa fa-chevron-down" aria-hidden="true"></i> CV</a>
+      <div id="cvs" style="display:none;">
+        <a href="#" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i> Tips</a>
+        <a href="#" class="btn btn-success"><i class="fa fa-pie-chart" aria-hidden="true"></i> Uploading</a>
+        <a href="#" class="btn btn-success"><i class="fa fa-bar-chart" aria-hidden="true"></i> Online</a>
+      </div>
+    </li>
+        <li><a href="#" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i> About</a></li>
 
 
   </ul>
@@ -64,6 +72,21 @@ border-left: solid 0.6vh #c3e42d;
   padding: 2vh 0px 2vh 3vh;
 }
 #charts a:hover{
+  background-color: #4e4e4c;
+  border: solid 0.004vh #b7c780;
+  border-left: solid 0.6vh #c3eaaa;
+}
+#cvs a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #50505f;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#cvs a:hover{
   background-color: #4e4e4c;
   border: solid 0.004vh #b7c780;
   border-left: solid 0.6vh #c3eaaa;
