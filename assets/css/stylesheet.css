@@ -568,8 +568,17 @@ body{
   color: whitesmoke;
 }
 .loginForm{
-margin-top: 15vh;
-  height: 60vh;
+  margin-top: 15vh;
+  height: 70%;
+}
+input.circle{
+border-radius: 20px;
+}
+button.circle{
+border-radius: 20px;
+}
+a.circle{
+  border-radius: 20px;
 }
 .loginLogo{
   margin-bottom: 40%;

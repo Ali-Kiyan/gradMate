@@ -1,3 +1,3 @@
-$(document).ready(function(){
-  $('#contet').draggable();
+$('#showhide').click(function(){
+  $('#charts').slideToggle(200);
 });
