@@ -1,21 +1,26 @@
 body{
   background-color: #4a4a4a;
+  height: 100vh;
 }
 #sideNav{
   background-color: black;
   position: absolute;
-  top: 20%;
+  display: inline-block;
   left: 0;
   padding: 0;
+   height: 100%;
+  background-color: #50505f;
 }
 .sideLinks{
   background-color: #41394c;
   color: white;
   text-decoration: none;
   list-style: none;
-  margin-bottom: 0px;
   padding-left: 0px;
 
+}
+.sideLinks> li > .btn-success:focus{
+  background-color: #41394c !important;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #eee;
