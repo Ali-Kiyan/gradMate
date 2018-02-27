@@ -11,7 +11,7 @@ require_once "./header.phtml";
                 </div>
                 <br>
                 <div class="animated flipInX col-sm-6">
-                <a href="login.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> International Job seekers</a>
+                <a href="UserLogin.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> International Job seekers</a>
                 <br>
                 <br>
                 <br>
