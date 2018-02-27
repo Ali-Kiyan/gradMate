@@ -1,21 +1,58 @@
 <?php
 require_once "header.phtml";
 require_once "navAdmin.phtml";
+$connect = mysqli_connect("localhost","root","root","jobWizard");
+$query = "Select * FROM company ORDER BY company_id DESC LIMIT 10";
+$result = mysqli_query($connect, $query);
 ?>
 
 <body id="admin-page">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+  <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
 <div class="container-fluid">
   <?php
   require_once "UserSideNav.phtml";
   ?>
 
-<div class="content col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2 well animated fadeInUp" id="content">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure sed atque a, ducimus velit temporibus dignissimos! Sit esse iusto id sed officia at veritatis eum natus omnis eius sunt, dolore dolorem illum magni! Explicabo molestias ea fuga sunt, vel nisi nemo autem eveniet laudantium minima, porro veritatis iure placeat perspiciatis dignissimos commodi, repudiandae voluptatibus animi itaque ipsum, nesciunt possimus a. Cum nobis, dolorum, culpa incidunt quaerat molestiae iste aliquam voluptas aut fuga nemo ex perspiciatis ab eaque earum ipsa quisquam tenetur in omnis cumque placeat sequi dicta suscipit nostrum. Impedit molestiae reprehenderit dicta inventore qui cumque dolorem error necessitatibus amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque non quis commodi animi harum accusamus dolores quam sed molestias quibusdam ratione impedit sit, est aspernatur iste dolorem culpa iusto tenetur voluptatem quos, corporis cumque. Optio veniam obcaecati unde, omnis, eveniet autem rem. Odit sunt blanditiis repellendus, eaque cum quam. Quaerat ea soluta beatae officiis rem illo facere porro quia amet facilis impedit voluptatem deleniti molestias assumenda cupiditate id nam, iste ipsum dicta alias praesentium. Beatae facilis sit hic excepturi quisquam repellendus, voluptatibus nesciunt, eaque atque alias repellat cupiditate sapiente molestiae. Deleniti repudiandae iure ab deserunt at, alias magnam ad aspernatur, illum eos temporibus dicta illo, adipisci architecto expedita ea accusantium eveniet veniam reprehenderit numquam error voluptate. Animi laborum ex recusandae voluptatem assumenda dolor laboriosam fugiat earum quasi laudantium veniam blanditiis dicta quae totam eius possimus praesentium, mollitia harum accusantium voluptatum voluptatibus quaerat similique qui odit. Aliquid dolorem similique porro illum eius natus saepe recusandae dignissimos, deleniti voluptates excepturi aliquam ratione eos, debitis, vel tenetur sunt assumenda? Corporis porro voluptatum, alias iusto repudiandae sunt cumque neque repellat a quidem ex. Ea sed cum rerum autem ducimus fuga, quos eum, nisi, ipsam provident, est a pariatur nulla? Laboriosam laborum voluptatibus assumenda id dignissimos, tempora dolore, sit voluptatem eum minus expedita placeat corporis, obcaecati quis corrupti modi maxime odio quibusdam? Voluptates consectetur expedita tempore qui cupiditate nulla alias ea optio atque. Culpa, maiores quam et. Possimus doloribus explicabo, illum esse assumenda rerum. Dolore ab praesentium animi minus illum totam, laudantium fugit cupiditate provident impedit dolor voluptate nemo cum repellat ducimus fuga aut, expedita nam sed. Optio in provident, reprehenderit cum praesentium eaque perspiciatis ut voluptate fugit. Totam tempore, non! Praesentium consequatur unde earum voluptate, at, assumenda nisi sunt ipsam sed consectetur rem neque recusandae, facilis voluptatibus iste nobis nesciunt veritatis eaque necessitatibus dolorem. Quasi quae molestiae sit repellat, dicta, earum commodi odit consequatur voluptatum architecto omnis quibusdam suscipit culpa, temporibus amet? Cumque autem explicabo ipsam placeat cum libero dolores vel vitae repellendus, beatae perspiciatis velit laudantium deleniti tenetur natus modi ab molestias, voluptatibus commodi officia, iure similique pariatur omnis iste minima. Reiciendis laudantium possimus at, error, rem voluptates accusantium ad ea dolor eum amet quos adipisci porro dolorum nam fugiat. Cum reprehenderit vel unde quasi ipsum quod nam suscipit soluta porro non, facilis dolores accusantium similique perferendis quam odit adipisci laudantium culpa sapiente veritatis amet autem, fugiat. Ratione nulla nihil dolores non saepe beatae numquam ipsam eveniet, cupiditate hic perspiciatis expedita reiciendis dolorem, suscipit nemo porro, esse modi error. Ab, deserunt? Debitis sed veritatis, dolores obcaecati assumenda ut amet magni ipsam laudantium nesciunt doloribus rem atque mollitia eos sit laboriosam enim aut placeat doloremque ducimus maxime excepturi. Autem omnis saepe optio error tempore animi sed vitae! Perspiciatis architecto, ipsam ea doloribus, libero ratione est natus neque maiores minima similique velit facilis eum nisi ipsum! Quam nesciunt nisi provident, cumque ut porro similique excepturi eos praesentium nostrum?
+  <div class="col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2 animated fadeInUp" id="">
+   <table id="companyData" class="table table-hover table-bordered table-responsive ">
+   <thead>
+     <tr>
+       <td>Id</td>
+       <td>Name</td>
+       <td>Website</td>
+       <td>Town</td>
+       <td>County</td>
+       <td>Main Tier</td>
+       <td>Subtier</td>
+       <td>industry</td>
+       <td>Date_added</td>
+     </tr>
 
-</div>
+   </thead>
+    <?php
+    while($row = mysqli_fetch_array($result)){
+      echo '<tr>
+      <td>'.$row['company_id'].'</td>
+      <td>'.$row['company_name'].'</td>
+      <td>'.$row['company_website'].'</td>
+      <td>'.$row['town'].'</td>
+      <td>'.$row['county'].'</td>
+      <td>'.$row['main_tier'].'</td>
+      <td>'.$row['subtier'].'</td>
+      <td>'.$row['industry'].'</td>
+      <td>'.$row['date_added'].'</td>
+      </tr>';
+    }
+    ?>
+   </table>
+  </div>
 <!-- /#wrapper -->
 </div>
 
@@ -27,3 +64,15 @@ require_once "navAdmin.phtml";
 <?php
 require_once "footer.phtml";
 ?>
+
+
+<style>
+ table{
+   margin-top: 10%;
+   background-color: #ebebeb;
+ }
+ .table-hover > tbody > tr:hover {
+   background-color: #f6f7db;
+ }
+
+</style>
