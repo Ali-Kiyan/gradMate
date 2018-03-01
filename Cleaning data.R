@@ -13,4 +13,11 @@ install.packages("pdftools")
 library("pdftools")
 download.file("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/682406/2018-02-19_Tier_2_5_Register_of_Sponsors.pdf","./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
 text <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
+text2 <- strsplit(text, "\n")
+typeof(text2)
+head(text2[[2]])
+a <- strsplit(head(text2[[2]]), "/n")
+head(a[[3]])
+b <- str_sub(text2[[1]], 0, 27)
+b
 text
