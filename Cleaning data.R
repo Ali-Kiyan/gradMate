@@ -18,6 +18,18 @@ typeof(text2)
 head(text2[[2]])
 a <- strsplit(head(text2[[2]]), "/n")
 head(a[[3]])
-b <- str_sub(text2[[1]], 0, 27)
-b
-text
+b <- str_sub(text2[[1909]], 0, 27)
+text2
+typeof(text2)
+length(text2)
+for (v in text2) {
+  <- str_sub(v, 0, 27)
+}
+yy <- 0
+yy = data.frame(yy)
+for(i in 1:length(text2)) {
+  rbind(yy, str_sub(text2[[i]], 0, 27))
+}
+
+
+
