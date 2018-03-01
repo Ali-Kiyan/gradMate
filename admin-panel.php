@@ -20,7 +20,7 @@ $result = mysqli_query($connect, $query);
   require_once "adminSideNav.phtml";
   ?>
 
-  <div class="col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2 animated fadeInUp" id="">
+  <div class="col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2 animated fadeInUp scrollable" id="">
    <table id="companyData" class="table table-hover table-bordered table-responsive ">
    <thead>
      <tr>
