@@ -4,11 +4,13 @@ install.packages("tm")
 library("pdftools")
 library("stringr")
 library("tm")
-#reading data 
+#cleaning data 
 company_house <- read.csv("Company_House/companyData.csv", header=T) 
 company_house <-company_house[order(company_house$company_name),]
 company_house <- company_house[,c(-3, -4, -8, -9, -12, -13, -14, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,-45,-46,-47,-48,-49,-50,-51, -52, -53, -54, -55)]
 write.csv(company_house, file='Company_House/company_detail.csv')
+
+company_house <- read.csv('Company_House/company_detail.csv', header=T) 
 
 #test <- data.frame(sp=8:27,AUC=1:20)
 #test2 <- data.frame(sp=10:29,AUC=1:20)
@@ -37,16 +39,22 @@ doc[[1909]] <- doc[[1909]][-c(footer_row_1:footer_row_2)]
 head(doc)
 tail(doc)
 length(doc[[1]])
-for (i in 1:3){
+for (i in 1:length(doc)){
   for (j in 1:length(doc[[i]]))
   {
-    print(strsplit(doc[[i]][j], "/t"))
+    print(strsplit(doc[[i]][j], "   ")[[1]][1])
   }
 }
 
+doc[[2]]
+x <- strsplit(doc[[2]][35], "   ")
+x[[1]]
 
+doc[[2]]
 
+print(str_sub(doc[[2]][12], 0, 52))      
 
+doc[[2]]
 lt <- text[(sponsor_row + 1) :length(text)]
 text2 <- strsplit(text, "\n")
 nrow(strsplit(text, "\n"))
@@ -64,7 +72,7 @@ zz <- 0
 
 for(i in 1:length(text2)) {
   for( j in 1)
-  zz[i] <- str_sub(text2[[i]], 0, 27)
+    zz[i] <- str_sub(text2[[i]], 0, 27)
 }
 zz <- data.frame(zz)
 
