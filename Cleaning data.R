@@ -17,25 +17,34 @@ write.csv(company_house, file='Company_House/company_detail.csv')
 #full_company_info <- merge(tier2,company_house,by=c('company_name'),all.x = T)
 
 #download.file("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/682406/2018-02-19_Tier_2_5_Register_of_Sponsors.pdf","./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
-text <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
-tb <- strsplit(text, "\n")
-head(tb)
-header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", tb[[1]])
+rawText <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
+doc <- strsplit(rawText, "\n")
+head(splitedByLineText)
+header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", doc[[1]])
 header_row
 
 #header removal 
-tb[[1]] <- tb[[1]][(header_row + 1):length(tb[[1]])]
-head(tb)
-tail(tb)
-length(tb)
+doc[[1]] <- doc[[1]][(header_row + 1):length(doc[[1]])]
+head(doc)
+tail(doc)
+length(doc)
 #footer removal 
-footer_row_1 <- grep("Summary", tb[[1909]])
-footer_row_2 <- grep("Total Number of Sponsors registered under Tiers 2 and 5",tb[[1909]])
+footer_row_1 <- grep("Summary", doc[[1909]])
+footer_row_2 <- grep("Total Number of Sponsors registered under Tiers 2 and 5",doc[[1909]])
 footer_row_1
 footer_row_2
-tb[[1909]] <- tb[[1909]][-c(footer_row_1:footer_row_2)]
-head(tb)
-tail(tb)
+doc[[1909]] <- doc[[1909]][-c(footer_row_1:footer_row_2)]
+head(doc)
+tail(doc)
+length(doc[[1]])
+for (i in 1:3){
+  for (j in 1:length(doc[[i]]))
+  {
+    print(strsplit(doc[[i]][j], "/t"))
+  }
+}
+
+
 
 
 lt <- text[(sponsor_row + 1) :length(text)]
