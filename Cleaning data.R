@@ -4,6 +4,7 @@ install.packages("tm")
 library("pdftools")
 library("stringr")
 library("tm")
+library("dplyr")
 #cleaning data 
 company_house <- read.csv("Company_House/companyData.csv", header=T) 
 company_house <-company_house[order(company_house$company_name),]
@@ -25,6 +26,7 @@ head(splitedByLineText)
 header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", doc[[1]])
 header_row
 
+doc[[1]]
 #header removal 
 doc[[1]] <- doc[[1]][(header_row + 1):length(doc[[1]])]
 head(doc)
@@ -39,43 +41,52 @@ doc[[1909]] <- doc[[1909]][-c(footer_row_1:footer_row_2)]
 head(doc)
 tail(doc)
 length(doc[[1]])
+tier2 <- 0
+tier2 <- data.frame(tier2)
 for (i in 1:length(doc)){
   for (j in 1:length(doc[[i]]))
   {
-    print(strsplit(doc[[i]][j], "   ")[[1]][1])
+    tier2 <- c(tier2,strsplit(doc[[i]][j], "   ")[[1]][1])
   }
 }
 
-doc[[2]]
-x <- strsplit(doc[[2]][35], "   ")
-x[[1]]
+tier3 <- tier2
 
-doc[[2]]
-
-print(str_sub(doc[[2]][12], 0, 52))      
-
-doc[[2]]
-lt <- text[(sponsor_row + 1) :length(text)]
-text2 <- strsplit(text, "\n")
-nrow(strsplit(text, "\n"))
-typeof(text2)
-head(text2[[2]])
-firstPage <- strsplit(head(text2[[1]]), "/n")
-head(firstPage[[1]])
-lastPage <- str_sub(text2[[1909]], 0, 27)
-head(lastPage[[1]])
-#text2
-#typeof(text2)
-#length(text2)
-text2[[1]]
-zz <- 0
-
-for(i in 1:length(text2)) {
-  for( j in 1)
-    zz[i] <- str_sub(text2[[i]], 0, 27)
+tier2 <- tier3
+l <- length(tier2)
+new <- 0
+new <- data.frame(new)
+for(o in 1:length(tier2)){
+new <- rbind(new,tier2[[o]])
 }
-zz <- data.frame(zz)
 
 
+
+
+for (i in 1:length(new)){
+  if( (str_detect(new[i,], "  Organisation Name")  || (str_detect(tier2[[i]], "^ $")(new[i,], "^ $")) || (str_detect(new[i,], "^0$")) || (str_detect(new[i,], "^$"))  )
+  {
+   new[i,] <- NULL
+  }
+}
+
+
+
+for (i in length(tier3):1){
+  if( (str_detect(tier3[[i]], "  Organisation Name")) || (str_detect(tier3[[i]], "^ $")) || (str_detect(tier3[[i]], "^0$")) || (str_detect(tier3[[i]], "^$"))  ){
+    tier3[[i]] <- NULL
+  }
+}
+
+typeof(tier2)
+x<- 0
+x <- data.frame(x)
+nrow(tier2)
+nrow(tier2)
+head(tier2)
+x <- rbind(x,tier2)
+df <- data.frame(matrix(unlist(tier2), nrow=132, byrow=T),stringsAsFactors=FALSE)
+library(RMySQL)
+library(dbConnect)
 
 
