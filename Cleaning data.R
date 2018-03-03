@@ -22,7 +22,7 @@ company_house <- read.csv('Company_House/company_detail.csv', header=T)
 #download.file("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/682406/2018-02-19_Tier_2_5_Register_of_Sponsors.pdf","./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
 rawText <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
 doc <- strsplit(rawText, "\n")
-head(splitedByLineText)
+head(doc)
 header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", doc[[1]])
 header_row
 
@@ -50,15 +50,8 @@ for (i in 1:length(doc)){
   }
 }
 
-backup <- tier2
 
-temp<- 0
-temp <- data.frame(temp)
-for(o in 1:length(tier2)){
-temp <- rbind(temp,tier2[[o]])
-}
 
-grep("^ ", temp)
 
 for (i in length(tier2):1){
   if( (str_detect(tier2[[i]], "  Organisation Name")) || (str_detect(tier2[[i]], "^ $")) || (str_detect(tier2[[i]], "^0$")) || (str_detect(tier2[[i]], "^$")) || (str_detect(tier2[[i]], " Organisation Name"))  ){
@@ -66,15 +59,27 @@ for (i in length(tier2):1){
   }
 }
 
-typeof(tier2)
-x<- 0
-x <- data.frame(x)
-nrow(tier2)
-nrow(tier2)
-head(tier2)
-x <- rbind(x,tier2)
-df <- data.frame(matrix(unlist(tier2), nrow=132, byrow=T),stringsAsFactors=FALSE)
+backup <- tier2
+
+temp<- 0
+temp <- data.frame(temp)
+for(o in 1:length(tier2)){
+  temp <- rbind(temp,tier2[[o]])
+}
+
+temp <- data.frame(temp[c(-1),])
+
+tier2CompanyList <- temp
+
+tier2CompanyList$company_name <- tier2CompanyList$temp.c..1.... 
+
+tier2CompanyList$temp.c..1....<- NULL
+
 library(RMySQL)
 library(dbConnect)
+con = dbConnect(MySQL(), user='root', password='root', dbname='jobWizard', host='localhost',unix.sock="/Applications/MAMP/tmp/mysql/mysql.sock")
+dbListTables(con)
+typeof(temp)
 
-temp
+
+dbWriteTable(con, "R", tier2CompanyList,overwrite=FALSE, append=TRUE, row.names = FALSE,  field.types = NULL)
