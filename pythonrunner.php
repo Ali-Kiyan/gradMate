@@ -1,4 +1,18 @@
 <?php
+
+use Kachkaev\PHPR\RCore;
+use Kachkaev\PHPR\Engine\CommandLineREngine;
+
+ // $r = new RCore(new CommandLineREngine('/path/to/R'));
+//
+// $x = $r->run(<<<EOF
+//
+// print("hi")
+//
+//
+// EOF
+// );
+
 echo "this is coming from python";
 $resultP = shell_exec("python ./new.py");
 echo $resultP;

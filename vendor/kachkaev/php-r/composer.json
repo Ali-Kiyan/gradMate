@@ -15,7 +15,8 @@
         "homepage": "https://github.com/kachkaev/php-r/contributors"
     }],
     "require": {
-        "php": ">=5.3.9"
+        "php": ">=5.3.9",
+        "kachkaev/php-r": "dev-master"
     },
     "autoload": {
         "psr-0": {
