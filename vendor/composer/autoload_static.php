@@ -8,17 +8,15 @@ class ComposerStaticInitf0fd47bd96a6be4f16e56a98e5739623
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
-            'Twig\\' => 5,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Process\\' => 26,
         ),
         'C' => 
         array (
@@ -27,10 +25,6 @@ class ComposerStaticInitf0fd47bd96a6be4f16e56a98e5739623
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/twig/twig/src',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -39,6 +33,10 @@ class ComposerStaticInitf0fd47bd96a6be4f16e56a98e5739623
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -46,11 +44,18 @@ class ComposerStaticInitf0fd47bd96a6be4f16e56a98e5739623
     );
 
     public static $prefixesPsr0 = array (
-        'T' => 
+        'C' => 
         array (
-            'Twig_' => 
+            'ComponentInstaller' => 
             array (
-                0 => __DIR__ . '/..' . '/twig/twig/lib',
+                0 => __DIR__ . '/..' . '/robloach/component-installer/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'Assetic' => 
+            array (
+                0 => __DIR__ . '/..' . '/kriswallsmith/assetic/src',
             ),
         ),
     );

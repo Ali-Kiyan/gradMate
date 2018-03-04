@@ -2,7 +2,8 @@
     "require": {
         "twitter/bootstrap": "3.3.7",
         "components/jquery": "^3.3",
-        "twig/twig": "^2.4",
-        "nesbot/carbon": "^1.23"
+        "nesbot/carbon": "^1.23",
+        "mbostock/d3": "^3.5",
+        "drmonty/animate.css": "^3.5"
     }
 }
