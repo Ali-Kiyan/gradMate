@@ -1,5 +1,16 @@
 <?php
-$result = shell_exec("python ./new.py");
-echo $result;
-var_dump(exec("./new.py"))
+echo "this is coming from python";
+$resultP = shell_exec("python ./new.py");
+echo $resultP;
+echo '<br>';
+var_dump(shell_exec("python "));
+echo '<br>';
+echo "this is coming from R \t ";
+echo '<br>';
+$resultR = shell_exec("Rscript ./test.R");
+echo $resultR;
+
+
+
+
 ?>
