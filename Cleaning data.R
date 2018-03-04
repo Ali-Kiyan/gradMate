@@ -93,7 +93,7 @@ result <- dbGetQuery(con, query)
 result == tier2CompanyList
 
 
-
+insert into a (name) select name from b where not EXISTS( select a.name from a where a.name = b.name) LIMIT 1
 if ( isTRUE(all.equal(result,tier2CompanyList)) == TRUE ) {
 
   if()
