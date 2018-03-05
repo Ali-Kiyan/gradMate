@@ -1,3 +1,10 @@
+<?php
+require_once "header.phtml";
+require_once "navAdmin.phtml";
+require_once "adminSideNav.phtml";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,23 +32,26 @@
 <script>
 
 
-d3.json("./companies.json", function (data) {
+// d3.json("./companies.json", function (data) {
+//
+//     var convas = d3.select("body").append("svg")
+//     .attr("width", 500)
+//     .attr("height", 500)
+//
+//     convas.selectAll("rect")
+//     .data(data)
+//     .enter()
+//       .append("rect")
+//       .attr("width", function(d){ return d.companies; })
+//       .attr("height", 50)
+//       .attr("y", function (d) { return d.county; })
+//       .attr("fill", "blue")
+//
+//
+//   })
 
-    var convas = d3.select("body").append("svg")
-    .attr("width", 500)
-    .attr("height", 500)
-
-    convas.selectAll("rect")
-    .data(data)
-    .enter()
-      .append("rect")
-      .attr("width", function(d){ return d.companies; })
-      .attr("height", 50)
-      .attr("y", function (d) { return d.county; })
-      .attr("fill", "blue")
 
 
-  })
 
 
 </script>
@@ -51,6 +61,5 @@ d3.json("./companies.json", function (data) {
 
 
 <?php
-
-
+require_once "footer.phtml";
 ?>
