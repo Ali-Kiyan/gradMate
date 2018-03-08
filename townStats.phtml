@@ -25,26 +25,28 @@ require_once "adminSideNav.phtml";
 <!-- <img src="./ukmap.svg" alt="" width="80%" height="80%"> -->
 <!-- <img src="./ukmap2.svg" alt="" width="80%" height="80%"> -->
 
-
+<div id="Companies" width="100%"></div>
 <svg id="canvas" height="600px" width="1200px"></svg>
-<div id="Companies"></div>
+
 
 </body>
 
 
 <script>
- var companiesChart = dc.rowChart("#Companies");
+ var companiesNum = dc.rowChart("#Companies");
+  d3.json("./companiesPerCounty.php", function (err,data) {
 
-d3.json("./companiesPerCounty.php", function (err,data) {
+  if(err) throw err;
+  var ndx = crossfilter(data);
+  var all = ndx.groupAll();
+   var county = ndx.dimension(function (d) {return d["county"] ;} );
+   var companies = ndx.dimension( function (d) {return d['companies'];} );
+   var g = companies.group();
+    companiesNum.height(1700).dimension(companies).group(g).data(function(group) { return group.top(170); });
+    console.log(companies);
+    dc.renderAll();
 
-if(err) throw err;
-var ndx = crossfilter(data);
-var all = ndx.groupAll();
- var county = ndx.dimension(function (d) {return d['county'] ;} );
- var companies = ndx.dimension( function (d) {return d['companies'];} );
-
-
-  });
+    });
 
 
 
