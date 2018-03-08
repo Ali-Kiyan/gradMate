@@ -78,7 +78,6 @@ require_once "footer.phtml";
 
  .hamburger{
    display: inline-block;
-   margin-left: 42vw;
  }
  .hamMargin{
       margin-left: 50vw;

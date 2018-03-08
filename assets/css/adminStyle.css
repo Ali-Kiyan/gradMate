@@ -9,13 +9,17 @@ body{
     position: relative;
     z-index: 1000;
 }
-.scrollable{
-  overflow: scroll;
-  height: 100vh;
-}
+
 
 
 .content {
   margin-top: 10px;
   border-radius: 0px;
+}
+
+@media (maxwidth:600px){
+  .scrollable{
+    overflow: scroll;
+    height: 100vh;
+  }
 }
