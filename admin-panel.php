@@ -5,7 +5,7 @@ $connect = mysqli_connect("localhost","root","root","jobWizard");
 $query = "Select * FROM company ORDER BY company_id DESC LIMIT 12";
 $result = mysqli_query($connect, $query);
 ?>
-<script src="./assets/js/script.js"></script>
+
 
 <body id="admin-page">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -76,8 +76,9 @@ require_once "footer.phtml";
    background-color: #f6f7db;
  }
 
- .hamburger{
+.hamburger{
    display: inline-block;
+
  }
  .hamMargin{
       margin-left: 50vw;
