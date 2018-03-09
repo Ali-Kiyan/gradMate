@@ -18,6 +18,9 @@ require_once "adminSideNav.phtml";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.9/dc.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+
 
 
 </head>
@@ -25,7 +28,14 @@ require_once "adminSideNav.phtml";
 <!-- <img src="./ukmap.svg" alt="" width="80%" height="80%"> -->
 <!-- <img src="./ukmap2.svg" alt="" width="80%" height="80%"> -->
 
-<div id="Companies" width="100%"></div>
+<div id="Companies" ></div>
+<div id="Counties" ></div>
+<div class="chart-container">
+  <div class="pie">
+    <canvas id="pie" width="1100vw" height="500px" class="scrollable"></canvas>
+  </div>
+</div>
+
 <svg id="canvas" height="600px" width="1200px"></svg>
 
 
@@ -34,6 +44,7 @@ require_once "adminSideNav.phtml";
 
 <script>
  var companiesNum = dc.rowChart("#Companies");
+  var countiesNum = dc.rowChart("#Counties");
   d3.json("./companiesPerCounty.php", function (err,data) {
 
   if(err) throw err;
@@ -42,12 +53,41 @@ require_once "adminSideNav.phtml";
    var county = ndx.dimension(function (d) {return d["county"] ;} );
    var companies = ndx.dimension( function (d) {return d['companies'];} );
    var g = companies.group();
-    companiesNum.height(1700).dimension(companies).group(g).data(function(group) { return group.top(170); });
+   console.log(g);
+    companiesNum.height(1200).width(1300).dimension(county).group(g).data(function(group) { return group.top(170); });
+    countiesNum.height(1200).width(1300).dimension(companies).group(g).data(function(group) { return group.top(170); });
     console.log(companies);
     dc.renderAll();
 
     });
-
+    $.getJSON("./companiesPerCounty.php", function(d){
+      var pp = [];
+      var qq = [];
+      for (var i=1; i<50; i++) {
+       pp.push( d[i].county);
+      }
+      for (var j=1; j<50; j++) {
+       qq.push( d[j].companies);
+      }
+      var chartData = {
+        labels: pp,
+        datasets : [
+          {
+            label : 'Companies',
+            backgroundColor: 'rgba(100, 200, 200, 0.75)',
+            borderColor: 'rgba(230, 2, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(233,32,3,1)',
+            data: qq
+          }
+        ]
+      }
+      var pie = $('#pie');
+      var pie = new Chart(pie, {
+        type: "bar",
+        data: chartData
+      });
+      console.log(d["companies"]);
+    });
 
 
 
