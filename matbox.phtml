@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+
+  <script type="text/javascript">
+   var mapimg;
+   function preload(){
+     mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/-3,52,3.5,0.00,0.00/1024x1024@2x?access_token=pk.eyJ1IjoiYWxpa2l5YW4iLCJhIjoiY2pla21xamxjMTJ3ZDMzcGhhcWVib3dxYSJ9.jZ0kXaBcdetnYe-5NiFyug');
+   }
+
+   function setup() {
+    createCanvas(1024, 1024);
+    image(mapimg, 0, 0);
+   }
+
+
+
+
+  </script>
+<body>
+
+
+</body>
+</html>
