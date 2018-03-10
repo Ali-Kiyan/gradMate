@@ -10,10 +10,13 @@
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
     <div id='map'></div>
     <style>
+    document{
+     background-color: black;
+    }
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100vw; height: 100vh; }
         .mapboxgl-ctrl-geocoder {
-            width: 50px;
+            width: 100vw;
             z-index: 1;
             border-radius: 0px;
         }
@@ -23,8 +26,10 @@
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
-    center: [-5, 55], // starting position
-    zoom: 5.2 // starting zoom
+    center: [-2, 55], // starting position
+    zoom: 5, // starting zoom
+    // bearing: -30,
+    pitch: 60,
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -48,7 +53,7 @@
             "source": "single-point",
             "type": "circle",
             "paint": {
-                "circle-radius": 1,
+                "circle-radius": 5,
                 "circle-color": "#007cbf"
             }
         });
@@ -58,34 +63,101 @@
         geocoder.on('result', function(ev) {
             map.getSource('single-point').setData(ev.result.geometry);
         });
-    });
-    map.addLayer({
-       'id': 'population',
-       'type': 'circle',
-       'source': {
-           type: 'vector',
-           url: 'mapbox://examples.8fgz4egr'
-       },
-       'source-layer': 'sf2010',
-       'paint': {
-           // make circles larger as the user zooms from z12 to z22
-           'circle-radius': {
-               'base': 1.75,
-               'stops': [[12, 2], [22, 180]]
+
+
+        map.addLayer({
+           'id': 'population',
+           'type': 'circle',
+           'source': {
+               type: 'vector',
+               url: 'mapbox://examples.8fgz4egr'
            },
-           // color circles by ethnicity, using a match expression
-           // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-           'circle-color': [
-               'match',
-               ['get', 'ethnicity'],
-               'White', '#fbb03b',
-               'Black', '#223b53',
-               'Hispanic', '#e55e5e',
-               'Asian', '#3bb2d0',
-               /* other */ '#ccc'
-           ]
-       }
-   });
+           'source-layer': 'sf2010',
+           'paint': {
+               // make circles larger as the user zooms from z12 to z22
+               'circle-radius': {
+                   'base': 1.75,
+                   'stops': [[12, 2], [22, 180]]
+               },
+               // color circles by ethnicity, using a match expression
+               // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+               'circle-color': [
+                   'match',
+                   ['get', 'ethnicity'],
+                   'White', '#fbb03b',
+                   'Black', '#223b53',
+                   'Hispanic', '#e55e5e',
+                   'Asian', '#3bb2d0',
+                   /* other */ '#ccc'
+               ]
+           }
+       });
+
+
+var iii = {
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-0.118092, 51.509865]
+        },
+        "properties": {
+            "title": "London",
+            "icon": "monument"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.244644,53.483959]
+        },
+        "properties": {
+            "title": "Mancheste",
+            "icon": "harbor"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.991573, 53.408371]
+        },
+        "properties": {
+            "title": "dsads",
+            "icon": "monument"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.290126, 53.487523]
+        },
+        "properties": {
+            "title": "London",
+            "icon": "monument"
+        }
+    }]
+}
+
+
+
+       map.addLayer({
+    "id": "points",
+    "type": "symbol",
+    "source": {
+        "type": "geojson",
+        "data": iii
+    },
+    "layout": {
+        "icon-image": "{icon}-15",
+        "text-field": "{title}",
+        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+        "text-offset": [0, 0.6],
+        "text-anchor": "top"
+    }
+});
+
+    });
 
 
 
