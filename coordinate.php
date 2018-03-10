@@ -28,6 +28,9 @@ $latitude =  $mapboxContent['features'][0]['center'][1];
 $cities[0]['long']=$longitude;
 $cities[0]['lat']=$latitude;
 $cities[0]['city']=$city;
+$cities[1]['long']=-2.9915726;
+$cities[1]['lat']=53.4083714 ;
+$cities[1]['city']='Liverpool';
 $apiData = json_encode($cities);
 echo $apiData;
 ?>

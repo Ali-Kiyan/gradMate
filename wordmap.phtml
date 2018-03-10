@@ -93,14 +93,19 @@
        $.getJSON("./coordinate.php", function(data){
          var lon = [];
          var lat = [];
+         var city = [];
          for (var i=0; i<data.length; i++) {
           lon.push(data[i]['long']);
          }
          for (var j=0; j<data.length; j++) {
           lat.push(data[j]['lat']);
          }
-         console.log(lat);
+         for (var k=0; k<data.length; k++) {
+          city.push(data[k]['city']);
+         }
          console.log(lon);
+         console.log(lat);
+         console.log(city);
 var iii = {
     "type": "FeatureCollection",
     "features": [{
@@ -127,10 +132,10 @@ var iii = {
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": [-2.991573, 53.408371]
+            "coordinates": [lon[1], lat[1]]
         },
         "properties": {
-            "title": "dsads",
+            "title": "Liverpool",
             "icon": "monument"
         }
     }, {
@@ -145,11 +150,8 @@ var iii = {
         }
     }]
 }
-       });
 
-$.getJSON("./coordinate.php", function(data){
 
-});
 
        map.addLayer({
     "id": "points",
@@ -166,6 +168,10 @@ $.getJSON("./coordinate.php", function(data){
         "text-anchor": "top"
     }
       });
+
+
+    });
+
 
     });
 
