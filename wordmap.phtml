@@ -106,71 +106,69 @@
          console.log(lon);
          console.log(lat);
          console.log(city);
-var iii = {
-    "type": "FeatureCollection",
-    "features": [{
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-0.118092, 51.509865]
-        },
-        "properties": {
-            "title": "London",
-            "icon": "monument"
-        }
-    }, {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-2.244644,53.483959]
-        },
-        "properties": {
-            "title": "Mancheste",
-            "icon": "harbor"
-        }
-    }, {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [lon[1], lat[1]]
-        },
-        "properties": {
-            "title": "Liverpool",
-            "icon": "monument"
-        }
-    }, {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-2.290126, 53.487523]
-        },
-        "properties": {
-            "title": "London",
-            "icon": "monument"
-        }
-    }]
-}
-
-
+         var iii = {
+              "type": "FeatureCollection",
+              "features": [{
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-0.118092, 51.509865]
+                  },
+                  "properties": {
+                      "title": "London",
+                      "icon": "monument"
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-2.244644,53.483959]
+                  },
+                  "properties": {
+                      "title": "Manchester",
+                      "icon": "harbor"
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [lon[1], lat[1]]
+                  },
+                  "properties": {
+                      "title": "Liverpool",
+                      "icon": "monument"
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-2.290126, 53.487523]
+                  },
+                  "properties": {
+                      "title": "London",
+                      "icon": "monument"
+                  }
+              }]
+          }
 
        map.addLayer({
-    "id": "points",
-    "type": "symbol",
-    "source": {
-        "type": "geojson",
-        "data": iii
-    },
-    "layout": {
-        "icon-image": "{icon}-15",
-        "text-field": "{title}",
-        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-        "text-offset": [0, 0.6],
-        "text-anchor": "top"
-    }
-      });
+                      "id": "points",
+                      "type": "symbol",
+                      "source": {
+                          "type": "geojson",
+                          "data": iii
+                      },
+                      "layout": {
+                          "icon-image": "{icon}-15",
+                          "text-field": "{title}",
+                          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                          "text-offset": [0, 0.6],
+                          "text-anchor": "top"
+                      }
+                        });
 
 
-    });
+        });
 
 
     });
