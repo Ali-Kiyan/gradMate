@@ -16,8 +16,11 @@
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
-
+    center: [-5, 55], // starting position
+    zoom: 5 // starting zoom
     });
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
     </script>
 
 </body>
