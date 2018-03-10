@@ -1,24 +1,16 @@
-<?php
-
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8' />
     <title>Display a map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
      <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
     <div id='map'></div>
     <style>
-    document{
-     background-color: black;
-    }
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100vw; height: 100vh; }
         .mapboxgl-ctrl-geocoder {
@@ -98,8 +90,17 @@
                ]
            }
        });
-
-
+       $.getJSON("./coordinate.php", function(data){
+         var lon = [];
+         var lat = [];
+         for (var i=0; i<data.length; i++) {
+          lon.push(data[i]['long']);
+         }
+         for (var j=0; j<data.length; j++) {
+          lat.push(data[j]['lat']);
+         }
+         console.log(lat);
+         console.log(lon);
 var iii = {
     "type": "FeatureCollection",
     "features": [{
@@ -144,8 +145,11 @@ var iii = {
         }
     }]
 }
+       });
 
+$.getJSON("./coordinate.php", function(data){
 
+});
 
        map.addLayer({
     "id": "points",
@@ -161,7 +165,7 @@ var iii = {
         "text-offset": [0, 0.6],
         "text-anchor": "top"
     }
-});
+      });
 
     });
 
