@@ -6,6 +6,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
     <div id='map'></div>
     <style>
         body { margin:0; padding:0; }
@@ -17,11 +18,29 @@
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: [-5, 55], // starting position
-    zoom: 5 // starting zoom
+    zoom: 5.2 // starting zoom
     });
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
-    </script>
+    var lat = 10.2203;
+    var lon = 122.2332;
+    var zoom = 1;
+    function mercX(lon) {
+      //lat and long are gradiant
+      var a = (128 / PI) * pow(2, zoom);
+      var b = lon + PI;
+      return a * b;
+    }
+    function mercY(lon) {
+      //lat and long are gradiant
+      var a = (128 / PI) * pow(2, zoom);
+      var b = tan(PI/4 + lat/2);
+      var c = PI - log(b);
+      return a * c;
+    }
 
+
+
+    </script>
 </body>
 </html>
