@@ -27,7 +27,7 @@
     center: [-2, 55], // starting position
     zoom: 5, // starting zoom
     // bearing: -30,
-    pitch: 60,
+    pitch: 90,
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -119,7 +119,7 @@
                   "properties": {
                       "title": "London",
                       "icon": "monument",
-                      "numOfCompany": 3
+                      "numOfCompany": 1000
                   }
               }, {
                   "type": "Feature",
@@ -166,8 +166,8 @@
             },
             "type": "circle",
             "paint": {
-                "circle-radius": ["get", "numOfCompany"],
-                "circle-color": "rgba(252, 7, 7, 0.5)"
+                "circle-radius": ["*",4, ["log10", ["get", "numOfCompany"]] ],
+                "circle-color": "rgba(255, 11, 0, 0.5)"
             }
 
         });
