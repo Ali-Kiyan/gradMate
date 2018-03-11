@@ -20,7 +20,7 @@
         }
     </style>
     <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW4iLCJhIjoiY2pla21xamxjMTJ3ZDMzcGhhcWVib3dxYSJ9.jZ0kXaBcdetnYe-5NiFyug';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
@@ -94,6 +94,7 @@
          var lon = [];
          var lat = [];
          var city = [];
+         var numOfCompany = [];
          for (var i=0; i<data.length; i++) {
           lon.push(data[i]['long']);
          }
@@ -103,9 +104,10 @@
          for (var k=0; k<data.length; k++) {
           city.push(data[k]['city']);
          }
-         console.log(lon);
-         console.log(lat);
-         console.log(city);
+         for (var z=0; z<data.length; z++) {
+          numOfCompany.push(data[z]['numOfCompany']);
+         }
+
          var iii = {
               "type": "FeatureCollection",
               "features": [{
@@ -116,7 +118,8 @@
                   },
                   "properties": {
                       "title": "London",
-                      "icon": "monument"
+                      "icon": "monument",
+                      "numOfCompany": 3
                   }
               }, {
                   "type": "Feature",
@@ -126,7 +129,8 @@
                   },
                   "properties": {
                       "title": "Manchester",
-                      "icon": "harbor"
+                      "icon": "harbor",
+                          "numOfCompany": numOfCompany[0]
                   }
               }, {
                   "type": "Feature",
@@ -136,7 +140,8 @@
                   },
                   "properties": {
                       "title": "Liverpool",
-                      "icon": "monument"
+                      "icon": "monument",
+                          "numOfCompany": numOfCompany[1]
                   }
               }, {
                   "type": "Feature",
@@ -146,26 +151,49 @@
                   },
                   "properties": {
                       "title": "London",
-                      "icon": "monument"
+                      "icon": "monument",
+                          "numOfCompany": numOfCompany[2]
                   }
               }]
           }
 
-       map.addLayer({
-                      "id": "points",
-                      "type": "symbol",
-                      "source": {
-                          "type": "geojson",
-                          "data": iii
-                      },
-                      "layout": {
-                          "icon-image": "{icon}-15",
-                          "text-field": "{title}",
-                          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                          "text-offset": [0, 0.6],
-                          "text-anchor": "top"
-                      }
-                        });
+
+        map.addLayer({
+            "id": "points",
+            "source": {
+                "type": "geojson",
+                "data": iii
+            },
+            "type": "circle",
+            "paint": {
+                "circle-radius": ["get", "numOfCompany"],
+                "circle-color": "rgba(252, 7, 7, 0.5)"
+            }
+
+        });
+
+
+      // map.addSource('single-point', {
+      //     "type": "geojson",
+      //     "data":
+      // });
+      //
+      // map.addLayer({
+      //     "id": "point",
+      //     "source": "single-point",
+      //     "type": "circle",
+      //     "paint": {
+      //         "circle-radius": 5,
+      //         "circle-color": "#007cbf"
+      //     }
+      // });
+
+
+
+
+
+
+
 
 
         });
