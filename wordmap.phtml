@@ -167,26 +167,18 @@
             "type": "circle",
             "paint": {
                 "circle-radius": ["*",4, ["log10", ["get", "numOfCompany"]] ],
-                "circle-color": "rgba(255, 11, 0, 0.5)"
+                "circle-color": {
+                    "property": "numOfCompany",
+                    "stops": [
+                        // "temperature" is 0   -> circle color will be blue
+                        [50, 'blue'],
+                        // "temperature" is 100 -> circle color will be red
+                        [100, 'red']
+                    ]
+                }
             }
 
         });
-
-
-      // map.addSource('single-point', {
-      //     "type": "geojson",
-      //     "data":
-      // });
-      //
-      // map.addLayer({
-      //     "id": "point",
-      //     "source": "single-point",
-      //     "type": "circle",
-      //     "paint": {
-      //         "circle-radius": 5,
-      //         "circle-color": "#007cbf"
-      //     }
-      // });
 
 
 
