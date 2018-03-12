@@ -12,7 +12,7 @@
     <div id='map'></div>
     <style>
         body { margin:0; padding:0; background: #191a1a}
-        #map { position:absolute; top:0; bottom:0; width:100vw; height: 100vh; }
+        #map { position:absolute; top:0; bottom:0; width:80vw; height: 80vh; margin: 0 auto;}
         .mapboxgl-ctrl-geocoder {
             width: 100vw;
             z-index: 1;
@@ -117,107 +117,36 @@
 
        $.getJSON("./coordinate.php", function(data){
 
-         arrangeData(data);
-         var lon = [];
-         var lat = [];
-         var city = [];
-         // console.log(data[0]);
-         var numOfCompany = [];
-         for (var i=0; i<data.length; i++) {
-          lon.push(data[i]['long']);
-         }
-         for (var j=0; j<data.length; j++) {
-          lat.push(data[j]['lat']);
-         }
-         for (var k=0; k<data.length; k++) {
-          city.push(data[k]['city']);
-         }
-         for (var z=0; z<data.length; z++) {
-          numOfCompany.push(data[z]['numOfCompany']);
-         }
+            arrangeData(data);
 
-         var iii = {
-              "type": "FeatureCollection",
-              "features": [{
-                  "type": "Feature",
-                  "geometry": {
-                      "type": "Point",
-                      "coordinates": [-0.118092, 51.509865]
-                  },
-                  "properties": {
-                      "title": "London",
-                      "icon": "monument",
-                      "numOfCompany": 15000
-                  }
-              }, {
-                  "type": "Feature",
-                  "geometry": {
-                      "type": "Point",
-                      "coordinates": [-2.244644,53.483959]
-                  },
-                  "properties": {
-                      "title": "Manchester",
-                      "icon": "harbor",
-                          "numOfCompany": numOfCompany[0]
-                  }
-              }, {
-                  "type": "Feature",
-                  "geometry": {
-                      "type": "Point",
-                      "coordinates": [lon[1], lat[1]]
-                  },
-                  "properties": {
-                      "title": "Liverpool",
-                      "icon": "monument",
-                          "numOfCompany": numOfCompany[1]
-                  }
-              }, {
-                  "type": "Feature",
-                  "geometry": {
-                      "type": "Point",
-                      "coordinates": [-2.290126, 53.487523]
-                  },
-                  "properties": {
-                      "title": "London",
-                      "icon": "monument",
-                          "numOfCompany": numOfCompany[2]
-                  }
-              }]
-          }
+            map.addLayer({
+                "id": "points",
+                "source": {
+                    "type": "geojson",
+                    "data": arrangeData(data)
+                },
+                "type": "circle",
+                "paint": {
+                "circle-radius":
+                      ["*",2, ["ln", ["get", "numOfCompany"]] ],
 
 
-console.log(arrangeData(data));
-console.log(iii);
-
-
-        map.addLayer({
-            "id": "points",
-            "source": {
-                "type": "geojson",
-                "data": arrangeData(data)
-            },
-            "type": "circle",
-            "paint": {
-            "circle-radius":
-                  ["*",2, ["ln", ["get", "numOfCompany"]] ],
-
-
-            "circle-color":
-              ["interpolate",
-                ["linear"], ['get', 'numOfCompany'], 10,
-              'rgba(240,255,0,0.5)',
-              100,
-              'rgba(232,91,25,0.5)',
-              1000,
-              'rgba(26,201,255,0.5)',
-              5000,
-              'rgba(1,91,25,0.3)',
-              10000,
-              'rgba(232,5,0,0.5)',
-              15000,
-              'rgba(232,5,0,0.5)'
-              ]
-    }
+                "circle-color":
+                  ["interpolate",
+                    ["linear"], ['get', 'numOfCompany'], 10,
+                  'rgba(240,255,0,0.5)',
+                  100,
+                  'rgba(232,91,25,0.5)',
+                  1000,
+                  'rgba(26,201,255,0.5)',
+                  5000,
+                  'rgba(1,91,25,0.3)',
+                  10000,
+                  'rgba(232,5,0,0.5)',
+                  15000,
+                  'rgba(232,5,0,0.5)'
+                  ]
+              }
 
         });
 
