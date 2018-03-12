@@ -1,6 +1,23 @@
 <?php
 header('Content-Type: application/json');
 $city = 'Manchester';
+$cData = json_decode(file_get_contents('http://localhost:8888/dissertation/companiesPerCounty.php'), true);
+$numOfCompany = array();
+$city = array();
+foreach($cData as $eachCity){
+  $numOfCompany[]= $eachCity[0];
+  $city[]= $eachCity[1];
+}
+var_dump($numOfCompany);
+var_dump($city);
+die();
+
+
+
+
+
+
+
 $apiToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
 $apiURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' . $city . '.json?access_token=' . $apiToken . '&country=gb&limit=1';
 // $connect = mysqli_connect("localhost","root","root","jobWizard");
