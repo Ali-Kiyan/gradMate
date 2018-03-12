@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result))
   $json_array[] = $row;
 }
 
-$cPerCounty = json_encode($json_array);
+$cPerCounty = json_encode($json_array); 
 echo $cPerCounty;
 
 ?>
