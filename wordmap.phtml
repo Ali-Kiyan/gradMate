@@ -97,17 +97,17 @@
           features:[]
         };
         data.forEach(function(element){
-
+          console.log(element);
                obj.features.push({
                  "type": "Feature",
                  "geometry": {
                      "type": "Point",
-                     "coordinates": [element['long'], element['lat']]
+                     "coordinates": [element['lon'], element['lat']]
                  },
                  "properties": {
-                     "title": element['city'],
+                     "title": element['town'],
                      "icon": "monument",
-                     "numOfCompany": element['numOfCompany']
+                     "numOfCompany": Number(element['numOfCompany'])
                  }
                })
 
@@ -116,9 +116,7 @@
       }
 
        $.getJSON("./coordinate.php", function(data){
-
-            arrangeData(data);
-
+         console.log(arrangeData(data));
             map.addLayer({
                 "id": "points",
                 "source": {
@@ -128,7 +126,7 @@
                 "type": "circle",
                 "paint": {
                 "circle-radius":
-                      ["*",4, ["ln", ["get", "numOfCompany"]] ],
+                      ["*",2, ["ln", ["get", "numOfCompany"]] ],
 
 
                 "circle-color":
