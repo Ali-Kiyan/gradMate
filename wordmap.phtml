@@ -11,7 +11,7 @@
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
     <div id='map'></div>
     <style>
-        body { margin:0; padding:0; }
+        body { margin:0; padding:0; background: #191a1a}
         #map { position:absolute; top:0; bottom:0; width:100vw; height: 100vh; }
         .mapboxgl-ctrl-geocoder {
             width: 100vw;
@@ -27,7 +27,7 @@
     center: [-2, 55], // starting position
     zoom: 5, // starting zoom
     // bearing: -30,
-    pitch: 90,
+    pitch: 90
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -90,10 +90,38 @@
                ]
            }
        });
+
+      var arrangeData = function(data){
+        var obj = {
+          type:"FeatureCollection",
+          features:[]
+        };
+        data.forEach(function(element){
+
+               obj.features.push({
+                 "type": "Feature",
+                 "geometry": {
+                     "type": "Point",
+                     "coordinates": [element['long'], element['lat']]
+                 },
+                 "properties": {
+                     "title": element['city'],
+                     "icon": "monument",
+                     "numOfCompany": element['numOfCompany']
+                 }
+               })
+
+        })
+        return obj;
+      }
+
        $.getJSON("./coordinate.php", function(data){
+
+         arrangeData(data);
          var lon = [];
          var lat = [];
          var city = [];
+         // console.log(data[0]);
          var numOfCompany = [];
          for (var i=0; i<data.length; i++) {
           lon.push(data[i]['long']);
@@ -119,7 +147,7 @@
                   "properties": {
                       "title": "London",
                       "icon": "monument",
-                      "numOfCompany": 1000
+                      "numOfCompany": 15000
                   }
               }, {
                   "type": "Feature",
@@ -158,27 +186,37 @@
           }
 
 
+console.log(arrangeData(data));
+console.log(iii);
+
+
         map.addLayer({
             "id": "points",
             "source": {
                 "type": "geojson",
-                "data": iii
+                "data": arrangeData(data)
             },
             "type": "circle",
             "paint": {
-            "circle-radius": ["*",4, ["log10", ["get", "numOfCompany"]] ],
+            "circle-radius":
+                  ["*",2, ["ln", ["get", "numOfCompany"]] ],
+
+
             "circle-color":
               ["interpolate",
-              ["linear"],
-              ['get', 'numOfCompany'], 10,
-              '#00adef',
+                ["linear"], ['get', 'numOfCompany'], 10,
+              'rgba(240,255,0,0.5)',
               100,
-              '#212529',
+              'rgba(232,91,25,0.5)',
               1000,
-              '#ea950b',
+              'rgba(26,201,255,0.5)',
               5000,
-              '#e94e34'
-            ]
+              'rgba(1,91,25,0.3)',
+              10000,
+              'rgba(232,5,0,0.5)',
+              15000,
+              'rgba(232,5,0,0.5)'
+              ]
     }
 
         });
