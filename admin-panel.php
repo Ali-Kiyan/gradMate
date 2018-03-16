@@ -81,14 +81,13 @@ require_once "footer.phtml";
 
  }
  .hamMargin{
-      margin-left: 50vw;
-
+float: right;
  }
 
  .hamburger .line{
   width: 50px;
-  height: 5px;
-  background-color: #ecf0f1;
+  height: 3px;
+  background-color: #8c97c3;
   display: block;
   margin: 8px auto;
   -webkit-transition: all 0.3s ease-in-out;
@@ -130,10 +129,10 @@ require_once "footer.phtml";
 }
 
 #hamburger-6.is-active .line:nth-child(3){
-  -webkit-transform: translateY(-13px) rotate(90deg);
-  -ms-transform: translateY(-13px) rotate(90deg);
-  -o-transform: translateY(-13px) rotate(90deg);
-  transform: translateY(-13px) rotate(90deg);
+  -webkit-transform: translateY(-10px) rotate(90deg);
+  -ms-transform: translateY(-10px) rotate(90deg);
+  -o-transform: translateY(-10px) rotate(90deg);
+  transform: translateY(-10px) rotate(90deg);
 }
 
 </style>

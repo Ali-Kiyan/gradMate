@@ -1,8 +1,8 @@
 $('#showhideAnalysis').click(function(){
-  $('#charts').slideToggle(300);
+  $('#charts').slideToggle(400);
 });
 $('#showhideCV').click(function(){
-  $('#cvs').slideToggle(300);
+  $('#cvs').slideToggle(400);
 });
 $('#hamburger-6').click(function(){
   $('#sideNav').toggle("slide");
@@ -13,5 +13,5 @@ $('#hamburger-6').click(function(){
 });
 
   $(".hamburger").click(function() {
-    $(this).toggleClass("is-active",100);
+    $(this).toggleClass("is-active",300);
   });
