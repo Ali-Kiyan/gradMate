@@ -43,10 +43,10 @@ require_once "adminSideNav.phtml";
 $.getJSON("./companiesPerCounty.php", function(d){
   var pp = [];
   var qq = [];
-  for (var i=1; i<50; i++) {
-   pp.push( d[i].town);
+  for (var i=1; i<100; i++) {
+   pp.push( d[i].county);
   }
-  for (var j=1; j<50; j++) {
+  for (var j=1; j<100; j++) {
    qq.push( d[j].companies);
   }
   var chartData = {

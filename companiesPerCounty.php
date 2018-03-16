@@ -5,8 +5,6 @@ $query = "select distinct count(company_name) as companies, county from company 
 $result = mysqli_query($connect, $query);
 $json_array = array();
 
-
-
 while($row = mysqli_fetch_array($result))
 {
   $json_array[] = $row;
