@@ -32,7 +32,7 @@ require_once "adminSideNav.phtml";
 
 <div class="chart-container">
   <div class="pie">
-    <canvas id="pie" width="1100vw" height="500px" class="scrollable"></canvas>
+    <canvas id="pie" width="100vw" height="50vh" class="scrollable"></canvas>
   </div>
 </div>
 
@@ -43,10 +43,10 @@ require_once "adminSideNav.phtml";
 $.getJSON("./companiesPerCounty.php", function(d){
   var pp = [];
   var qq = [];
-  for (var i=1; i<100; i++) {
+  for (var i=1; i<30; i++) {
    pp.push( d[i].county);
   }
-  for (var j=1; j<100; j++) {
+  for (var j=1; j<30; j++) {
    qq.push( d[j].companies);
   }
   var chartData = {
@@ -54,19 +54,36 @@ $.getJSON("./companiesPerCounty.php", function(d){
     datasets : [
       {
         label : 'Companies',
-        backgroundColor: 'rgba(100, 200, 200, 0.75)',
-        borderColor: 'rgba(230, 2, 200, 0.75)',
+        backgroundColor: 'rgba(185, 179, 193, 1)',
+        borderWidth: 0.5,
         hoverBackgroundColor: 'rgba(156, 93, 93, 0.75)',
-        data: qq
+        data: qq,
       }
+
     ]
+
   }
   var pie = $('#pie');
   var pie = new Chart(pie, {
-    type: "bar",
+    type: "radar",
     data: chartData
+    ,
+    options:{
+      title:{
+        display: true,
+        text: 'The top 30 hiring cities',
+        fontFamily: 'Dosis',
+        fontColor: '#000',
+        fontWeight: 'normal'
+      },
+          legend:{
+            display: false
+          },
+          tooltips: {
+            fontFamily: 'Dosis'
+          }
+        }
   });
-  console.log(d["companies"]);
 });
 
 </script>
