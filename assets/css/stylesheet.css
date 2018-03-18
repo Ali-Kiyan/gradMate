@@ -549,7 +549,7 @@ body{
 }
 .navbar{
   color: whitesmoke;
-  background-color: #eaeaea; 
+  background-color: #eaeaea;
 }
 .sidebar ul li a.active {
   background-color: #8a8a8a !important;

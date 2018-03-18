@@ -17,6 +17,9 @@ body{
   border-radius: 0px;
 }
 
+
+
+
 @media (maxwidth:600px){
   .scrollable{
     overflow: scroll;

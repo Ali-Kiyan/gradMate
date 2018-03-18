@@ -1,5 +1,5 @@
 <?php
-require_once "header.phtml";
+require_once "Header.phtml";
 require_once "navAdmin.phtml";
 $connect = mysqli_connect("localhost","root","root","jobWizard");
 $query = "Select * FROM company ORDER BY company_id DESC LIMIT 12";
@@ -68,71 +68,73 @@ require_once "footer.phtml";
 
 
 <style>
- table{
-   margin-top: 10%;
-   background-color: #ebebeb;
- }
- .table-hover > tbody > tr:hover {
-   background-color: #f6f7db;
- }
+
+
+table{
+  margin-top: 10%;
+  background-color: #ebebeb;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #f6f7db;
+}
 
 .hamburger{
-   display: inline-block;
+  display: inline-block;
 
- }
- .hamMargin{
+}
+.hamMargin{
 float: right;
- }
+}
 
- .hamburger .line{
-  width: 50px;
-  height: 3px;
-  background-color: #8c97c3;
-  display: block;
-  margin: 8px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+.hamburger .line{
+ width: 50px;
+ height: 3px;
+ background-color: #8c97c3;
+ display: block;
+ margin: 8px auto;
+ -webkit-transition: all 0.3s ease-in-out;
+ -o-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
 
 }
 
 
- #hamburger-6.is-active{
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition-delay: 0.6s;
-  -o-transition-delay: 0.6s;
-  transition-delay: 0.6s;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+#hamburger-6.is-active{
+ -webkit-transition: all 0.3s ease-in-out;
+ -o-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
+ -webkit-transition-delay: 0.6s;
+ -o-transition-delay: 0.6s;
+ transition-delay: 0.6s;
+ -webkit-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ -o-transform: rotate(45deg);
+ transform: rotate(45deg);
 }
 
 #hamburger-6.is-active .line:nth-child(2){
-  width: 0px;
+ width: 0px;
 }
 
 #hamburger-6.is-active .line:nth-child(1),
 #hamburger-6.is-active .line:nth-child(3){
-  -webkit-transition-delay: 0.3s;
-  -o-transition-delay: 0.3s;
-  transition-delay: 0.3s;
+ -webkit-transition-delay: 0.3s;
+ -o-transition-delay: 0.3s;
+ transition-delay: 0.3s;
 }
 
 #hamburger-6.is-active .line:nth-child(1){
-  -webkit-transform: translateY(13px);
-  -ms-transform: translateY(13px);
-  -o-transform: translateY(13px);
-  transform: translateY(13px);
+ -webkit-transform: translateY(13px);
+ -ms-transform: translateY(13px);
+ -o-transform: translateY(13px);
+ transform: translateY(13px);
 }
 
 #hamburger-6.is-active .line:nth-child(3){
-  -webkit-transform: translateY(-10px) rotate(90deg);
-  -ms-transform: translateY(-10px) rotate(90deg);
-  -o-transform: translateY(-10px) rotate(90deg);
-  transform: translateY(-10px) rotate(90deg);
+ -webkit-transform: translateY(-10px) rotate(90deg);
+ -ms-transform: translateY(-10px) rotate(90deg);
+ -o-transform: translateY(-10px) rotate(90deg);
+ transform: translateY(-10px) rotate(90deg);
 }
 
 </style>
