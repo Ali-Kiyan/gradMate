@@ -22,15 +22,13 @@ $result = mysqli_query($connect, $query);
   ?>
 
   <div class="col-xs-12 animated fadeInUp scrollable" id="tier2Table">
-   <table id="companyData" class="table table-hover table-bordered table-responsive ">
+   <table id="companyData" class="table table-hover table-bordered">
    <thead>
      <tr>
-       <td>Id</td>
+
        <td>Name</td>
        <td>Website</td>
-       <td>Town</td>
        <td>County</td>
-       <td>Main Tier</td>
        <td>Subtier</td>
        <td>industry</td>
        <td>Date_added</td>
@@ -40,12 +38,10 @@ $result = mysqli_query($connect, $query);
     <?php
     while($row = mysqli_fetch_array($result)){
       echo '<tr>
-      <td>'.$row['company_id'].'</td>
+
       <td>'.$row['company_name'].'</td>
       <td>'.$row['company_website'].'</td>
-      <td>'.$row['town'].'</td>
       <td>'.$row['county'].'</td>
-      <td>'.$row['main_tier'].'</td>
       <td>'.$row['subtier'].'</td>
       <td>'.$row['industry'].'</td>
       <td>'.$row['date_added'].'</td>

@@ -43,10 +43,10 @@ require_once "adminSideNav.phtml";
 $.getJSON("./companiesPerCounty.php", function(d){
   var pp = [];
   var qq = [];
-  for (var i=1; i<30; i++) {
+  for (var i=1; i<20; i++) {
    pp.push( d[i].county);
   }
-  for (var j=1; j<30; j++) {
+  for (var j=1; j<20; j++) {
    qq.push( d[j].companies);
   }
   var chartData = {
@@ -71,7 +71,7 @@ $.getJSON("./companiesPerCounty.php", function(d){
     options:{
       title:{
         display: true,
-        text: 'The top 30 hiring cities',
+        text: 'The top 20 hiring cities',
         fontFamily: 'Dosis',
         fontColor: '#000',
         fontWeight: 'normal'

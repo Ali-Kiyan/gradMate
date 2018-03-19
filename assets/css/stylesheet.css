@@ -586,3 +586,6 @@ a.circle{
 a #charts{
   border:none;
 }
+#companyData{
+  width: 100vw;
+}
