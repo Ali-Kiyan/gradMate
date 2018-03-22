@@ -1,4 +1,5 @@
 <?php
+
 header('Content-Type: application/json');
 $connect = mysqli_connect("localhost","root","root","jobWizard");
 $query = "select distinct count(company_name) as companies, county from company where county != ' ' group by county having count(company_name)>0";

@@ -3,22 +3,22 @@ header('Content-Type: application/json');
 $cData = json_decode(file_get_contents('http://localhost:8888/dissertation/companiesPerCounty.php'), true);
 $numOfCompany = array();
 $city = array();
-for($i=0; $i<3; $i++){
+for($i=0; $i<1; $i++){
   $numOfCompany[$i]= $cData[$i][0];
   $city[$i]= $cData[$i][1];
 }
 
 $apiToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
-for($i=0; $i<3;$i++){
+for($i=0; $i<1;$i++){
 $apiURL[] = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' . $city[$i] . '.json?access_token=' . $apiToken . '&country=gb&limit=1';
 $city_data[]= json_decode(file_get_contents($apiURL[$i]), true);
 }
-for($i=0; $i<3;$i++){
+for($i=0; $i<1;$i++){
   $longitude[$i] = $city_data[$i]['features'][0]['center'][0];
   $latitude[$i] =  $city_data[$i]['features'][0]['center'][1];
 }
 
-for($i=0; $i<3; $i++){
+for($i=0; $i<1; $i++){
   $companyPerCity [$i]["numOfCompany"] = $numOfCompany[$i];
   $companyPerCity [$i]["town"] = $city[$i];
   $companyPerCity [$i]["lon"] = $longitude[$i];
