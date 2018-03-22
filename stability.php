@@ -14,3 +14,8 @@ $cPerCounty = json_encode($json_array);
 echo $cPerCounty;
 
 ?>
+industires per county
+select count(industry), ifnull(industry,'test') , county from company where county = 'London' group by industry with ROLLUP
+
+// all county industeris
+select count(industry), ifnull(industry,'test') , county from company group by industry, county with ROLLUP

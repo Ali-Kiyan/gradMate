@@ -29,6 +29,24 @@ echo $apiData;
 
 
 
+$connect = mysqli_connect("localhost","root","root","jobWizard");
+$query = "";
+$result = mysqli_query($connect, $query);
+$json_array = array();
+
+while($row = mysqli_fetch_array($result))
+{
+  $json_array[] = $row;
+}
+
+$cPerCounty = json_encode($json_array);
+echo $cPerCounty;
+
+?>
+
+
+
+
 
 //
 // $apiToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
