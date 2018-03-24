@@ -23,14 +23,23 @@ require_once "navAdmin.phtml";
     <?php
     require_once "adminSideNav.phtml";
     ?>
-    <select class="selectpicker col-xs-5 col-md-2" data-live-search="true">
-      <?php
-      for ($i=0; $i<100; $i++){
-        echo '<option>Tom Foolerys</option>';
-        echo '<option>Bill Gordon</option>';
-      }
-      ?>
-    </select>
+    <form action="" class="col-xs-12" id="cityPicker">
+          <select class="selectpicker " data-live-search="true">
+            <?php
+            for ($i=0; $i<100; $i++){
+              echo '<option>Tom Foolerys</option>';
+              echo '<option>Bill Gordon</option>';
+            }
+            ?>
+          </select>
+          <br>
+          <br>
+          <input type="submit" name="submit" class="btn btn-md btn-info">
+    </form>
+
+
+
+
   </div>
 
 </body>

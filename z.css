@@ -64,3 +64,6 @@ float: right;
  -o-transform: translateY(-10px) rotate(90deg);
  transform: translateY(-10px) rotate(90deg);
 }
+#cityPicker .btn{
+  border-radius: 0px !important;
+}
