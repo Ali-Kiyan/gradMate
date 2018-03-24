@@ -1,0 +1,47 @@
+<?php
+require_once "header.phtml";
+require_once "navAdmin.phtml";
+
+?>
+<link rel="stylesheet" href="./assets/css/adminStyle.css"/>
+<link rel="stylesheet" href="z.css">
+<link rel="stylesheet" href="./assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<!-- <script src="./assets/js/bootstrap-select.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+
+
+
+</script>
+
+<body>
+
+  <div class="container-fluid">
+    <?php
+    require_once "adminSideNav.phtml";
+    ?>
+    <select class="selectpicker col-xs-5 col-md-2" data-live-search="true">
+      <?php
+      for ($i=0; $i<100; $i++){
+        echo '<option>Tom Foolerys</option>';
+        echo '<option>Bill Gordon</option>';
+      }
+      ?>
+    </select>
+  </div>
+
+</body>
+
+<?php
+require_once "footer.phtml";
+?>
+<script>
+
+
+
+
+
+</script>
