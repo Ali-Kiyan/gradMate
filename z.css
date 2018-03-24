@@ -64,6 +64,15 @@ float: right;
  -o-transform: translateY(-10px) rotate(90deg);
  transform: translateY(-10px) rotate(90deg);
 }
-#cityPicker .btn{
+#cityPicker .btn {
   border-radius: 0px !important;
+}
+#cityPicker .bs-searchbox {
+  border-radius: 0px !important;
+}
+#cityPicker .input-block-level {
+  border-radius: 0px !important;
+}
+#cityPicker .dropdown-menu {
+    border-radius: 0px !important;
 }

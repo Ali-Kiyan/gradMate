@@ -24,17 +24,16 @@ require_once "navAdmin.phtml";
     require_once "adminSideNav.phtml";
     ?>
     <form action="" class="col-xs-12" id="cityPicker">
-          <select class="selectpicker " data-live-search="true">
-            <?php
-            for ($i=0; $i<100; $i++){
-              echo '<option>Tom Foolerys</option>';
-              echo '<option>Bill Gordon</option>';
-            }
-            ?>
+          <select class="selectpicker" data-live-search="true" id="citySelect">
+            <option value="d">d</option>
+            <option value="cc">cc</option>
+            <option value="aa">aa</option>
+            <option value="qq">qq</option>
+            <option value="qqc">qqc</option>
           </select>
           <br>
           <br>
-          <input type="submit" name="submit" class="btn btn-md btn-info">
+          <input type="submit" name="submit" class="btn btn-sm btn-info">
     </form>
 
 
@@ -50,7 +49,19 @@ require_once "footer.phtml";
 <script>
 
 
-
-
+$(document).ready(function(){
+  $('#cityPicker').on('submit', function(event){
+    //prevent from submiting
+    event.preventDefault();
+    if($('#citySelect').val() != ''){
+      var x = $(this).serialize();
+      alert($('#citySelect').val());
+    }
+    else{
+      alert("Please select a city.");
+      return false;
+    }
+  });
+});
 
 </script>
