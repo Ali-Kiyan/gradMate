@@ -9,11 +9,15 @@ $json_array = array();
 
 while($row = mysqli_fetch_array($result))
 {
-  $json_array = $row;
-
+  $json_array[] = $row;
 }
-var_dump($json_array);
-die();
+
+for($i=0;$i<sizeof($json_array);$i++){
+  unset($json_array[$i][0]);
+  unset($json_array[$i][1]);
+}
+
+
 $industryPerCounty = json_encode($json_array);
 echo $industryPerCounty;
 
