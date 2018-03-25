@@ -24,12 +24,10 @@ require_once "navAdmin.phtml";
     require_once "adminSideNav.phtml";
     ?>
     <form action="" class="col-xs-12" id="cityPicker">
-          <select class="selectpicker" data-live-search="true" id="citySelect">
-            <option value="d">d</option>
-            <option value="cc">cc</option>
-            <option value="aa">aa</option>
-            <option value="qq">qq</option>
-            <option value="qqc">qqc</option>
+          <select data-live-search="true" id="citySelect">
+
+
+
           </select>
           <br>
           <br>
@@ -50,6 +48,15 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
+  $.getJSON("./companiespercounty.php", function(data){
+    var counties = data.map(function(element){
+      return element.county
+    })
+    counties.forEach(function(element){
+      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
+    })
+    console.log(counties);
+   });
   $('#cityPicker').on('submit', function(event){
     //prevent from submiting
     event.preventDefault();
@@ -61,7 +68,28 @@ $(document).ready(function(){
       alert("Please select a city.");
       return false;
     }
+
   });
+
+  $('#cityPicker').keyup(function(e){
+    var input = e.target.value;
+    if(input.length > 1){
+      getListOfCompaniesByCounty(input)
+    }
+  })
+
+
+  function getListOfCompaniesByCounty(input){
+   $.getJSON("./companiespercounty.php", function(data){
+     var counties = data.map(function(element){
+       return element.county
+     })
+     counties.forEach(function(element){
+      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
+     })
+     console.log(counties);
+    });
+  }
 });
 
 </script>
