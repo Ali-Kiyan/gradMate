@@ -4,8 +4,8 @@ $cData = json_decode(file_get_contents('http://localhost:8888/dissertation/compa
 $numOfCompany = array();
 $city = array();
 for($i=0; $i<1; $i++){
-  $numOfCompany[$i]= $cData[$i][0];
-  $city[$i]= $cData[$i][1];
+  $numOfCompany[$i]= $cData[$i]['companies'];
+  $city[$i]= $cData[$i]['county'];
 }
 
 $apiToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
