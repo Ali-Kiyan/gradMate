@@ -73,6 +73,6 @@ float: right;
 #cityPicker .input-block-level {
   border-radius: 0px !important;
 }
-#cityPicker .dropdown-menu {
-    border-radius: 0px !important;
+#citySelect .input-sm {
+    -webkit-border-radius: 0px !important;
 }

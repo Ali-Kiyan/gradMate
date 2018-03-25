@@ -10,9 +10,12 @@ require_once "navAdmin.phtml";
 <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <!-- <script src="./assets/js/bootstrap-select.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+crossorigin="anonymous"></script>
 
 
 </script>
@@ -24,7 +27,8 @@ require_once "navAdmin.phtml";
     require_once "adminSideNav.phtml";
     ?>
     <form action="" class="col-xs-12" id="cityPicker">
-          <select data-live-search="true" id="citySelect">
+          <select class="from-control input-sm" id="citySelect">
+            <option value="">Select County</option>
 
 
 
@@ -33,6 +37,12 @@ require_once "navAdmin.phtml";
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info">
     </form>
+
+    <div class="chart-container">
+      <div class="pie">
+        <canvas id="pie" width="100vw" height="50vh" class="scrollable"></canvas>
+      </div>
+    </div>
 
 
 
@@ -91,5 +101,9 @@ $(document).ready(function(){
     });
   }
 });
+
+</script>
+<script src="qqq.js">
+
 
 </script>
