@@ -26,12 +26,9 @@ crossorigin="anonymous"></script>
     <?php
     require_once "adminSideNav.phtml";
     ?>
-    <form action="" class="col-xs-12" id="cityPicker">
+    <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
-
-
-
           </select>
           <br>
           <br>
@@ -58,6 +55,7 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
+
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county
@@ -70,11 +68,67 @@ $(document).ready(function(){
   $('#cityPicker').on('submit', function(event){
     //prevent from submiting
     event.preventDefault();
+    var that = $(this);
+    var url = that.attr('action');
+    var type = that.attr('method');
+    var cdata = {};
+    cdata.county = $('#citySelect').val();
     if($('#citySelect').val() != ''){
-      var x = $(this).serialize();
-      
-      alert($('#citySelect').val());
-      console.log();
+    $.ajax({
+      url: url,
+      type: type,
+      data: cdata,
+      success: function(response){
+        var d = response;
+        var pp = [];
+        var qq = [];
+        for (var i=1; i<d.length; i++) {
+         pp.push( d[i].industry);
+        }
+        for (var j=1; j<d.length; j++) {
+         qq.push( d[j].num);
+        }
+        var chartData = {
+          labels: pp,
+          datasets : [
+            {
+              label : 'Companies',
+              backgroundColor: 'rgba(185, 179, 193, 1)',
+              borderWidth: 0.5,
+              hoverBackgroundColor: 'rgba(156, 93, 93, 0.75)',
+              data: qq,
+            }
+
+          ]
+
+        }
+        var pie = $('#pie');
+        var pie = new Chart(pie, {
+          type: "radar",
+          data: chartData
+          ,
+          options:{
+            title:{
+              display: true,
+              text: 'Industires in region',
+              fontFamily: 'Robato',
+              fontColor: '#000',
+              defaultFontColor: 'black',	
+              fontWeight: 'normal'
+            },
+                legend:{
+                  display: false
+                },
+                tooltips: {
+                  fontFamily: 'Dosis'
+                }
+              }
+        });
+      }
+
+
+    });
+
     }
     else{
       alert("Please select a city.");

@@ -1,0 +1,12 @@
+[26/Mar/2018:17:52:01] (log) Test message1
+[26/Mar/2018:17:52:01] (log) Test message2
+[26/Mar/2018:17:52:01] (log) Test message3
+[26/Mar/2018:17:52:50] (log) Test1
+[26/Mar/2018:17:52:50] (log) Test1
+[26/Mar/2018:17:52:50] (log) Test1
+[26/Mar/2018:17:53:18] (log) 1
+[26/Mar/2018:17:53:18] (log) Test1
+[26/Mar/2018:17:53:18] (log) Test1
+[26/Mar/2018:18:52:59] (log) 1
+[26/Mar/2018:18:52:59] (log) Test1
+[26/Mar/2018:18:52:59] (log) Test1

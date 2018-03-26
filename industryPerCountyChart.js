@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
   $.getJSON("./industryPerCounty.php", function(d){
 
     var pp = [];
