@@ -44,12 +44,11 @@ crossorigin="anonymous"></script>
           <br>
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
-          <a href="#" class="btn btn-sm btn-info" id="reset">Reset</a>
     </form>
 
-    <div class="chart-container" class="col-xs-10" style="position:reletive;">
+    <div class="chart-container"  style="position:reletive;">
 
-        <canvas id="pie"></canvas>
+        <canvas id="pie" style="height: 1000px"></canvas>
 
     </div>
 
@@ -79,11 +78,6 @@ var vs;
     })
     console.log(counties);
    });
-
-$('#reset').on('click', function(){
-    alert(pie.destroy());
-});
-
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
@@ -167,8 +161,8 @@ $('#reset').on('click', function(){
           pointStyle: 'rect',
           options:{
             animation: {
-              duration: 2000,
-              easing: 'linear'
+              duration: 3000,
+              easing: 'easeInQuad'
             },
             elements: {
               point: {
@@ -199,7 +193,8 @@ $('#reset').on('click', function(){
           },
                 tooltips: {
                   fontFamily: 'Dosis'
-                }
+                },
+                responsive: true,
 
              },
 
