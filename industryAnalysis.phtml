@@ -83,6 +83,7 @@ var vs;
 $('#reset').on('click', function(){
     alert(pie.destroy());
 });
+
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
@@ -113,7 +114,7 @@ $('#reset').on('click', function(){
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : pp,
+              label : 'Companies',
               backgroundColor: [
                'rgba(255, 99, 132, 0.2)',
                'rgba(54, 162, 235, 0.2)',
@@ -151,6 +152,11 @@ $('#reset').on('click', function(){
 
 
         }
+        $('#chartType').on('change', function(){
+          if(vs !== undefined)
+          vs.update();
+        });
+
         var pie = $('#pie');
         if (vs) {
             vs.destroy();
