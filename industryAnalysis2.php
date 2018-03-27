@@ -44,7 +44,14 @@ crossorigin="anonymous"></script>
           <br>
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
-          <a href="#" class="btn btn-sm btn-info" id="reset">Reset</a>
+    </form>
+    <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker2" method="post">
+          <select class="from-control input-sm" id="citySelect2">
+            <option value="">Select County</option>
+          </select>
+          <br>
+          <br>
+          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
     </form>
 
     <div class="chart-container" class="col-xs-10" style="position:reletive;">
@@ -69,20 +76,19 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
-var vs;
+
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county
     })
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
+      $('#citySelect2').append('<option val="'+ element +'">'+ element +'</option>');
     })
     console.log(counties);
    });
 
-$('#reset').on('click', function(){
-    alert(pie.destroy());
-});
+
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
@@ -107,13 +113,30 @@ $('#reset').on('click', function(){
         for (var j=1; j<d.length; j++) {
          qq.push( d[j].num);
         }
+        $('#cityPicker2').on('change', function(event){
+          event.preventDefault();
+          var that = $(this);
+          var url2 = that.attr('action');
+          var type2 = that.attr('method');
+          var cdata2 = {};
+          cdata2.county = $('#citySelect2').val();
+            if($('#citySelect2').val() != ''){
+              $.ajax({
+                url: url2,
+                type: type2,
+                data: cdata2,
+                success: function(response){
+                  var r = response;
+                  var bb = [];
+                  for (var j=1; j<r.length; j++) {
+                   bb.push( r[j].num);
         var chartData = {
           labels: pp,
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : pp,
+              label : 'First',
               backgroundColor: [
                'rgba(255, 99, 132, 0.2)',
                'rgba(54, 162, 235, 0.2)',
@@ -147,15 +170,47 @@ $('#reset').on('click', function(){
 
               data: qq,
             },
+            {
+              label : 'Second',
+              backgroundColor: [
+               'rgba(44, 99, 132, 0.7)',
+               'rgba(200, 206, 16, 0.7)',
+               'rgba(130, 102, 255, 0.7)',
+               'rgba(44, 162, 235, 0.7)',
+               'rgba(220, 236, 64, 0.7)',
+                'rgba(10, 92, 22, 0.7)',
+                'rgba(30, 392, 192, 0.7)',
+           ],
+              borderWidth: 0.5,
+              hoverBackgroundColor:  [
+               'rgba(255, 255, 255, 1)',
+               'rgba(0, 152, 255, 1)',
+               'rgba(255, 206, 85, 1)',
+               'rgba(75, 193, 193, 1)',
+               'rgba(153, 102, 255, 1)',
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 236, 64, 1)',
+           ],
+              pointStyle: 'Doughnut',
+              borderColor: [
+               'rgba(44, 99, 132, 1)',
+               'rgba(200, 206, 16, 1)',
+               'rgba(130, 102, 255, 1)',
+               'rgba(44, 162, 235, 1)',
+               'rgba(220, 236, 64, 1)',
+                'rgba(10, 92, 22, 1)',
+                'rgba(30, 392, 192, 1)',
+           ],
+
+
+              data: bb,
+            }
           ],
 
 
         }
         var pie = $('#pie');
-        if (vs) {
-            vs.destroy();
-          }
-         vs = new Chart(pie, {
+        var pie = new Chart(pie, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
@@ -185,7 +240,7 @@ $('#reset').on('click', function(){
             },
             legend:{
             display:true,
-            position:'bottom',
+            position:'right',
             labels:{
               fontColor:'#000',
 
@@ -194,18 +249,32 @@ $('#reset').on('click', function(){
                 tooltips: {
                   fontFamily: 'Dosis'
                 }
-
              },
 
 
-        });
 
+
+
+
+
+        });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
         Chart.defaults.global.defaultFontSize = 18;
-                vs.update();
       }
+    }
+   });
+}
+});
+
+
+
+
+      }
+
+
     });
+
     }
     else{
       alert("Please select a city.");
