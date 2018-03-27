@@ -42,7 +42,15 @@ crossorigin="anonymous"></script>
           </select>
           <br>
           <br>
-          <input type="submit" name="submit" class="btn btn-sm btn-info">
+          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
+    </form>
+    <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker2" method="post">
+          <select class="from-control input-sm" id="citySelect2">
+            <option value="">Select County</option>
+          </select>
+          <br>
+          <br>
+          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
     </form>
 
     <div class="chart-container" class="col-xs-10" style="position:reletive;">
@@ -74,10 +82,13 @@ $(document).ready(function(){
     })
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
+      $('#citySelect2').append('<option val="'+ element +'">'+ element +'</option>');
     })
     console.log(counties);
    });
-  $('#cityPicker').on('submit', function(event){
+
+
+  $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
     var that = $(this);
@@ -86,7 +97,7 @@ $(document).ready(function(){
     var cdata = {};
     var chartType = $('#chartType').val();
     cdata.county = $('#citySelect').val();
-    if($('#citySelect').val() != '' && $('#chartType').val()){
+    if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
       type: type,
@@ -101,6 +112,23 @@ $(document).ready(function(){
         for (var j=1; j<d.length; j++) {
          qq.push( d[j].num);
         }
+        $('#cityPicker2').on('change', function(event){
+          event.preventDefault();
+          var that = $(this);
+          var url2 = that.attr('action');
+          var type2 = that.attr('method');
+          var cdata2 = {};
+          cdata2.county = $('#citySelect2').val();
+            if($('#citySelect2').val() != ''){
+              $.ajax({
+                url: url2,
+                type: type2,
+                data: cdata2,
+                success: function(response){
+                  var r = response;
+                  var bb = [];
+                  for (var j=1; j<r.length; j++) {
+                   bb.push( r[j].num);
         var chartData = {
           labels: pp,
           backgroundColor: 'black',
@@ -114,10 +142,19 @@ $(document).ready(function(){
                'rgba(255, 206, 86, 0.2)',
                'rgba(75, 192, 192, 0.2)',
                'rgba(153, 102, 255, 0.2)',
-               'rgba(255, 159, 64, 0.2)'
+               'rgba(255, 159, 64, 0.2)',
+               'rgba(255, 236, 64, 0.2)',
            ],
               borderWidth: 0.5,
-              hoverBackgroundColor: 'rgba(156, 93, 93, 0.75)',
+              hoverBackgroundColor:  [
+               'rgba(255, 255, 255, 1)',
+               'rgba(0, 152, 255, 1)',
+               'rgba(255, 206, 85, 1)',
+               'rgba(75, 193, 193, 1)',
+               'rgba(153, 102, 255, 1)',
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 236, 64, 1)',
+           ],
               pointStyle: 'Doughnut',
               borderColor: [
                'rgba(255,99,132,1)',
@@ -125,21 +162,52 @@ $(document).ready(function(){
                'rgba(255, 206, 86, 1)',
                'rgba(75, 192, 192, 1)',
                'rgba(153, 102, 255, 1)',
-               'rgba(255, 159, 64, 1)'
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 253, 64, 1)',
               ],
 
 
               data: qq,
-            }
+            },
+            {
+              label : 'Companies',
+              backgroundColor: [
+               'rgba(153, 102, 255, 0.2)'
 
-          ]
+           ],
+              borderWidth: 0.5,
+              hoverBackgroundColor:  [
+               'rgba(255, 255, 255, 1)',
+               'rgba(0, 152, 255, 1)',
+               'rgba(255, 206, 85, 1)',
+               'rgba(75, 193, 193, 1)',
+               'rgba(153, 102, 255, 1)',
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 236, 64, 1)',
+           ],
+              pointStyle: 'Doughnut',
+              borderColor: [
+               'rgba(255,99,132,1)',
+               'rgba(54, 162, 235, 1)',
+               'rgba(255, 206, 86, 1)',
+               'rgba(75, 192, 192, 1)',
+               'rgba(153, 102, 255, 1)',
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 253, 64, 1)',
+              ],
+
+
+              data: bb,
+            }
+          ],
+
 
         }
         var pie = $('#pie');
         var pie = new Chart(pie, {
           type: chartType,
-          data: chartData
-          ,
+          data: chartData,
+          pointStyle: 'rect',
           options:{
             animation: {
               duration: 2000,
@@ -180,6 +248,14 @@ $(document).ready(function(){
 
         });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
+      }
+    }
+   });
+}
+});
+
+
+
 
       }
 
