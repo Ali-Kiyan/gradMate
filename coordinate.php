@@ -25,11 +25,13 @@ for($i=0; $i<sizeof($cData); $i++){
   $companyPerCity [$i]["lat"] = $latitude[$i];
 }
 
+$connect = mysqli_connect("localhost","root","root","jobWizard");
+$query = "select distinct count(company_name) as companies, county from company where county != ' ' group by county having count(company_name)>0";
+$result = mysqli_query($connect, $query);
 
 
-
-// $apiData = json_encode($companyPerCity);
-// echo $apiData;
+$apiData = json_encode($companyPerCity);
+echo $apiData;
 
 
 
