@@ -22,7 +22,7 @@
 
         // create points
         points = [];
-        for(var x = 0; x < width; x = x + width/20) {
+        for(var x = 0; x < width; x = x + width/15) {
             for(var y = 0; y < height; y = y + height/20) {
                 var px = x + Math.random()*width/20;
                 var py = y + Math.random()*height/20;
@@ -63,10 +63,11 @@
 
         // assign a circle to each point
         for(var i in points) {
-            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+            var c = new Circle(points[i], 1+Math.random()*2, 'rgba(255,255,255,0.3)');
             points[i].circle = c;
         }
     }
+
 
     // Event handling
     function addListeners() {
@@ -153,11 +154,11 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+            ctx.strokeStyle = 'rgba(89, 177, 200,'+ p.active+')';
             ctx.stroke();
         }
     }
-
+rgb()
     function Circle(pos,rad,color) {
         var _this = this;
 
@@ -172,7 +173,7 @@
             if(!_this.active) return;
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'rgba(1,217,249,'+ _this.active+')';
+            ctx.fillStyle = 'rgba(89, 177, 200,'+ _this.active+')';
             ctx.fill();
         };
     }
