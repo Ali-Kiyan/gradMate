@@ -102,10 +102,10 @@
                  "type": "Feature",
                  "geometry": {
                      "type": "Point",
-                     "coordinates": [element['lon'], element['lat']]
+                     "coordinates": [element['longitude'], element['latitude']]
                  },
                  "properties": {
-                     "title": element['town'],
+                     "title": element['location'],
                      "icon": "monument",
                      "numOfCompany": Number(element['numOfCompany'])
                  }
@@ -115,7 +115,7 @@
         return obj;
       }
 
-       $.getJSON("./coordinate.php", function(data){
+       $.getJSON("./mapData.php", function(data){
          console.log(arrangeData(data));
             map.addLayer({
                 "id": "points",

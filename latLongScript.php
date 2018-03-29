@@ -3,36 +3,39 @@ header('Content-Type: application/json');
 $connect = mysqli_connect("localhost","root","root","jobWizard");
 $cData = json_decode(file_get_contents('http://localhost:8888/dissertation/companiesPerCounty.php'), true);
 $numOfCompany = array();
-$location = array();
-for($i=0; $i<6; $i++){
+$county = array();
+for($i=0; $i<sizeof($cData); $i++){
   $numOfCompany[$i]= $cData[$i]['companies'];
   $county[$i]= $cData[$i]['county'];
 }
 
 $apiToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
-for($i=0; $i<6;$i++){
+for($i=0; $i<sizeof($cData);$i++){
 $apiURL[] = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' . $county[$i] . '.json?access_token=' . $apiToken . '&country=gb&limit=1';
 $county_data[]= json_decode(file_get_contents($apiURL[$i]), true);
 }
-for($i=0; $i<6;$i++){
+for($i=0; $i<sizeof($cData);$i++){
   $longitude[$i] = $county_data[$i]['features'][0]['center'][0];
   $latitude[$i] =  $county_data[$i]['features'][0]['center'][1];
 }
 
-for($i=0; $i<6;$i++){
+for($i=0; $i<sizeof($cData);$i++){
   $companyPerLocation [$i]["numOfCompany"] = $numOfCompany[$i];
   $companyPerLocation [$i]["county"] = $county[$i];
   $companyPerLocation [$i]["longitude"] = $longitude[$i];
   $companyPerLocation [$i]["latitude"] = $latitude[$i];
 }
 
+for ($j=0;$j<sizeof($cData);$j++){
+  $query = "Insert into locationDetail(location, latitude, longitude) values ('".  $companyPerLocation [$j]["county"] ."',".  $companyPerLocation [$j]["longitude"]  .",".  $companyPerLocation [$j]["latitude"] .")";
+  $result = mysqli_query($connect, $query);
+}
 
 
 
 
-
-$apiData = json_encode($companyPerLocation);
-echo $apiData;
+// $apiData = json_encode($companyPerLocation);
+// echo $apiData;
 
 
 
