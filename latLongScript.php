@@ -27,7 +27,7 @@ for($i=0; $i<sizeof($cData);$i++){
 }
 
 for ($j=0;$j<sizeof($cData);$j++){
-  $query = "Insert into locationDetail(location, latitude, longitude) values ('".  $companyPerLocation [$j]["county"] ."',".  $companyPerLocation [$j]["longitude"]  .",".  $companyPerLocation [$j]["latitude"] .")";
+  $query = "Insert into locationDetail(location, latitude, longitude) values ('".  $companyPerLocation [$j]["county"] ."',".  $companyPerLocation [$j]["latitude"]  .",".  $companyPerLocation [$j]["longitude"] .")";
   $result = mysqli_query($connect, $query);
 }
 

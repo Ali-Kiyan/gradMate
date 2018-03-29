@@ -21,7 +21,7 @@ for($j=0;$j<sizeof($cData);$j++){
   unset($result[$j][2]);
   $result[$j]['latitude']=(double)$result[$j]['latitude'];
   $result[$j]['longitude']=(double)$result[$j]['longitude'];
-  $result[$j]['numOfCompany']=(int)$numOfCompany[$j];
+  $result[$j]['numOfCompany']=(double)$numOfCompany[$j];
 }
 
 $result = json_encode($result);
