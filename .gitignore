@@ -3,5 +3,5 @@ Icon?
 company_detail.csv
 companyData.csv
 sponsorList.csv
-curl.php
+./curl.php
 /vendor/
