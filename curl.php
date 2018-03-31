@@ -1,22 +1,26 @@
 <?php
+header('Content-Type: application/json');
+$url = "https://api.companieshouse.gov.uk/search/companies?q=?WhatIf!Ltd";
+//  Initiate curl
+$ch = curl_init();
+// Disable SSL verification
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+// Will return the response, if false it print the response
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// Set the url
+curl_setopt($ch, CURLOPT_URL,$url);
 
-$url = "http://localhost:8888/dissertation/coordinate.php";
-$client = curl_init();
-$curl_setopt($client, CURL_URL, $url);
-$curlcurl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
-$curlcurl_setopt($client, CURLOPT_POST, 1);
-$curlcurl_setopt($client, CURLOPT_POST, 1);
-//for setting it in a seperate variable you have to enable a curl option
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Host: api.companieshouse.gov.uk',
+    'Authorization: eFaPOGH7H2sFl1S2roAM8SE50WkcJQXrACJfSYOu'
+    ));
+// Execute
+$result=curl_exec($ch);
+// Closing
+curl_close($ch);
 
-// curl_setopt($client, CURLOPT_RETURNTRANSFER,1);
-//for posting the data with curl
-// curl_setopt($client, CURLOPT_POST,$data);
-
-
-$response = curl_exec($client);
-echo $client;
-$result= json_decode($response);
-var_dump($result);
+// Will dump a beauty json :3
+echo $result;
 
 
 
