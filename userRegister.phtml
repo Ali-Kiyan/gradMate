@@ -7,7 +7,6 @@
   <title>Login Form</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/stylesheet.css">
-  <link rel="stylesheet" href="./assets/css/animate.css">
 </head>
 <body>
     <div class="cover">
@@ -15,47 +14,40 @@
         </div>
       </div>
 
-    <div class="login animated fadeInDown">
+    <div class="login">
       <div class="container-fluid">
           <div class="row">
-              <div class="col-xs-12 animated bounceInUp">
-                  <div class="panel panel-default loginForm" style="background-color: rgba(220, 220, 233, 0.9);">
-                      <div class="panel-heading">Login</div>
+              <div class="col-xs-12">
+                  <div class="panel panel-default signUpForm">
+                      <div class="panel-heading">Sign Up</div>
                       <div class="panel-body">
                           <form class="form-horizontal" role="form" method="POST" action="./admin-panel.php">
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+                                  <label for="email" class="col-xs-3 control-label">First Name</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
+                                      <input id="first_name" class="form-control circle" name="first_name" value="">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+                                  <label for="last_name" class="col-xs-3 control-label">Last Name</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
+                                      <input id="last_name" class="form-control circle" name="last_name" value="">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+                                  <label for="username" class="col-xs-3 control-label">Username</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
+                                      <input id="username" class="form-control circle" name="username" value="">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+                                  <label for="email" class="col-xs-3 control-label">Email Address</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
-
-                                  <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
+                                      <input id="email" class="form-control circle" name="email" value="">
                                   </div>
                               </div>
 
@@ -63,11 +55,11 @@
                                   <label for="password" class="col-xs-3 control-label">Password</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="password" type="password" class="form-control circle" name="Password">
+                                      <input id="password" type="password" class="form-control circle" name="password">
                                       <br>
                                       <button type="submit" name="Lsubmit" class="btn btn-md btn-success circle">sign up
                                       </button>
-                                      <a href="./login.phtml" class="btn btn-md btn-info circle">Back to login</a>
+                                      <a href="./UserLogin.phtml" class="btn btn-md btn-info circle">Back to login</a>
                                   </div>
                               </div>
 
@@ -95,5 +87,12 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
+<script>
+$(document).ready(function(){
+TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:200,rotation: "+=120"});
+
+});
+</script>

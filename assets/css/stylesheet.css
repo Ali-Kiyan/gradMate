@@ -587,3 +587,6 @@ a.circle{
 a #charts{
   border:none;
 }
+label{
+  font-weight: 400;
+}

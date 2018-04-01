@@ -76,3 +76,9 @@ float: right;
 #citySelect .input-sm {
     -webkit-border-radius: 0px !important;
 }
+#tier2Table{
+  overflow-y: auto;
+}
+#companyData{
+  overflow-y: hidden;
+}

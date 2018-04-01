@@ -15,13 +15,20 @@ $result = mysqli_query($connect, $query);
   <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+  <script>
+  $(document).ready(function(){
+  TweenLite.fromTo($('#tier2Table'),1,{x:-1000,opacity:0}, {x:0,opacity:1});
+
+  });
+  </script>
 
 <div class="container-fluid">
   <?php
   require_once "adminSideNav.phtml";
   ?>
 
-  <div class="col-xs-12 animated fadeInUp scrollable" id="tier2Table">
+  <div class="col-xs-12" id="tier2Table">
    <table id="companyData" class="table table-hover table-bordered">
    <thead>
      <tr>
