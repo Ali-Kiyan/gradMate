@@ -14,3 +14,4 @@ $('#hamburger-6').click(function(){
   $(".hamburger").click(function() {
     $(this).toggleClass("is-active",300);
   });
+    TweenLite.fromTo($('#large-header'),1.5,{y:10,opacity:0,ease: "easeOut.config(1.7)"}, {y:0,opacity:1,ease: "easeOut.config(1.7)"});
