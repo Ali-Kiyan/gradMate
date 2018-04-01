@@ -9,17 +9,12 @@ require_once "navAdmin.phtml";
 <link rel="stylesheet" href="./assets/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <!-- <script src="./assets/js/bootstrap-select.min.js"></script> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
-integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
-crossorigin="anonymous"></script>
-
-
-</script>
 
 <body>
 
@@ -69,6 +64,7 @@ require_once "footer.phtml";
 
 $(document).ready(function(){
 var vs;
+  TweenLite.fromTo($('#cityPicker'),1,{x:-200,opacity:0, rotation: "+=40"}, {x:0,opacity:1, rotation: "-=40"});
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county
