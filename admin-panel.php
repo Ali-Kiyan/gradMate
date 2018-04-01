@@ -10,18 +10,14 @@ $result = mysqli_query($connect, $query);
 <body id="admin-page">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
   <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
   <script>
   $(document).ready(function(){
-  TweenLite.fromTo($('#tier2Table'),1,{x:-1000,opacity:0}, {x:0,opacity:1});
-
+  TweenLite.fromTo($('#tier2Table'),2,{y:-100,opacity:0}, {y:0,opacity:1});
   });
   </script>
+
 
 <div class="container-fluid">
   <?php

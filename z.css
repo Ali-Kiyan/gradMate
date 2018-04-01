@@ -1,6 +1,6 @@
 table{
   margin-top: 10%;
-  background-color: #ebebeb;
+
 }
 .table-hover > tbody > tr:hover {
   background-color: #f6f7db;
@@ -77,7 +77,9 @@ float: right;
     -webkit-border-radius: 0px !important;
 }
 #tier2Table{
-  overflow-y: auto;
+  overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
+
 }
 #companyData{
   overflow-y: hidden;
