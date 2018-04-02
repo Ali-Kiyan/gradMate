@@ -8,8 +8,18 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/stylesheet.css">
 
+
 </head>
 <?php require_once "./header.phtml"; ?>
+<script>
+  $(document).ready(function(){
+
+  TweenLite.fromTo($('#login'),3,{x:-100,y:500,rotation: "+=120",opacity:0,  rotationX: -100, rotationZ: +300 }, {x:0,y:0,rotation: "-=120",opacity:1,   rotationZ: 0, rotationX:0});
+
+
+
+  });
+</script>
 <body>
     <div class="cover">
         <div class="bg">
@@ -69,10 +79,3 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
-<script>
-  $(document).ready(function(){
-
-  TweenLite.fromTo($('#login'),1.5,{x:-1200,y:500,rotation: "+=120",opacity:0}, {x:0,y:0,rotation: "-=120",opacity:1});
-
-  });
-</script>
