@@ -1,3 +1,9 @@
+<?php
+require_once "header.phtml";
+require_once "adminSideNav.phtml";
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +15,19 @@
      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
      <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
+     <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
+     <link rel="stylesheet" href="z.css">
     <div id='map'></div>
     <style>
         body { margin:0; padding:0; background: #191a1a}
-        #map { position:absolute; top:0; bottom:0; width:100vw; height: 100vh; margin: 0 auto;}
+        #map { width:100vw; height: 100vh; margin: 0 auto;}
         .mapboxgl-ctrl-geocoder {
             width: 100vw;
-            z-index: 1;
             border-radius: 0px;
+        }
+
+        .hamburger .line {
+           background-color: #ececec;
         }
     </style>
     <script>
@@ -167,3 +178,6 @@
     </script>
 </body>
 </html>
+<?php
+require_once "footer.phtml";
+?>
