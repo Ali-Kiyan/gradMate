@@ -17,7 +17,7 @@ require_once "adminSideNav.phtml";
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
      <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
      <link rel="stylesheet" href="z.css">
-    <div id='map'></div>
+    <div id='map' class="bluredSection"></div>
     <style>
         body { margin:0; padding:0; background: #191a1a}
         #map { width:100vw; height: 100vh; margin: 0 auto;}
@@ -25,7 +25,9 @@ require_once "adminSideNav.phtml";
             width: 100vw;
             border-radius: 0px;
         }
-
+.hamburger{
+  margin: 1rem;
+}
         .hamburger .line {
            background-color: #ececec;
         }

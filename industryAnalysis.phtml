@@ -43,7 +43,7 @@ require_once "navAdmin.phtml";
 
     <div class="chart-container"  style="position:reletive;">
 
-        <canvas id="pie" style="height: 1000px"></canvas>
+        <canvas id="pie"></canvas>
 
     </div>
 
@@ -78,6 +78,7 @@ var vs;
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
+    TweenLite.fromTo($('#pie'),1.5,{y:100,opacity:0}, {y:0,opacity:1});
     var that = $(this);
     var url = that.attr('action');
     var type = that.attr('method');
