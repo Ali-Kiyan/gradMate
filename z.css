@@ -8,11 +8,12 @@ table{
 
 .hamburger{
   display: inline-block;
-  
+
 
 }
 .hamMargin{
 float: right;
+
 }
 
 .hamburger .line{
