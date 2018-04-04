@@ -22,8 +22,8 @@ require_once "navAdmin.phtml";
     <?php
     require_once "adminSideNav.phtml";
     ?>
-  <div class="container">
-    <form action="./industryPerCounty.php" class="col-xs-12 bluredSection" id="cityPicker" method="post">
+  <div class="container bluredSection">
+    <form action="./industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
           </select>
@@ -64,7 +64,8 @@ require_once "footer.phtml";
 
 $(document).ready(function(){
 var vs;
-  TweenLite.fromTo($('#cityPicker'),1,{x:-200,opacity:0, rotation: "+=40"}, {x:0,opacity:1, rotation: "-=40"});
+  TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
+  TweenLite.fromTo($('#chartType'),1.5,{x:1000,opacity:0, rotationX: "-=210"}, {x:0,opacity:1, rotationX: "+=210"});
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county

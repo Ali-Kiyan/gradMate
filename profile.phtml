@@ -1,5 +1,5 @@
 <?php require_once "header.phtml"; ?>
-    <div class="well col-sm-6 col-sm-offset-3" id="userProfile">
+    <div class="well col-sm-6 col-sm-offset-3 fade" id="userProfile">
 
         <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -32,6 +32,6 @@
     </div>
     <script>
     $(document).ready(function(){
-    TweenLite.fromTo($('#userProfile'),1.7,{y: -100, opacity:0, rotationY: "-=160",ease: "Power4.easeOut"}, {y:0,opacity:1,rotationY: "0",ease: "Power4.easeOut"});
+    TweenLite.fromTo($('#userProfile'),1.7,{y: -100, rotationY: "-=160",ease: "Power4.easeOut"}, {y:0,opacity:1,rotationY: "0",ease: "Power4.easeOut"});
     });
     </script>

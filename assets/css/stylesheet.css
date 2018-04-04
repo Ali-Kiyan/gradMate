@@ -596,6 +596,7 @@ label{
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
+    position: relative;
 }
 .fade{
   opacity: 0;
