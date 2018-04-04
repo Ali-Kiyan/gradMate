@@ -590,3 +590,10 @@ a #charts{
 label{
   font-weight: 400;
 }
+.blur-all {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
