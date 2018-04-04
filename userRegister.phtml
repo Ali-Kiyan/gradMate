@@ -18,7 +18,7 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-xs-12">
-                  <div class="panel panel-default signUpForm">
+                  <div class="panel panel-default signUpForm fade">
                       <div class="panel-heading">Sign Up</div>
                       <div class="panel-body">
                           <form class="form-horizontal" role="form" method="POST" action="./admin-panel.php">
@@ -92,7 +92,7 @@
 </body>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:150,rotation: "+=120"});
+TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:150,rotation: "+=120",opacity: 1});
 
 });
 </script>

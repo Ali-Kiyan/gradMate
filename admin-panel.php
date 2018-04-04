@@ -24,7 +24,7 @@ $result = mysqli_query($connect, $query);
   require_once "adminSideNav.phtml";
   ?>
 
-  <div class="col-xs-12" id="tier2Table">
+  <div class="col-xs-12 fade" id="tier2Table">
    <table id="companyData" class="table table-hover table-bordered">
    <thead>
      <tr>
