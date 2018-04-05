@@ -14,14 +14,14 @@ require_once "navAdmin.phtml";
 <!-- <script src="./assets/js/bootstrap-select.min.js"></script> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-
+  <?php
+  require_once "adminSideNav.phtml";
+  ?>
 
 <body>
 
-  <div class="container-fluid">
-    <?php
-    require_once "adminSideNav.phtml";
-    ?>
+  <div class="container">
+
   <div class="container bluredSection">
     <form action="./industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
@@ -41,9 +41,9 @@ require_once "navAdmin.phtml";
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
     </form>
 
-    <div class="chart-container"  style="position:reletive;">
+    <div class="chart-container col-xs-12">
 
-        <canvas id="pie"></canvas>
+        <canvas id="pie" class="fade"></canvas>
 
     </div>
 
@@ -78,7 +78,7 @@ var vs;
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
-    TweenLite.fromTo($('#pie'),1.5,{y:100,opacity:0}, {y:0,opacity:1});
+    TweenLite.fromTo($('#pie'),3,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
     var that = $(this);
     var url = that.attr('action');
     var type = that.attr('method');

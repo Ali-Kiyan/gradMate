@@ -3,7 +3,7 @@ require_once "./header.phtml";
 ?>
 
 <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
-<div id="large-header" class="large-header">
+<div id="large-header" class="large-header fade">
             <div id="showcase">
                 <div class="">
                       <h1 style="font-family: 'Raleway Dots', cursive; font-size:4rem;">Job Wizard</h1>
