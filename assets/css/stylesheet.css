@@ -553,10 +553,10 @@ body{
   background-color: #eaeaea;
 }
 .sidebar ul li a.active {
-  background-color: #8a8a8a !important;
+  background-color: #98a3a9 !important;
 }
 .nav .dropdown-menu{
-  background-color: #8a8a8a;
+  background-color: #98a3a9;
 }
 .nav .dropdown-menu > li > a{
   color: whitesmoke;
