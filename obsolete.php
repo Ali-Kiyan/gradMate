@@ -2,7 +2,7 @@
 require_once "Header.phtml";
 require_once "navAdmin.phtml";
 $connect = mysqli_connect("localhost","root","root","jobWizard");
-$query = "select u.company_name from UpdatedCompaniessd as u left join company as c on u.company_name = c.company_name where c.company_name is NULL limit 20";
+$query = "select company.company_name from company left join UpdatedCompanies as u on company.company_name = u.company_name where u.company_name is null and company.company_name != '' limit 20";
 $result = mysqli_query($connect, $query);
 ?>
 
@@ -25,7 +25,7 @@ $result = mysqli_query($connect, $query);
   ?>
 
   <div class="col-xs-12 fade" id="tier2Table">
-           <p>Newly added Tier 2 sponsoring companies</p>
+           <p>obsolete companies</p>
    <table id="companyData" class="table table-hover table-bordered">
    <thead>
 
