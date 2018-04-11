@@ -33,11 +33,11 @@ head(doc)
 tail(doc)
 length(doc)
 #footer removal 
-footer_row_1 <- grep("Summary", doc[[1909]])
-footer_row_2 <- grep("Total Number of Sponsors registered under Tiers 2 and 5",doc[[1909]])
+footer_row_1 <- grep("Summary", doc[[length(doc)]])
+footer_row_2 <- grep("Total Number of Sponsors registered under Tiers 2 and 5",doc[[length(doc)]])
 footer_row_1
 footer_row_2
-doc[[1909]] <- doc[[1909]][-c(footer_row_1:footer_row_2)]
+doc[[length(doc)]] <- doc[[length(doc)]][-c(footer_row_1:footer_row_2)]
 head(doc)
 tail(doc)
 length(doc[[1]])
@@ -46,7 +46,7 @@ tier2 <- data.frame(tier2)
 for (i in 1:length(doc)){
   for (j in 1:length(doc[[i]]))
   {
-    tier2 <- c(tier2,strsplit(doc[[i]][j], "   ")[[1]][1])
+    tier2 <- c(tier2,strsplit(doc[[i]][j], "    ")[[1]][1])
   }
 }
 
@@ -82,7 +82,7 @@ dbListTables(con)
 typeof(temp)
 
 
-dbWriteTable(con, "UpdatedCompaniess", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
+dbWriteTable(con, "UpdatedCompaniessd", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
 
 
 
