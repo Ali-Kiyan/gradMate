@@ -46,7 +46,7 @@ tier2 <- data.frame(tier2)
 for (i in 1:length(doc)){
   for (j in 1:length(doc[[i]]))
   {
-    tier2 <- c(tier2,strsplit(doc[[i]][j], "    ")[[1]][1])
+    tier2 <- c(tier2,strsplit(doc[[i]][j], "   ")[[1]][1])
   }
 }
 
@@ -82,7 +82,7 @@ dbListTables(con)
 typeof(temp)
 
 
-dbWriteTable(con, "UpdatedCompaniessd", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
+dbWriteTable(con, "UpdatedCompanies", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
 
 
 
