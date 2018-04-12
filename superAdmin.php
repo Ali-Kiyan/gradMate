@@ -31,6 +31,7 @@ $result = mysqli_query($connect, $query);
 
      <tr>
        <td>Company Name</td>
+       <td>Add Company</td>
      </tr>
 
    </thead>
@@ -38,6 +39,9 @@ $result = mysqli_query($connect, $query);
     while($row = mysqli_fetch_array($result)){
       echo '<tr>
       <td>'.$row['company_name'].'</td>
+      <td>
+      <a href="#" class="btn btn-md btn-info circle">Add to the Company list</a>
+      </td>
       </tr>';
     }
     ?>

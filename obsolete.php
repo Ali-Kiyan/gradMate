@@ -31,6 +31,7 @@ $result = mysqli_query($connect, $query);
 
      <tr>
        <td>Company Name</td>
+       <td>Delete company</td>
      </tr>
 
    </thead>
@@ -38,6 +39,9 @@ $result = mysqli_query($connect, $query);
     while($row = mysqli_fetch_array($result)){
       echo '<tr>
       <td>'.$row['company_name'].'</td>
+      <td>
+      <a href="#" class="btn btn-md btn-info circle">Delete Company from the list</a>
+      </td>
       </tr>';
     }
     ?>
@@ -46,7 +50,7 @@ $result = mysqli_query($connect, $query);
 <!-- /#wrapper -->
 </div>
 
-<a href="./obsolete.php" class="btn btn-success">obsolete companies</a>
+<a href="./superAdmin.php" class="btn btn-success">Newly added companies companies</a>
 
 
 </body>

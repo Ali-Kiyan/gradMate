@@ -26,7 +26,7 @@ head(doc)
 header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", doc[[1]])
 header_row
 
-doc[[1]]
+doc[[1000]]
 #header removal 
 doc[[1]] <- doc[[1]][(header_row + 1):length(doc[[1]])]
 head(doc)
