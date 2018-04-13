@@ -38,9 +38,9 @@ require_once "adminSideNav.phtml";
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: [-2, 55], // starting position
-    zoom: 5, // starting zoom
-    // bearing: -30,
-    pitch: 90
+    zoom: 4, // starting zoom
+    bearing: 0,
+    pitch: 0
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -74,10 +74,31 @@ require_once "adminSideNav.phtml";
             }
         });
 
+
         // Listen for the `geocoder.input` event that is triggered when a user
         // makes a selection and add a symbol that matches the result.
         geocoder.on('result', function(ev) {
             map.getSource('single-point').setData(ev.result.geometry);
+        });
+
+        map.flyTo({
+            // These options control the ending camera position: centered at
+            // the target, at zoom level 9, and north up.
+            center: [-2, 53],
+            zoom: 6.5,
+            bearing: 0,
+            // These options control the flight curve, making it move
+            // slowly and zoom out almost completely before starting
+            // to pan.
+            speed: 0.4, // make the flying slow
+            curve: 0.4, // change the speed at which it zooms out
+            pitch: 90,
+
+            // This can be any easing function: it takes a number between
+            // 0 and 1 and returns another number between 0 and 1.
+            easing: function (t) {
+                return t;
+            }
         });
 
 
@@ -108,6 +129,7 @@ require_once "adminSideNav.phtml";
                ]
            }
        });
+
 
       var arrangeData = function(data){
         var obj = {
@@ -196,7 +218,7 @@ require_once "adminSideNav.phtml";
 
         setTimeout(function() {
           map.setPaintProperty('points', 'circle-opacity', 1);
-        }, 100);
+        }, 150);
 
 
 
@@ -216,7 +238,9 @@ require_once "adminSideNav.phtml";
 <?php
 require_once "footer.phtml";
 ?>
-<script type="text/javascript">
+<script>
+$(document).ready(function(){
+TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:500}, {x:0,y:0,opacity: 1});
 
-
+});
 </script>
