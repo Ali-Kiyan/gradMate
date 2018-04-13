@@ -1,0 +1,86 @@
+<?php
+require_once "Header.phtml";
+require_once "navAdmin.phtml";
+require_once "adminSideNav.phtml";
+
+if(empty($_GET))
+{
+?>
+
+
+  <div class="well col-sm-6 col-sm-offset-3" id="weather">
+
+      <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+
+
+          <div class="form-group">
+              <label for="Country" class=" control-label">Country</label>
+              <input type="text" name="Country" class="form-control half" placeholder="Type your desired Country ...">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">City</label>
+              <input type="text" name="City" class="form-control half" placeholder="Type your desired City ...">
+          </div>
+
+          <button type="submit" name="Fsubmit" class="btn btn-info Brown center">Forcast for tomorrow</button>
+          <a href="./Dashboard.php" class="btn btn-warning Brown center">Back to Dashboard</a>
+
+      </form>
+
+
+  </div>
+
+  <div class="container col-xs-10 col-xs-offset-1 animated bounceInDown" <?php if (empty($_GET['Country']) && empty($_GET['City']) ){ echo 'style="display: none;';} ?>>
+      <table class="table table-bordered table-responsive" id="weatherResult" style="text-align: center">
+          <thead>
+          <tr >
+              <th scope="col">City</th>
+              <th class="animated fadeInRightBig" scope="col" style="text-align: center"><?php echo "$City" ; ?></th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <th scope="row">Country</th>
+              <td class="animated fadeInRightBig"><?php echo "$Country" ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row">Humidity</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['humidity'] ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row">Weather Condition</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['weatherCondition'] ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row">Wind Speed (meter/sec)</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['windSpeed'] ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row">Wind Direction (meteorological)</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['windDirection'] ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row">Temperature (Kelvin)</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['temp'] ; ?></td>
+
+          </tr>
+          <tr>
+              <th scope="row"> Pressure</th>
+              <td class="animated fadeInRightBig"><?php echo $weatherArray['pressure'] ; ?></td>
+
+          </tr>
+          </tbody>
+      </table>
+  </div>
+
+
+<?php
+}
+require_once "footer.phtml";
+?>
