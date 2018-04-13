@@ -38,9 +38,9 @@ require_once "adminSideNav.phtml";
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: [-2, 55], // starting position
-    zoom: 5, // starting zoom
-    // bearing: -30,
-    pitch: 90
+    zoom: 4, // starting zoom
+    bearing: -30,
+    pitch: 0
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -53,7 +53,21 @@ require_once "adminSideNav.phtml";
     map.on('load', function() {
 
 
-
+      map.flyTo({
+          // These options control the ending camera position: centered at
+          // the target, at zoom level 9, and north up.
+            style: 'mapbox://styles/mapbox/basic-v9',
+          center: [-2, 53],
+          zoom: 6.5,
+          bearing: 0,
+          // These options control the flight curve, making it move
+          // slowly and zoom out almost completely before starting
+          // to pan.
+          speed: 0.4, // make the flying slow
+          curve: 0.4, // change the speed at which it zooms out
+          pitch: 90,
+          bearing: -10,
+      });
 
 
         map.addSource('single-point', {
@@ -184,7 +198,7 @@ require_once "adminSideNav.phtml";
 
         setTimeout(function() {
           map.setPaintProperty('points', 'circle-opacity', 1);
-        }, 100);
+        }, 5100);
 
 
 

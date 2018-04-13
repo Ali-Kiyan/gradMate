@@ -37,9 +37,9 @@ require_once "adminSideNav.phtml";
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
-    center: [-2, 55], // starting position
-    zoom: 4, // starting zoom
-    bearing: 0,
+    center: [-1, 35], // starting position
+    zoom: 3, // starting zoom
+    bearing: 30,
     pitch: 0
     });
     var geocoder = new MapboxGeocoder({
@@ -51,9 +51,6 @@ require_once "adminSideNav.phtml";
     // After the map style has loaded on the page, add a source layer and default
     // styling for a single point.
     map.on('load', function() {
-
-
-
 
 
         map.addSource('single-point', {
@@ -84,6 +81,7 @@ require_once "adminSideNav.phtml";
         map.flyTo({
             // These options control the ending camera position: centered at
             // the target, at zoom level 9, and north up.
+              style: 'mapbox://styles/mapbox/basic-v9',
             center: [-2, 53],
             zoom: 6.5,
             bearing: 0,
@@ -93,12 +91,7 @@ require_once "adminSideNav.phtml";
             speed: 0.4, // make the flying slow
             curve: 0.4, // change the speed at which it zooms out
             pitch: 90,
-
-            // This can be any easing function: it takes a number between
-            // 0 and 1 and returns another number between 0 and 1.
-            easing: function (t) {
-                return t;
-            }
+            bearing: -10,
         });
 
 
@@ -218,7 +211,7 @@ require_once "adminSideNav.phtml";
 
         setTimeout(function() {
           map.setPaintProperty('points', 'circle-opacity', 1);
-        }, 150);
+        }, 7400);
 
 
 
@@ -240,7 +233,7 @@ require_once "footer.phtml";
 ?>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:500}, {x:0,y:0,opacity: 1});
+TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),2,{x:500}, {x:0,y:0,opacity: 1});
 
 });
 </script>
