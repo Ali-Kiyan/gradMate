@@ -8,19 +8,54 @@ if(empty($_GET))
 ?>
 
 
-  <div class="well col-sm-6 col-sm-offset-3" id="weather">
+  <div class="well col-sm-6 col-sm-offset-3" id="CompanyProfile">
 
       <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
 
           <div class="form-group">
-              <label for="Country" class=" control-label">Country</label>
-              <input type="text" name="Country" class="form-control half" placeholder="Type your desired Country ...">
+              <label for="Country" class=" control-label">Company Name</label>
+              <input type="text" name="Company_name" class="form-control half" >
           </div>
           <div class="form-group">
-              <label for="City" class=" control-label">City</label>
-              <input type="text" name="City" class="form-control half" placeholder="Type your desired City ...">
+              <label for="City" class=" control-label">Website</label>
+              <input type="text" name="Company_website" class="form-control half" >
           </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Town</label>
+              <input type="text" name="Town" class="form-control half" >
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">County</label>
+              <input type="text" name="County" class="form-control half">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Main Tier</label>
+              <input type="text" name="Main_tier" class="form-control half">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Sub Tier</label>
+              <input type="text" name="Subtier" class="form-control half">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Industry</label>
+              <input type="text" name="Industry" class="form-control half">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Date added</label>
+              <input type="date" name="Date_added" class="form-control half">
+          </div>
+          <div class="form-group">
+              <label for="City" class=" control-label">Location</label>
+              <select name="" id="" class="form-control half">
+                <option disabled="disabled" selected="true">choose the location from the list </option>
+                <option value="">london</option>
+                <option value="">Manchester</option>
+
+              </select>
+          </div>
+
+
 
           <button type="submit" name="Fsubmit" class="btn btn-info Brown center">Forcast for tomorrow</button>
           <a href="./Dashboard.php" class="btn btn-warning Brown center">Back to Dashboard</a>
@@ -84,3 +119,16 @@ if(empty($_GET))
 }
 require_once "footer.phtml";
 ?>
+<script>
+$(document).ready(function(){
+TweenLite.fromTo($('#CompanyProfile'),3.7,{x: -500, rotationX: "-=40",rotationY: "-=30",ease: "Power4.easeOut"}, {x:0,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
+});
+</script>
+<style>
+
+#CompanyProfile{
+  opacity: 0;
+}
+
+
+</style>
