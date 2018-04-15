@@ -2,7 +2,7 @@
 require_once "Header.phtml";
 require_once "navAdmin.phtml";
 $connect = mysqli_connect("localhost","root","root","jobWizard");
-$query = "select u.company_name from UpdatedCompaniessd as u left join company as c on u.company_name = c.company_name where c.company_name is NULL limit 20";
+$query = "select u.company_name from UpdatedCompanies as u left join company as c on u.company_name = c.company_name where c.company_name is NULL limit 20";
 $result = mysqli_query($connect, $query);
 ?>
 

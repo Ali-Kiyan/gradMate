@@ -7,8 +7,8 @@ $('#showhideCV').click(function(){
 $('#hamburger-6').click(function(){
   $('#sideNav').toggle("slide",600);
       $('.hamburger').toggleClass('hamMargin',1000);
-      $('#tier2table').removeClass('col-xs-12');
       $('#tier2Table').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
+      $('.chart-container').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',600);
       $('.bluredSection').toggleClass('blur-all');
 });
 

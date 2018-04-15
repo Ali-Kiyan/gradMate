@@ -1,6 +1,3 @@
-<?php
-require_once "./header.phtml";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,22 +14,35 @@ require_once "./header.phtml";
         </div>
       </div>
 
-    <div class="login fade">
-      <div class="container">
+    <div class="login">
+      <div class="container-fluid">
           <div class="row">
-              <div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                  <div class="panel panel-default loginForm" style="background-color: #f7f7f7">
-                      <div class="panel-heading">Login</div>
+              <div class="col-xs-12">
+                  <div class="panel panel-default signUpForm fade">
+                      <div class="panel-heading">Sign Up</div>
                       <div class="panel-body">
-                          <form class="form-horizontal" role="form" method="POST" action="./superAdmin.php">
-                              <div class=" form-group">
-                                <img src="./assets/images/q.gif" alt="" class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
-                              </div>
+                          <form class="form-horizontal" role="form" method="POST" action="./admin-panel.php">
+
+
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+                                  <label for="username" class="col-xs-3 control-label">Username</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Username" value="">
+                                      <input id="username" class="form-control circle" name="username" value="">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="email" class="col-xs-3 control-label">Email Address</label>
+
+                                  <div class=" col-xs-9 col-md-7">
+                                      <input id="email" class="form-control circle" name="email" value="">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="adminCode" class="col-xs-3 control-label">Administrator secret key</label>
+
+                                  <div class=" col-xs-9 col-md-7">
+                                      <input id="adminCode" class="form-control circle" name="admincode" value="" placeholder="For siging up as an admin you have to enter administrator secret key">
                                   </div>
                               </div>
 
@@ -40,11 +50,11 @@ require_once "./header.phtml";
                                   <label for="password" class="col-xs-3 control-label">Password</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="password" type="password" class="form-control circle" name="Password">
+                                      <input id="password" type="password" class="form-control circle" name="password">
                                       <br>
-                                      <button type="submit" name="Lsubmit" class="btn btn-md btn-info circle">Login
+                                      <button type="submit" name="Lsubmit" class="btn btn-md btn-success circle">sign up
                                       </button>
-                                      <a href="./adminRegister.php" class="btn btn-md btn-warning circle">Sign Up!</a>
+                                      <a href="./companyLogin.phtml" class="btn btn-md btn-info circle">Back to login</a>
                                   </div>
                               </div>
 
@@ -72,11 +82,12 @@ require_once "./header.phtml";
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.login'),2,{x:0,y:-500,rotation: "-=100"}, {x:0,y:0,rotation: "+=100",opacity: 1});
+TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:150,rotation: "+=120",opacity: 1});
 
 });
 </script>
