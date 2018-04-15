@@ -8,13 +8,18 @@ $result = mysqli_query($connect, $query);
 
 
 <body id="admin-page">
+  <style>
+  #tier2table{
+    opacity: 0;
+  }
+  </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
   <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
   <script>
   $(document).ready(function(){
-  TweenLite.fromTo($('#tier2Table'),2,{y:-100,opacity:0}, {y:0,opacity:1});
+  TweenLite.fromTo($('#tier2Table'),2,{y:-100}, {y:0,opacity:1});
   });
   </script>
 
