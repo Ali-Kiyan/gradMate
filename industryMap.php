@@ -23,11 +23,11 @@ require_once "adminSideNav.phtml";
             <fieldset>
                 <label>Select Industry</label>
                 <select id='industry' name='layer' >
-                    <option value='water'>Water</option>
-                    <option value='building'>Buildings</option>
-                    <option value='building'>Buildings</option>
-                    <option value='building'>Buildings</option>
-                    <option value='building'>Buildings</option>
+                    <option value='Management'>Management</option>
+                    <option value='IT'>IT</option>
+                    <option value='Arts'>Arts</option>
+                    <option value='Finance'>Finance</option>
+                    <option value='Recruitment'>Recruitment</option>
                 </select>
             </fieldset>
         </div>
@@ -206,7 +206,9 @@ require_once "adminSideNav.phtml";
             pitch: 0,
             bearing: -10,
         });
-        $.getJSON("./itApi.php", function(data){
+        var apiURL = "./itApi.php?industry=" + this.value ;
+
+        $.getJSON(apiURL, function(data){
              map.addLayer({
                  "id": "points",
                  "source": {
