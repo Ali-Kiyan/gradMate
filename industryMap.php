@@ -22,7 +22,7 @@ require_once "adminSideNav.phtml";
     <div class='map-overlay-inner bluredSection'>
             <fieldset>
                 <label>Select Industry</label>
-                <select id='layer' name='layer'>
+                <select id='industry' name='layer' >
                     <option value='water'>Water</option>
                     <option value='building'>Buildings</option>
                     <option value='building'>Buildings</option>
@@ -61,6 +61,8 @@ require_once "adminSideNav.phtml";
             border-radius: 0px;
             padding: 10px;
             margin-bottom: 10px;
+            opacity: 0;
+
         }
 
         .map-overlay-inner fieldset {
@@ -122,7 +124,6 @@ require_once "adminSideNav.phtml";
         map.flyTo({
             // These options control the ending camera position: centered at
             // the target, at zoom level 9, and north up.
-              style: 'mapbox://styles/mapbox/basic-v9',
             center: [-2, 53],
             zoom: 6.5,
             bearing: 0,
@@ -256,8 +257,37 @@ require_once "adminSideNav.phtml";
         $('#industry').on('change', function(event){
           //prevent from submiting
           event.preventDefault();
+          map.flyTo({
+              // These options control the ending camera position: centered at
+              // the target, at zoom level 9, and north up.
+              center: [-2, 53],
+              zoom: 5.5,
+              bearing: 0,
+              // These options control the flight curve, making it move
+              // slowly and zoom out almost completely before starting
+              // to pan.
+              speed: 0.4, // make the flying slow
+              curve: 0.4, // change the speed at which it zooms out
+              pitch: 0,
+              bearing: -10,
+          });
+          setTimeout(function(){             map.flyTo({
+                      // These options control the ending camera position: centered at
+                      // the target, at zoom level 9, and north up.
+                      center: [-2, 53],
+                      zoom: 6.5,
+                      bearing: 0,
+                      // These options control the flight curve, making it move
+                      // slowly and zoom out almost completely before starting
+                      // to pan.
+                      speed: 0.4, // make the flying slow
+                      curve: 0.4, // change the speed at which it zooms out
+                      pitch: 90,
+                      bearing: -10,
+                  });
+ }, 7000);
 
-          alert('hello world');
+
 });
         });
 
@@ -275,7 +305,7 @@ require_once "footer.phtml";
 ?>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),2,{x:500}, {x:0,y:0,opacity: 1});
-TweenLite.fromTo($('.map-overlay-inner'),2,{x:-500}, {x:0,y:0,opacity: 1});
+TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:500}, {x:0,y:0,opacity: 1});
+TweenLite.fromTo($('.map-overlay-inner'),3,{x:-500}, {x:0,y:0,opacity: 1});
 });
 </script>
