@@ -189,110 +189,102 @@ require_once "adminSideNav.phtml";
         })
         return obj;
       }
-
-       $.getJSON("./mapData.php", function(data){
-            map.addLayer({
-                "id": "points",
-                "source": {
-                    "type": "geojson",
-                    "data": arrangeData(data)
-                },
-                "type": "circle",
-                "paint": {
-                "circle-radius":
-                      ["*",4, ["ln", ["get", "numOfCompany"]] ],
-
-                "circle-opacity": 0,
-                "circle-opacity-transition": {
-                  duration: 4000
-                },
-                "circle-color":
-                  ["interpolate",
-                    ["linear"], ['get', 'numOfCompany'], 10,
-                  'rgba(0, 247, 151, 0.43)',
-                  20,
-                  'rgba(0, 247, 151, 0.73)',
-                  30,
-                  'rgba(180, 250, 250, 0.67)',
-                  40,
-                  'rgba(159, 99, 255, 0.30)',
-                  50,
-                  'rgba(159, 99, 255, 0.40)',
-                  60,
-                  'rgba(159, 99, 255, 0.50)',
-                  70,
-                  'rgba(159, 99, 255, 0.67)',
-                  80,
-                  'rgba(221, 72, 201, 0.40)',
-                  90,
-                  'rgba(221, 72, 201, 0.67)',
-                  100,
-                  'rgba(240,255,0,0.5)',
-                  300,
-                  'rgba(238, 154, 11, 0.5)',
-                  500,
-                  'rgba(31, 228, 199, 0.5)',
-                  700,
-                  'rgba(26, 121, 232, 0.5)',
-                  800,
-                  'rgba(61, 26, 232, 0.5)',
-                  1000,
-                  'rgba(255, 25, 25, 0.74)',
-                  5000,
-                  'rgba(255, 0, 0, 0.77)',
-                  10000,
-                  'rgba(254, 5, 0, 0.91)',
-                  15000,
-                  'rgba(255, 5, 0, 1)'
-                  ]
-              }
-
+      $('#industry').on('change', function(event){
+        //prevent from submiting
+        event.preventDefault();
+        map.flyTo({
+            // These options control the ending camera position: centered at
+            // the target, at zoom level 9, and north up.
+            center: [-2, 53],
+            zoom: 5.5,
+            bearing: 0,
+            // These options control the flight curve, making it move
+            // slowly and zoom out almost completely before starting
+            // to pan.
+            speed: 0.4, // make the flying slow
+            curve: 0.4, // change the speed at which it zooms out
+            pitch: 0,
+            bearing: -10,
         });
+        $.getJSON("./itApi.php", function(data){
+             map.addLayer({
+                 "id": "points",
+                 "source": {
+                     "type": "geojson",
+                     "data": arrangeData(data)
+                 },
+                 "type": "circle",
+                 "paint": {
+                 "circle-radius":
+                       ["*",4, ["ln", ["get", "numOfCompany"]] ],
 
+                 "circle-opacity": 0,
+                 "circle-opacity-transition": {
+                   duration: 4000
+                 },
+                 "circle-color":
+                   ["interpolate",
+                     ["linear"], ['get', 'numOfCompany'], 10,
+                   'rgba(0, 247, 151, 0.43)',
+                   20,
+                   'rgba(0, 247, 151, 0.73)',
+                   30,
+                   'rgba(180, 250, 250, 0.67)',
+                   40,
+                   'rgba(159, 99, 255, 0.30)',
+                   50,
+                   'rgba(159, 99, 255, 0.40)',
+                   60,
+                   'rgba(159, 99, 255, 0.50)',
+                   70,
+                   'rgba(159, 99, 255, 0.67)',
+                   80,
+                   'rgba(221, 72, 201, 0.40)',
+                   90,
+                   'rgba(221, 72, 201, 0.67)',
+                   100,
+                   'rgba(240,255,0,0.5)',
+                   300,
+                   'rgba(238, 154, 11, 0.5)',
+                   500,
+                   'rgba(31, 228, 199, 0.5)',
+                   700,
+                   'rgba(26, 121, 232, 0.5)',
+                   800,
+                   'rgba(61, 26, 232, 0.5)',
+                   1000,
+                   'rgba(255, 25, 25, 0.74)',
+                   5000,
+                   'rgba(255, 0, 0, 0.77)',
+                   10000,
+                   'rgba(254, 5, 0, 0.91)',
+                   15000,
+                   'rgba(255, 5, 0, 1)'
+                   ]
+               }
+         });
+         setTimeout(function() {
+           map.flyTo({
+                       // These options control the ending camera position: centered at
+                       // the target, at zoom level 9, and north up.
+                       center: [-2, 53],
+                       zoom: 6.5,
+                       bearing: 0,
+                       // These options control the flight curve, making it move
+                       // slowly and zoom out almost completely before starting
+                       // to pan.
+                       speed: 0.4, // make the flying slow
+                       curve: 0.4, // change the speed at which it zooms out
+                       pitch: 90,
+                       bearing: -10,
+                   });
+           map.setPaintProperty('points', 'circle-opacity', 1);
+         }, 7400);
 
+         });
+         });
+      });
 
-        setTimeout(function() {
-          map.setPaintProperty('points', 'circle-opacity', 1);
-        }, 7400);
-        $('#industry').on('change', function(event){
-          //prevent from submiting
-          event.preventDefault();
-          map.flyTo({
-              // These options control the ending camera position: centered at
-              // the target, at zoom level 9, and north up.
-              center: [-2, 53],
-              zoom: 5.5,
-              bearing: 0,
-              // These options control the flight curve, making it move
-              // slowly and zoom out almost completely before starting
-              // to pan.
-              speed: 0.4, // make the flying slow
-              curve: 0.4, // change the speed at which it zooms out
-              pitch: 0,
-              bearing: -10,
-          });
-          setTimeout(function(){             map.flyTo({
-                      // These options control the ending camera position: centered at
-                      // the target, at zoom level 9, and north up.
-                      center: [-2, 53],
-                      zoom: 6.5,
-                      bearing: 0,
-                      // These options control the flight curve, making it move
-                      // slowly and zoom out almost completely before starting
-                      // to pan.
-                      speed: 0.4, // make the flying slow
-                      curve: 0.4, // change the speed at which it zooms out
-                      pitch: 90,
-                      bearing: -10,
-                  });
- }, 7000);
-
-
-});
-        });
-
-
-    });
 
 
 
