@@ -27,11 +27,9 @@ crossorigin="anonymous"></script>
     <?php
     require_once "adminSideNav.phtml";
     ?>
-<<<<<<< HEAD
-  <div class="container">
-=======
+
+
   <div class="container bluredSection">
->>>>>>> c468ab24cb1e1382175e6f3cec0c04840d919b7f
     <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
@@ -55,11 +53,8 @@ crossorigin="anonymous"></script>
 
     </form>
 
-<<<<<<< HEAD
-    <div class="chart-container" class="col-xs-10" style="position:reletive;">
-=======
+
     <div class="chart-container col-xs-12" style="position:reletive;">
->>>>>>> c468ab24cb1e1382175e6f3cec0c04840d919b7f
 
         <canvas id="pie"></canvas>
 
