@@ -77,13 +77,18 @@ require_once "adminSideNav.phtml";
     </style>
     <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
+    var bounds = [
+        [-24.27974 , 42.29207], // Southwest coordinates
+        [40.18315, 62.10294]  // Northeast coordinates
+    ];
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
-    center: [-1, 35], // starting position
-    zoom: 3, // starting zoom
-    bearing: 30,
-    pitch: 0
+    center: [-1, 60], // starting position
+    zoom: 1, // starting zoom
+    bearing: 50,
+    pitch: 0,
+    maxBounds: bounds
     });
     var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken
@@ -164,7 +169,10 @@ require_once "adminSideNav.phtml";
        //         ]
        //     }
        // });
-
+       var bounds = [
+           [-74.04728500751165, 40.68392799015035], // Southwest coordinates
+           [-73.91058699000139, 40.87764500765852]  // Northeast coordinates
+       ];
 
       var arrangeData = function(data){
         var obj = {
@@ -242,7 +250,7 @@ require_once "adminSideNav.phtml";
 
                  "circle-opacity": 0,
                  "circle-opacity-transition": {
-                   duration: 4000
+                   duration: 6000
                  },
                  "circle-color":
                    ["interpolate",
