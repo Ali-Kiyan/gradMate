@@ -197,7 +197,7 @@ require_once "adminSideNav.phtml";
             // These options control the ending camera position: centered at
             // the target, at zoom level 9, and north up.
             center: [-2, 53],
-            zoom: 5.5,
+            zoom: 5.4,
             bearing: 0,
             // These options control the flight curve, making it move
             // slowly and zoom out almost completely before starting
