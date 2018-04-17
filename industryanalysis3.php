@@ -9,42 +9,51 @@ require_once "navAdmin.phtml";
 <link rel="stylesheet" href="./assets/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <!-- <script src="./assets/js/bootstrap-select.min.js"></script> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-  <?php
-  require_once "adminSideNav.phtml";
-  ?>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+crossorigin="anonymous"></script>
+
+
+</script>
 
 <body>
 
+  <div class="container-fluid">
+    <?php
+    require_once "adminSideNav.phtml";
+    ?>
   <div class="container">
-
-  <div class="container bluredSection">
-    <form action="./industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
+    <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
           </select>
-          <select class="from-control input-sm" id="chartType">
+          <select class="from-control input-sm" id="chartType" hidden>
             <option value="">Select Chart Type</option>
-            <option value="line">Line</option>
-            <option value="bar">Bar</option>
-            <option value="radar">Radar</option>
-            <option value="doughnut">Doughnut</option>
-            <option value="pie">Pie</option>
-            <option value="polarArea">Polar Area</option>
+            <option value="radar" selected="selected">Radar</option>
           </select>
           <br>
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
-          <a href="#" class="a">dasdas</a>
+    </form>
+    <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker2" method="post">
+          <select class="from-control input-sm" id="citySelect2">
+            <option value="">Select County</option>
+          </select>
+          <br>
+          <br>
+          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
+
+
     </form>
 
-    <div class="chart-container col-xs-12">
+    <div class="chart-container" class="col-xs-10" style="position:reletive;">
 
-        <canvas id="pie" class="fade"></canvas>
+        <canvas id="pie"></canvas>
 
     </div>
 
@@ -64,23 +73,23 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
-var vs;
+  var vs;
 
-  TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
-  TweenLite.fromTo($('#chartType'),1.5,{x:1000,opacity:0, rotationX: "-=210"}, {x:0,opacity:1, rotationX: "+=210"});
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county
     })
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
+      $('#citySelect2').append('<option val="'+ element +'">'+ element +'</option>');
     })
     console.log(counties);
    });
+
+
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
-    TweenLite.fromTo($('#pie'),3,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
     var that = $(this);
     var url = that.attr('action');
     var type = that.attr('method');
@@ -102,13 +111,30 @@ var vs;
         for (var j=1; j<d.length; j++) {
          qq.push( d[j].num);
         }
+        $('#cityPicker2').on('change', function(event){
+          event.preventDefault();
+          var that = $(this);
+          var url2 = that.attr('action');
+          var type2 = that.attr('method');
+          var cdata2 = {};
+          cdata2.county = $('#citySelect2').val();
+            if($('#citySelect2').val() != ''){
+              $.ajax({
+                url: url2,
+                type: type2,
+                data: cdata2,
+                success: function(response){
+                  var r = response;
+                  var bb = [];
+                  for (var j=1; j<r.length; j++) {
+                   bb.push( r[j].num);
         var chartData = {
           labels: pp,
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'Companies',
+              label : 'First',
               backgroundColor: [
                'rgba(255, 99, 132, 0.2)',
                'rgba(54, 162, 235, 0.2)',
@@ -120,7 +146,7 @@ var vs;
            ],
               borderWidth: 0.5,
               hoverBackgroundColor:  [
-               'rgba(245, 7, 45, 0.9)',
+               'rgba(255, 255, 255, 1)',
                'rgba(0, 152, 255, 1)',
                'rgba(255, 206, 85, 1)',
                'rgba(75, 193, 193, 1)',
@@ -130,7 +156,7 @@ var vs;
            ],
               pointStyle: 'Doughnut',
               borderColor: [
-               'rgba(224, 27, 58, 1)',
+               'rgba(255,99,132,1)',
                'rgba(54, 162, 235, 1)',
                'rgba(255, 206, 86, 1)',
                'rgba(75, 192, 192, 1)',
@@ -142,27 +168,58 @@ var vs;
 
               data: qq,
             },
+            {
+              label : 'Second',
+              backgroundColor: [
+               'rgba(44, 99, 132, 0.7)',
+               'rgba(200, 206, 16, 0.7)',
+               'rgba(130, 102, 255, 0.7)',
+               'rgba(44, 162, 235, 0.7)',
+               'rgba(220, 236, 64, 0.7)',
+                'rgba(10, 92, 22, 0.7)',
+                'rgba(30, 392, 192, 0.7)',
+           ],
+              borderWidth: 0.5,
+              hoverBackgroundColor:  [
+               'rgba(255, 255, 255, 1)',
+               'rgba(0, 152, 255, 1)',
+               'rgba(255, 206, 85, 1)',
+               'rgba(75, 193, 193, 1)',
+               'rgba(153, 102, 255, 1)',
+               'rgba(255, 159, 64, 1)',
+               'rgba(255, 236, 64, 1)',
+           ],
+              pointStyle: 'Doughnut',
+              borderColor: [
+               'rgba(44, 99, 132, 1)',
+               'rgba(200, 206, 16, 1)',
+               'rgba(130, 102, 255, 1)',
+               'rgba(44, 162, 235, 1)',
+               'rgba(220, 236, 64, 1)',
+                'rgba(10, 92, 22, 1)',
+                'rgba(30, 392, 192, 1)',
+           ],
+
+
+              data: bb,
+            }
           ],
 
 
         }
-        $('#chartType').on('change', function(){
-          if(vs !== undefined)
-          vs.update();
-        });
 
         var pie = $('#pie');
-        if (vs) {
-            vs.destroy();
-          }
+        if(vs){
+          vs.destroy();
+        }
          vs = new Chart(pie, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
           options:{
             animation: {
-              duration: 3000,
-              easing: 'easeInQuad'
+              duration: 2000,
+              easing: 'linear'
             },
             elements: {
               point: {
@@ -185,7 +242,7 @@ var vs;
             },
             legend:{
             display:true,
-            position:'bottom',
+            position:'right',
             labels:{
               fontColor:'#000',
 
@@ -193,25 +250,40 @@ var vs;
           },
                 tooltips: {
                   fontFamily: 'Dosis'
-                },
-                responsive: true,
-
+                }
              },
 
 
-        });
 
+
+
+
+
+        });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
-        Chart.defaults.global.defaultFontSize = 10;
-                vs.update();
+        Chart.defaults.global.defaultFontSize = 18;
+        vs.update();
       }
+    }
+   });
+}
+});
+
+
+
+
+      }
+
+
     });
+
     }
     else{
       alert("Please select a city.");
       return false;
     }
+
 
   });
 
@@ -235,9 +307,5 @@ var vs;
     });
   }
 });
-
-</script>
-<script src="industryPerCountyChart.js">
-
 
 </script>

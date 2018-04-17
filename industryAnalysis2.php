@@ -32,14 +32,9 @@ crossorigin="anonymous"></script>
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
           </select>
-          <select class="from-control input-sm" id="chartType">
+          <select class="from-control input-sm" id="chartType" hidden>
             <option value="">Select Chart Type</option>
-            <option value="line">Line</option>
-            <option value="bar">Bar</option>
-            <option value="radar">Radar</option>
-            <option value="doughnut">Doughnut</option>
-            <option value="pie">Pie</option>
-            <option value="polarArea">Polar Area</option>
+            <option value="line" selected="selected">Line</option>
           </select>
           <br>
           <br>
@@ -52,6 +47,8 @@ crossorigin="anonymous"></script>
           <br>
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
+
+
     </form>
 
     <div class="chart-container" class="col-xs-10" style="position:reletive;">
@@ -280,6 +277,7 @@ $(document).ready(function(){
       alert("Please select a city.");
       return false;
     }
+
 
   });
 
