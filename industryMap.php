@@ -86,7 +86,7 @@ require_once "adminSideNav.phtml";
     style: 'mapbox://styles/mapbox/dark-v9',
     center: [-1, 60], // starting position
     zoom: 1, // starting zoom
-    bearing: 50,
+    bearing: 250,
     pitch: 0,
     maxBounds: bounds
     });
@@ -206,14 +206,13 @@ require_once "adminSideNav.phtml";
             // the target, at zoom level 9, and north up.
             center: [-2, 53],
             zoom: 5.4,
-            bearing: 0,
             // These options control the flight curve, making it move
             // slowly and zoom out almost completely before starting
             // to pan.
             speed: 0.4, // make the flying slow
             curve: 0.4, // change the speed at which it zooms out
             pitch: 0,
-            bearing: -10,
+            bearing: 0,
         });
 
         var apiURL = "./itApi.php?industry=" + this.value ;

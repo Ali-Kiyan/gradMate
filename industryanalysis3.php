@@ -56,7 +56,7 @@ crossorigin="anonymous"></script>
 
     <div class="chart-container col-xs-12" style="position:reletive;">
 
-        <canvas id="pie"></canvas>
+        <canvas id="pie" width="100vw" height="50vh"></canvas>
 
     </div>
 
@@ -85,8 +85,7 @@ $(document).ready(function(){
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
       $('#citySelect2').append('<option val="'+ element +'">'+ element +'</option>');
-    })
-    console.log(counties);
+    });
    });
 
 
@@ -305,8 +304,7 @@ $(document).ready(function(){
      })
      counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-     })
-     console.log(counties);
+    });
     });
   }
 });
