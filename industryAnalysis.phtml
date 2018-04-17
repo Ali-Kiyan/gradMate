@@ -39,7 +39,6 @@ require_once "navAdmin.phtml";
           <br>
           <br>
           <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
-          <a href="#" class="a">dasdas</a>
     </form>
 
     <div class="chart-container col-xs-12">
@@ -74,8 +73,7 @@ var vs;
     })
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-    })
-    console.log(counties);
+    });
    });
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
@@ -227,11 +225,10 @@ var vs;
    $.getJSON("./companiespercounty.php", function(data){
      var counties = data.map(function(element){
        return element.county
-     })
+     });
      counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-     })
-     console.log(counties);
+    });
     });
   }
 });
