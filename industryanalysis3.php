@@ -34,7 +34,7 @@ crossorigin="anonymous"></script>
           </select>
           <select class="from-control input-sm" id="chartType" hidden>
             <option value="">Select Chart Type</option>
-            <option value="line" selected="selected">Line</option>
+            <option value="radar" selected="selected">Radar</option>
           </select>
           <br>
           <br>
@@ -53,7 +53,7 @@ crossorigin="anonymous"></script>
 
     <div class="chart-container col-xs-12" style="position:reletive;">
 
-        <canvas id="pie" width="100vw" height="50vh"></canvas>
+        <canvas id="pie"></canvas>
 
     </div>
 
@@ -73,6 +73,7 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
+  var vs;
 
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
@@ -206,8 +207,12 @@ $(document).ready(function(){
 
 
         }
+
         var pie = $('#pie');
-        var pie = new Chart(pie, {
+        if(vs){
+          vs.destroy();
+        }
+         vs = new Chart(pie, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
@@ -258,6 +263,7 @@ $(document).ready(function(){
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
         Chart.defaults.global.defaultFontSize = 18;
+        vs.update();
       }
     }
    });
@@ -301,9 +307,5 @@ $(document).ready(function(){
     });
   }
 });
-
-</script>
-<script src="industryPerCountyChart.js">
-
 
 </script>
