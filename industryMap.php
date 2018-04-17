@@ -137,33 +137,33 @@ require_once "adminSideNav.phtml";
         });
 
 
-        map.addLayer({
-           'id': 'population',
-           'type': 'circle',
-           'source': {
-               type: 'vector',
-               url: 'mapbox://examples.8fgz4egr'
-           },
-           'source-layer': 'sf2010',
-           'paint': {
-               // make circles larger as the user zooms from z12 to z22
-               'circle-radius': {
-                   'base': 1.75,
-                   'stops': [[12, 2], [22, 180]]
-               },
-               // color circles by ethnicity, using a match expression
-               // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-               'circle-color': [
-                   'match',
-                   ['get', 'ethnicity'],
-                   'White', '#fbb03b',
-                   'Black', '#223b53',
-                   'Hispanic', '#e55e5e',
-                   'Asian', '#3bb2d0',
-                   /* other */ '#ccc'
-               ]
-           }
-       });
+       //  map.addLayer({
+       //     'id': 'population',
+       //     'type': 'circle',
+       //     'source': {
+       //         type: 'vector',
+       //         url: 'mapbox://examples.8fgz4egr'
+       //     },
+       //     'source-layer': 'sf2010',
+       //     'paint': {
+       //         // make circles larger as the user zooms from z12 to z22
+       //         'circle-radius': {
+       //             'base': 1.75,
+       //             'stops': [[12, 2], [22, 180]]
+       //         },
+       //         // color circles by ethnicity, using a match expression
+       //         // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+       //         'circle-color': [
+       //             'match',
+       //             ['get', 'ethnicity'],
+       //             'White', '#fbb03b',
+       //             'Black', '#223b53',
+       //             'Hispanic', '#e55e5e',
+       //             'Asian', '#3bb2d0',
+       //             /* other */ '#ccc'
+       //         ]
+       //     }
+       // });
 
 
       var arrangeData = function(data){
@@ -172,7 +172,7 @@ require_once "adminSideNav.phtml";
           features:[]
         };
         data.forEach(function(element){
-          console.log(element);
+          // console.log(element);
                obj.features.push({
                  "type": "Feature",
                  "geometry": {
@@ -189,6 +189,7 @@ require_once "adminSideNav.phtml";
         })
         return obj;
       }
+      var apiURL;
       $('#industry').on('change', function(event){
         //prevent from submiting
         event.preventDefault();
@@ -206,9 +207,28 @@ require_once "adminSideNav.phtml";
             pitch: 0,
             bearing: -10,
         });
+
         var apiURL = "./itApi.php?industry=" + this.value ;
 
         $.getJSON(apiURL, function(data){
+          // if(map.getLayer('point')){
+          //   map.removeLayer('point');
+          // }
+          if(map.getLayer('points')){
+            map.removeLayer('points');
+          }
+          if(map.getSource('points')){
+            map.removeSource('points');
+          }
+          // map.removeLayer('point');
+          // map.removeSource('point');
+          console.log(map.getSource('points'));
+          // console.log(map.getStyle().layers);
+          // console.log(map.getStyle().sources);
+
+          console.log(map.getLayer('point'));
+          console.log(map.getLayer('points'));
+
              map.addLayer({
                  "id": "points",
                  "source": {
@@ -286,10 +306,6 @@ require_once "adminSideNav.phtml";
          });
          });
       });
-
-
-
-
 
     </script>
 </body>
