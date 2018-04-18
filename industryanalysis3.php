@@ -117,6 +117,9 @@ $(document).ready(function(){
         if(vs){
           vs.destroy();
         }
+        function largerCompany(first, second){
+          return (first.length > second.length ? first : second);
+        }
         $('#cityPicker2').on('change', function(event){
           event.preventDefault();
           var that = $(this);
@@ -131,11 +134,15 @@ $(document).ready(function(){
                 data: cdata2,
                 success: function(response){
                   var r = response;
+                  var aa = [];
                   var bb = [];
+                  for (var i=0; i<r.length; i++) {
+                   aa.push( r[i].industry);
+                  }
                   for (var j=0; j<r.length; j++) {
                    bb.push( r[j].num);
          chartData = {
-          labels: pp,
+          labels: aa,
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
