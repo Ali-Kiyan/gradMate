@@ -43,7 +43,7 @@ require_once "navAdmin.phtml";
 
     <div class="chart-container col-xs-12">
 
-        <canvas id="pie" class="fade" width="100vw" height="50vh"></canvas>
+        <canvas id="pie" class="fade" width="100vw" height="60vh"></canvas>
 
     </div>
 
@@ -193,6 +193,8 @@ var vs;
                   fontFamily: 'Dosis'
                 },
                 responsive: true,
+                maintainAspectRation: true,
+                fullwidth: true,
 
              },
 
@@ -201,7 +203,7 @@ var vs;
 
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
-        Chart.defaults.global.defaultFontSize = 10;
+        Chart.defaults.global.defaultFontSize = 7;
                 vs.update();
       }
     });

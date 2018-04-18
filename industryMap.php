@@ -1,6 +1,9 @@
 <?php
 require_once "header.phtml";
 require_once "adminSideNav.phtml";
+$connect = mysqli_connect("localhost","root","root","jobWizard");
+$query = "select DISTINCT industry from company";
+$result = mysqli_query($connect, $query);
 ?>
 
 
@@ -23,11 +26,12 @@ require_once "adminSideNav.phtml";
             <fieldset>
                 <label>Select Industry</label>
                 <select id='industry' name='layer' >
-                    <option value='Management'>Management</option>
-                    <option value='IT'>IT</option>
-                    <option value='Arts'>Arts</option>
-                    <option value='Finance'>Finance</option>
-                    <option value='Recruitment'>Recruitment</option>
+                    <option value=''>Please Choose the industry</option>
+                    <?php
+                    while($row = mysqli_fetch_array($result)){
+                      echo "<option value=\"" . $row["industry"] . "\">" . $row["industry"] ."</option>";
+                    }
+                    ?>
                 </select>
             </fieldset>
         </div>
