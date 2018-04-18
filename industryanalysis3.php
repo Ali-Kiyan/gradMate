@@ -77,6 +77,7 @@ require_once "footer.phtml";
 
 $(document).ready(function(){
   var vs;
+  var chartData;
 
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
@@ -113,6 +114,9 @@ $(document).ready(function(){
         for (var j=1; j<d.length; j++) {
          qq.push( d[j].num);
         }
+        if(vs){
+          vs.destroy();
+        }
         $('#cityPicker2').on('change', function(event){
           event.preventDefault();
           var that = $(this);
@@ -130,7 +134,7 @@ $(document).ready(function(){
                   var bb = [];
                   for (var j=1; j<r.length; j++) {
                    bb.push( r[j].num);
-        var chartData = {
+         chartData = {
           labels: pp,
           backgroundColor: 'black',
           fontFamily: 'Dosis',

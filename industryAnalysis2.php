@@ -73,7 +73,7 @@ require_once "footer.phtml";
 
 
 $(document).ready(function(){
-
+  var vs;
   $.getJSON("./companiespercounty.php", function(data){
     var counties = data.map(function(element){
       return element.county
@@ -109,6 +109,9 @@ $(document).ready(function(){
         }
         for (var j=1; j<d.length; j++) {
          qq.push( d[j].num);
+        }
+        if(vs){
+          vs.destroy();
         }
         $('#cityPicker2').on('change', function(event){
           event.preventDefault();
@@ -207,7 +210,10 @@ $(document).ready(function(){
 
         }
         var pie = $('#pie');
-        var pie = new Chart(pie, {
+        if(vs){
+          vs.destroy();
+        }
+         vs = new Chart(pie, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
@@ -258,6 +264,7 @@ $(document).ready(function(){
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
         Chart.defaults.global.defaultFontSize = 18;
+        vs.update();
       }
     }
    });
