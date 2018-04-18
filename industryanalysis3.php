@@ -108,10 +108,10 @@ $(document).ready(function(){
         var d = response;
         var pp = [];
         var qq = [];
-        for (var i=1; i<d.length; i++) {
+        for (var i=0; i<d.length; i++) {
          pp.push( d[i].industry);
         }
-        for (var j=1; j<d.length; j++) {
+        for (var j=0; j<d.length; j++) {
          qq.push( d[j].num);
         }
         if(vs){
@@ -132,7 +132,7 @@ $(document).ready(function(){
                 success: function(response){
                   var r = response;
                   var bb = [];
-                  for (var j=1; j<r.length; j++) {
+                  for (var j=0; j<r.length; j++) {
                    bb.push( r[j].num);
          chartData = {
           labels: pp,
