@@ -142,7 +142,7 @@ $(document).ready(function(){
                   for (var j=0; j<r.length; j++) {
                    bb.push( r[j].num);
          chartData = {
-          labels: aa,
+          labels: largerCompany(aa,pp),
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
