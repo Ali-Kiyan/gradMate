@@ -127,14 +127,19 @@ $(document).ready(function(){
                 data: cdata2,
                 success: function(response){
                   var r = response;
+                  var aa = [];
                   var bb = [];
+                  for (var i=0; i<r.length; i++) {
+                   aa.push( r[i].industry);
+                  }
                   for (var j=0; j<r.length; j++) {
                    bb.push( r[j].num);
                function largerCompany(first,second){
                 return (first.length > second.length ? first : second);
                }
+               console.log(largerCompany(aa,pp));
         var chartData = {
-          labels: largerCompany(pp,bb),
+          labels: largerCompany(pp,aa),
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
@@ -228,7 +233,7 @@ $(document).ready(function(){
         });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
-        Chart.defaults.global.defaultFontSize = 10;
+        Chart.defaults.global.defaultFontSize = 8;
         vs.update();
       }
     }
