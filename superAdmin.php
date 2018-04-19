@@ -40,7 +40,7 @@ $result = mysqli_query($connect, $query);
       echo '<tr>
       <td>'.$row['company_name'].'</td>
       <td>
-      <a href="#" class="btn btn-md btn-info circle">Add to the Company list</a>
+      <a href="./addingCompany.phtml" class="btn btn-md btn-info circle">Add to the Company list</a>
       </td>
       </tr>';
     }
