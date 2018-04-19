@@ -24,7 +24,6 @@ $result = mysqli_query($connect, $query);
     <div class='map-overlay top'>
     <div class='map-overlay-inner bluredSection'>
             <fieldset>
-                <label>Select Industry</label>
                 <select id='industry' name='layer' >
                     <option value=''>Please Choose the industry</option>
                     <?php
@@ -60,8 +59,6 @@ $result = mysqli_query($connect, $query);
         }
 
         .map-overlay .map-overlay-inner {
-            background-color: #fff;
-            box-shadow:0 1px 2px rgba(0, 0, 0, 0.10);
             border-radius: 0px;
             padding: 10px;
             margin-bottom: 10px;
