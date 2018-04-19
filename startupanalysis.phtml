@@ -216,7 +216,7 @@ $result = mysqli_query($connect, $query);
             bearing: 0,
         });
 
-        var apiURL = "./stabilityApi.php?type=stable&industry=" + this.value ;
+        var apiURL = "./stabilityApi.php?type=startup&industry=" + this.value ;
 
         $.getJSON(apiURL, function(data){
           // if(map.getLayer('point')){
