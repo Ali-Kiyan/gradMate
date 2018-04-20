@@ -66,5 +66,8 @@ require_once "footer.phtml";
 table{
   margin-top: 0;
 }
+#tier2Table{
+  background-color: rgba(255,255,255,0.3);
+}
 
 </style>

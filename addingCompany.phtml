@@ -15,7 +15,7 @@ require_once "navAdmin.phtml";
      ?>
      <br>
      <br>
-                    <div class="well col-sm-6 col-sm-offset-3 bluredSection" id="weather" <?php if(isset($_GET['Country']) && isset($_GET['City']) ){ echo 'style=""';} ?>>
+                    <div class="well col-sm-6 col-sm-offset-3 bluredSection" id="addingCompany" <?php if(isset($_GET['Country']) && isset($_GET['City']) ){ echo 'style=""';} ?>>
 
                         <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
@@ -58,7 +58,7 @@ require_once "navAdmin.phtml";
                             </div>
 
                             <button type="submit" name="Fsubmit" class="btn-sm btn-info Brown center circle">Forcast for tomorrow</button>
-                            <a href="./Dashboard.php" class="btn btn-sm btn-warning Brown center circle">Back to Dashboard</a>
+                            <a href="./superAdmin.php" class="btn btn-sm btn-warning Brown center circle">Back to Dashboard</a>
 
                         </form>
 
@@ -69,7 +69,15 @@ require_once "navAdmin.phtml";
                     </div>
 
   </div>
+<style>
 
+
+    #addingCompany{
+      background-color: rgba(255,255,255,0.3);
+    }
+
+
+</style>
 <?php
 require_once "footer.phtml";
 ?>
