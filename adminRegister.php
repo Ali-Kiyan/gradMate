@@ -21,35 +21,36 @@
                   <div class="panel panel-default signUpForm fade">
                       <div class="panel-heading">Sign Up</div>
                       <div class="panel-body">
+                        <br>
                           <form class="form-horizontal" role="form" method="POST" action="./admin-panel.php">
 
 
                               <div class="form-group">
-                                  <label for="username" class="col-xs-3 control-label">Username</label>
+                                  <label for="username" class="col-xs-4 control-label">Username</label>
 
-                                  <div class=" col-xs-9 col-md-7">
+                                  <div class=" col-xs-7 col-md-5">
                                       <input id="username" class="form-control circle" name="username" value="">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="email" class="col-xs-3 control-label">Email Address</label>
+                                  <label for="email" class="col-xs-4 control-label">Email Address</label>
 
-                                  <div class=" col-xs-9 col-md-7">
+                                  <div class=" col-xs-7 col-md-5">
                                       <input id="email" class="form-control circle" name="email" value="">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="adminCode" class="col-xs-3 control-label">Administrator secret key</label>
+                                  <label for="adminCode" class="col-xs-4 control-label">Administrator secret key</label>
 
-                                  <div class=" col-xs-9 col-md-7">
+                                  <div class=" col-xs-7 col-md-5">
                                       <input id="adminCode" class="form-control circle" name="admincode" value="" placeholder="For siging up as an admin you have to enter administrator secret key">
                                   </div>
                               </div>
 
                               <div class="form-group">
-                                  <label for="password" class="col-xs-3 control-label">Password</label>
+                                  <label for="password" class="col-xs-4 control-label">Password</label>
 
-                                  <div class=" col-xs-9 col-md-7">
+                                  <div class=" col-xs-7 col-md-5">
                                       <input id="password" type="password" class="form-control circle" name="password">
                                       <br>
                                       <button type="submit" name="Lsubmit" class="btn btn-md btn-success circle">sign up
@@ -57,15 +58,6 @@
                                       <a href="./companyLogin.phtml" class="btn btn-md btn-info circle">Back to login</a>
                                   </div>
                               </div>
-
-
-                              <div class="form-group">
-                                  <div class="col-xs-12">
-
-                                  </div>
-                              </div>
-                              <br>
-                              <?php echo " $view->result"; ?>
                           </form>
                       </div>
                   </div>
