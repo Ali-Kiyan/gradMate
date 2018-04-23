@@ -57,6 +57,7 @@ $result = mysqli_query($connect, $query);
 
 <?php
 require_once "footer.phtml";
+//select count(*) as num, date_added from company where industry = 'IT' group by YEAR(date_added)
 ?>
 <link rel="stylesheet" href="z.css">
 
