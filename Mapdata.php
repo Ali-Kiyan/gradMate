@@ -1,5 +1,7 @@
 <?php
 header('Content-Type: application/json');
+header('secretToken: 007');
+
 $connect = mysqli_connect("localhost","root","root","jobWizard");
 $cData = json_decode(file_get_contents('http://localhost:8888/dissertation/companiesPerCounty.php'), true);
 $numOfCompany = array();
