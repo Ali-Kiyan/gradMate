@@ -42,9 +42,8 @@ require_once "./header.phtml";
                                   <div class=" col-xs-9 col-md-7">
                                       <input id="password" type="password" class="form-control circle" name="Password">
                                       <br>
-                                      <button type="submit" name="Lsubmit" class="btn btn-md btn-info circle">Login
+                                      <button type="submit" name="Lsubmit" class="btn btn-md btn-info circle center">Login
                                       </button>
-                                      <a href="./adminRegister.php" class="btn btn-md btn-warning circle">Sign Up!</a>
                                   </div>
                               </div>
 
@@ -76,7 +75,7 @@ require_once "./header.phtml";
 </body>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.login'),2,{x:0,y:-500,rotation: "-=100"}, {x:0,y:0,rotation: "+=100",opacity: 1});
+TweenLite.fromTo($('.login'),2,{z:10,y:1000,rotation: "-=70"}, {z:0,y:0,rotation: "+=70",opacity: 1});
 
 });
 </script>

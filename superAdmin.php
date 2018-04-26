@@ -26,6 +26,7 @@ $result = mysqli_query($connect, $query);
 
   <div class="col-xs-12 fade" id="tier2Table">
            <p>Newly added Tier 2 sponsoring companies</p>
+           <a href="./adminRegister.php" class="btn btn-md btn-warning circle"> adding users</a>
    <table id="companyData" class="table table-hover table-bordered">
    <thead>
 

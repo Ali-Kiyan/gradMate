@@ -25,6 +25,25 @@
                           <form class="form-horizontal" role="form" method="POST" action="./admin-panel.php">
 
 
+
+
+                            <div class="form-group">
+                                <label for="firstName" class="col-xs-4 control-label">First Name</label>
+
+                                <div class=" col-xs-7 col-md-5">
+                                    <input id="firstName" class="form-control circle" name="firstName" value="">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="LastName" class="col-xs-4 control-label">Last Name</label>
+
+                                <div class=" col-xs-7 col-md-5">
+                                    <input id="LastName" class="form-control circle" name="LastName" value="">
+                                </div>
+                            </div>
+
                               <div class="form-group">
                                   <label for="username" class="col-xs-4 control-label">Username</label>
 
@@ -37,13 +56,6 @@
 
                                   <div class=" col-xs-7 col-md-5">
                                       <input id="email" class="form-control circle" name="email" value="">
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="adminCode" class="col-xs-4 control-label">Administrator secret key</label>
-
-                                  <div class=" col-xs-7 col-md-5">
-                                      <input id="adminCode" class="form-control circle" name="admincode" value="" placeholder="For siging up as an admin you have to enter administrator secret key">
                                   </div>
                               </div>
 
@@ -79,7 +91,7 @@
 </body>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:150,rotation: "+=120",opacity: 1});
+TweenLite.fromTo($('.signUpForm'),2,{z:+300,y:-900,rotation: "-=50"}, {z:0,y:150,rotation: "+=50",opacity: 1});
 
 });
 </script>
