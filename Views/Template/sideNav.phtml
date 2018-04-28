@@ -1,0 +1,106 @@
+<div class="hamburger" id="hamburger-6">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+
+<div id="sideNav" class="col-xs-3 col-md-2" style="display:none;">
+  <ul class="sideLinks">
+    <li><a href="./profile.phtml" class="btn btn-sm"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a></li>
+    <li><a href="#" class="btn btn-sm" id="showhideAnalysis"><i class="fa fa-chevron-down" aria-hidden="true"></i> Analysis</a>
+      <div id="charts" style="display:none;">
+        <a href="wordmap.phtml" class="btn btn-sm"><i class="fa fa-line-chart" aria-hidden="true"></i> sector</a>
+        <!-- <a href="sectorStats.phtml" class="btn btn-sm"><i class="fa fa-bar-chart" aria-hidden="true"></i> analysis</a> -->
+      </div>
+    </li>
+    <li><a href="industryAnalysis.phtml" class="btn btn-sm"><i class="fa fa-map" aria-hidden="true"></i> Sector</a></li>
+    <li><a href="#" class="btn btn-sm" id="showhideCV"><i class="fa fa-chevron-down" aria-hidden="true"></i> Compound</a>
+      <div id="cvs" style="display:none;">
+        <a href="./industryAnalysis2.php" class="btn btn-sm"><i class="fa fa-line-chart" aria-hidden="true"></i> Line</a>
+        <a href="./industryAnalysis3.php" class="btn btn-sm"><i class="fa fa-pie-chart" aria-hidden="true"></i> Radar</a>
+        <!-- <a href="#" class="btn btn-sm"><i class="fa fa-bar-chart" aria-hidden="true"></i> Map</a> -->
+      </div>
+    </li>
+        <li><a href="industryAnalysis.phtml" class="btn btn-sm"><i class="fa fa-map-marker" aria-hidden="true"></i> County</a></li>
+        <li><a href="./industryMap.php" class="btn btn-sm"><i class="fa fa-map-signs" aria-hidden="true"></i> Industry Map</a></li>
+        <li><a href="./stabilityAnalysis.phtml" class="btn btn-sm"><i class="fa fa-map-pin" aria-hidden="true"></i> Stability</a></li>
+        <li><a href="./startupanalysis.phtml" class="btn btn-sm"><i class="fa fa-map-o" aria-hidden="true"></i> StartUp</a></li>
+  </ul>
+</div>
+<style>
+.six {
+  width: 49.2%;
+}
+#sideNav{
+  background-color: black;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #ddefee;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+.sideLinks{
+  background-color: #ddefee;
+  text-decoration: none;
+  list-style: none;
+  padding-left: 0px;
+
+}
+.sideLinks .btn-sm{
+  color: rgba(85, 85, 85, 0.71) !important;
+}
+.sideLinks> li > .btn-success:focus{
+  background-color: #41394c !important;
+}
+.sideLinks a:hover {
+background-color: #fcfcfc;
+border: solid 0.004vh #707070;
+border-left: solid 0.6vh #71daed;
+}
+.sideLinks li > a{
+  width: 100%;
+    color: rgba(#595959, 0.71) !important;
+    border-radius: 0px;
+    background-color: #ddefee;
+    border-size: 1px;
+    border-width: 0;
+    border-color: black;
+    text-align: left;
+    padding: 2vh 0px 2vh 3vh;
+    border: solid #f3ffed 0.1px;
+}
+#charts a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #ddefee;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#charts a:hover{
+  background-color: #ddefee;
+  border: solid 0.004vh #b7c780;
+  border-left: solid 0.6vh #c3eaaa;
+}
+#cvs a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #ddefee;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#cvs a:hover{
+  background-color: #ddefee;
+  border: solid 0.004vh #b7c780;
+  border-left: solid 0.6vh #c3eaaa;
+}
+
+</style>
