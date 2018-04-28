@@ -1,7 +1,7 @@
 <?php
 namespace jobWizardProject;
 class User {
-  public $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path;
+  protected $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path;
   public function __construct($dbrow) {
     $this->User_id = $dbrow['User_id'];
     $this->First_Name = $dbrow['First_Name'];
@@ -32,7 +32,8 @@ class User {
   public function getDegree() {return $this->Degree_Id;}
   public function getPhotoPath() {return $this->Photo_Path;}
   public function getAll(){
-    return $dbrow;
-
+    foreach ($this as $row){
+      return $row;
+    }
   }
 }
