@@ -19,6 +19,23 @@ class UserTable extends TableAbstract {
     return $userArray;
   }
 
+  public function fetchAllUsersInfo(){
+    $sql = "SELECT * FROM $this->name AS U INNER JOIN User_Detail as UD on U.User_id = UD.User_id";
+    $results = $this->dbh->prepare($sql);
+    $results->execute();
+    return $results;
+
+
+
+
+  }
+
+
+
+
+
+
+
     //AUTH
     public function auth($Username, $Password)
     {
@@ -89,6 +106,7 @@ class UserTable extends TableAbstract {
         $response = $results->execute($params);
         return $response;
     }
+
 
 
 }

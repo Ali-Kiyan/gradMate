@@ -6,15 +6,16 @@ class User {
     $this->User_id = $dbrow['User_id'];
     $this->First_Name = $dbrow['First_Name'];
     $this->Last_Name = $dbrow['Last_Name'];
-    $this->username = $dbrow['username'];
-    $this->email = $dbrow['email'];
-    $this->password = $dbrow['password'];
-    $this->add1 = $dbrow['add1'];
-    $this->add2 = $dbrow['add2'];
-    $this->phone = $dbrow['phone'];
-    $this->postcode = $dbrow['postcode'];
-    $this->dob = $dbrow['dob'];
-    $this->degree = $dbrow['degree'];
+    $this->username = $dbrow['Username'];
+    $this->email = $dbrow['Email'];
+    $this->password = $dbrow['Password'];
+    $this->add1 = $dbrow['Address_line1'];
+    $this->add2 = $dbrow['Address_Line2'];
+    $this->phone = $dbrow['Phone'];
+    $this->postcode = $dbrow['Postcode'];
+    $this->dob = $dbrow['DOB'];
+    $this->degree = $dbrow['Degree_id'];
+    $this->degree = $dbrow['Photo_Path'];
 }
   //accessors
   public function getUserId() { return $this->User_id;}
@@ -29,5 +30,5 @@ class User {
   public function getPostcode() {return $this->postcode;}
   public function getDOB() {return $this->dob;}
   public function getDegree() {return $this->degree;}
-
+  public function getPhotoPath() {return $this->getPhotoPath;}
 }
