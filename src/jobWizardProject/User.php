@@ -1,34 +1,38 @@
 <?php
 namespace jobWizardProject;
 class User {
-  protected $User_id, $First_Name, $Last_Name, $username, $email, $password, $add1, $add2, $phone, $postcode, $dob, $degree;
+  public $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path;
   public function __construct($dbrow) {
     $this->User_id = $dbrow['User_id'];
     $this->First_Name = $dbrow['First_Name'];
     $this->Last_Name = $dbrow['Last_Name'];
-    $this->username = $dbrow['Username'];
-    $this->email = $dbrow['Email'];
-    $this->password = $dbrow['Password'];
-    $this->add1 = $dbrow['Address_line1'];
-    $this->add2 = $dbrow['Address_Line2'];
-    $this->phone = $dbrow['Phone'];
-    $this->postcode = $dbrow['Postcode'];
-    $this->dob = $dbrow['DOB'];
-    $this->degree = $dbrow['Degree_id'];
-    $this->degree = $dbrow['Photo_Path'];
+    $this->Username = $dbrow['Username'];
+    $this->Email = $dbrow['Email'];
+    $this->Password = $dbrow['Password'];
+    $this->Add1 = $dbrow['Address_line1'];
+    $this->Add2 = $dbrow['Address_Line2'];
+    $this->Phone = $dbrow['Phone'];
+    $this->Postcode = $dbrow['Postcode'];
+    $this->DOB = $dbrow['DOB'];
+    $this->Degree_Id = $dbrow['Degree_id'];
+    $this->Photo_Path = $dbrow['Photo_Path'];
 }
   //accessors
   public function getUserId() { return $this->User_id;}
   public function getFirstName() { return $this->First_Name;}
   public function getLastName() { return $this->Last_Name;}
-  public function getUsername() { return $this->username;}
-  public function getEmail() { return $this->email;}
-  public function getPassword() { return $this->password;}
-  public function getAdd1() { return $this->add1;}
-  public function getAdd2() { return $this->add2;}
-  public function getPhone() {return $this->phone;}
-  public function getPostcode() {return $this->postcode;}
-  public function getDOB() {return $this->dob;}
-  public function getDegree() {return $this->degree;}
-  public function getPhotoPath() {return $this->getPhotoPath;}
+  public function getUsername() { return $this->Username;}
+  public function getEmail() { return $this->Email;}
+  public function getPassword() { return $this->Password;}
+  public function getAdd1() { return $this->Add1;}
+  public function getAdd2() { return $this->Add2;}
+  public function getPhone() {return $this->Phone;}
+  public function getPostcode() {return $this->Postcode;}
+  public function getDOB() {return $this->DOB;}
+  public function getDegree() {return $this->Degree_Id;}
+  public function getPhotoPath() {return $this->Photo_Path;}
+  public function getAll(){
+    return $dbrow;
+
+  }
 }

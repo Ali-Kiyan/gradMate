@@ -9,9 +9,8 @@ require_once __DIR__ . '/TableAbstract.php';
 class UserTable extends TableAbstract {
   protected $name = 'User';
   protected $primaryKey = 'User_id';
+  protected $detail = 'User_Detail';
   public function fetchAllUsers() {
-    //full all users
-    // SELECT * FROM USER AS U INNER JOIN User_Detail AS UD ON U.User_id = UD.User_Id WHERE U.Username = 'Alikiyand@gmail.com' and PASSWORD = 'user1'
     $results = $this->fetchAll();
     $userArray = array();
     while($row = $results->fetch()) {
@@ -19,6 +18,20 @@ class UserTable extends TableAbstract {
     }
     return $userArray;
   }
+
+  public function fetchAllUsersInfo(){
+    $sql = "SELECT * FROM $this->name AS U INNER JOIN $this->detail AS UD ON U.$this->primaryKey = UD.$this->primaryKey";
+    $results = $this->dbh->prepare($sql);
+    $results->execute();
+    $userArray = array();
+    while($row = $results->fetch()) {
+      $userArray[] = new User($row);
+    }
+    return $userArray;
+  }
+
+
+
   //
   //   //AUTH
   //   public function auth($Username, $Password)

@@ -3,7 +3,8 @@
     <ul>
         <?php foreach ($view->userList as $user) : ?>
             <li>
-                <?php  echo $user->getUsername();
+                <?php  echo $user->getAll();
+                var_dump($user);
                  ?>
             </li>
         <?php endforeach; ?>
