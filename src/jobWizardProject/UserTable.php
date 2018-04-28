@@ -1,7 +1,7 @@
 <?php
 
 namespace jobWizardProject;
-session_start();
+
 require_once __DIR__ . '/User.php';
 require_once __DIR__ . '/TableAbstract.php';
 
@@ -19,25 +19,25 @@ class UserTable extends TableAbstract {
     }
     return $userArray;
   }
-
-    //AUTH
-    public function auth($Username, $Password)
-    {
-        $results = $this->fetchAll();
-
-        while($row = $results->fetch())
-        {
-            if($row["Username"] == $Username && password_verify($Password, $row["Password"]))
-            {
-                $_SESSION["Username"] = $row["Username"];
-                $_SESSION["Password"] = $row["Password"];
-                $_SESSION["User_id"] = $row["User_id"];
-                return $result = 1;
-            }
-        }
-
-    }
-
+  //
+  //   //AUTH
+  //   public function auth($Username, $Password)
+  //   {
+  //       $results = $this->fetchAll();
+  //
+  //       while($row = $results->fetch())
+  //       {
+  //           if($row["Username"] == $Username && password_verify($Password, $row["Password"]))
+  //           {
+  //               $_SESSION["Username"] = $row["Username"];
+  //               $_SESSION["Password"] = $row["Password"];
+  //               $_SESSION["User_id"] = $row["User_id"];
+  //               return $result = 1;
+  //           }
+  //       }
+  //
+  //   }
+  //
     //INSERT
     public function insertUser($data){
         // Converting Null value of php to null value of mysql

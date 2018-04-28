@@ -23,8 +23,8 @@ class User {
   public function getUsername() { return $this->username;}
   public function getEmail() { return $this->email;}
   public function getPassword() { return $this->password;}
-  public function getAdd1() { retrun $this->add1;}
-  public function getAdd2() { retrun $this->add2;}
+  public function getAdd1() { return $this->add1;}
+  public function getAdd2() { return $this->add2;}
   public function getPhone() {return $this->phone;}
   public function getPostcode() {return $this->postcode;}
   public function getDOB() {return $this->dob;}
