@@ -40,6 +40,13 @@ abstract class TableAbstract
         $results->execute($params);
         return $results->fetch();
     }
+    public function deleteRecord($key){
+        $sql = "DELETE FROM " . $this->name . " WHERE " . $this->primaryKey . " = :id LIMIT 1";
+        $params = array(':id' => $key);
+        $results = $this->dbh->prepare($sql);
+        $response = $results->execute($params);
+        return $response;
+    }
 
 
 
