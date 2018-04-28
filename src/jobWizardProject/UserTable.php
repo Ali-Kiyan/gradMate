@@ -59,7 +59,8 @@ class UserTable extends TableAbstract {
     public function editUser($data)
     {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-        $sql = ""
+        $sql = "";
+        /* update query UPDATE User AS U INNER JOIN User_Detail AS UD ON U.User_id = UD.User_Id SET First_name='Ali',Last_Name='Kiyan',Username= 'Ali',Password='123',email='Alikiyand@gmail.com',Address_Line1="Bolton", Address_Line2='Greater Manchester', Postcode='M53HK', DOB='1992-8-3', Degree_Id=1, phone=123 where U.Username="Ali" and U.Password = "123" */
         $sql = "UPDATE  $this->name SET  First_Name = :First_Name, Last_Name = :Last_Name, Username = :Username, Password = :Password
         WHERE User_id= :User_id";
         $result = $this->dbh->prepare($sql);
