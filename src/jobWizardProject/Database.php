@@ -1,9 +1,6 @@
 <?php
-
     namespace jobWizardProject;
-
     //Singleton Design Pattern
-
     class Database {
       protected static $instance = null;
       protected $dbh;
@@ -22,7 +19,6 @@
       //  construct for preventing the object to be created from outside
       private function __construct($host, $database, $username, $password){
         $this->dbh = new \PDO("mysql:host=$host;dbname=$database", $username, $password);
-
       }
       public function getDbh(){
       // return the database handler to be used later
