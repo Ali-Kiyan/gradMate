@@ -10,6 +10,8 @@ class UserTable extends TableAbstract {
   protected $name = 'User';
   protected $primaryKey = 'User_id';
   public function fetchAllUsers() {
+    //full all users
+    // SELECT * FROM USER AS U INNER JOIN User_Detail AS UD ON U.User_id = UD.User_Id WHERE U.Username = 'Alikiyand@gmail.com' and PASSWORD = 'user1'
     $results = $this->fetchAll();
     $userArray = array();
     while($row = $results->fetch()) {
@@ -39,29 +41,25 @@ class UserTable extends TableAbstract {
     //INSERT
     public function insertUser($data){
         // Converting Null value of php to null value of mysql
-        $data["First_Name"] == null ? $data["First_Name"] = NULL : $data["First_Name"];
-        $data["Last_Name"] == null ? $data["Last_Name"] = NULL : $data["Last_Name"];
         $data["Username"] == null ? $data["Username"] = NULL : $data["Username"];
         $data["Password"] == null ? $data["Password"] = NULL : $data["Password"];
         //encrypting pass with BCRYPT algorithm
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-        $sql = "INSERT INTO $this->name (First_Name, Last_Name,Username, Password) VALUES (:First_Name, :Last_Name, :Username, :Password)";
+        $sql = "INSERT INTO $this->name (Username, Password) VALUES (:Username, :Password); INSERT INTO User_Detail (User_id) Values (LAST_INSERT_ID()) ";
         $results = $this->dbh->prepare($sql);
         $response  = $results->execute(array(
-            ':First_Name' => $data["First_Name"],
-            ':Last_Name' => $data['Last_Name'],
             ':Username' => $data['Username'],
             ':Password' => $data['Password']
         ));
         return $response;
     }
 
-
     //EDIT
 
     public function editUser($data)
     {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
+        $sql = ""
         $sql = "UPDATE  $this->name SET  First_Name = :First_Name, Last_Name = :Last_Name, Username = :Username, Password = :Password
         WHERE User_id= :User_id";
         $result = $this->dbh->prepare($sql);
