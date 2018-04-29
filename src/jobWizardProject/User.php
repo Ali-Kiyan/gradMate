@@ -14,7 +14,7 @@ class User {
     $this->Phone = $dbrow['Phone'];
     $this->Postcode = $dbrow['Postcode'];
     $this->DOB = $dbrow['DOB'];
-    $this->Degree_Id = $dbrow['Degree_id'];
+    $this->Degree_Id = $dbrow['Degree_Id'];
     $this->Photo_Path = $dbrow['Photo_Path'];
 }
   //accessors

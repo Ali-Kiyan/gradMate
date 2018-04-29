@@ -70,10 +70,3 @@ $result = mysqli_query($connect, $query);
 require_once "footer.phtml";
 ?>
 <link rel="stylesheet" href="z.css">
-
-<style>
-
-
-
-
-</style>

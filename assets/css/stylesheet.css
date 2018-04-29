@@ -524,6 +524,9 @@ body{
     margin-left:auto;
     margin-right:auto;
 }
+.centerText{
+text-align: center;
+}
 .welcome{
     border-radius: 50px !important;
     width:40%;
@@ -545,6 +548,7 @@ body{
     font-size: 3em;
   }
 }
+
 .navbar input, .navbar button {
     border-radius: 50px;
 }
@@ -603,4 +607,45 @@ label{
 }
 .show {
   opacity: 1;
+}
+table{
+  margin-top: 10%;
+
+}
+.table-hover > tbody > tr:hover {
+  background-color: #f6f7db;
+}
+
+#cityPicker .btn {
+  border-radius: 0px !important;
+}
+#cityPicker .bs-searchbox {
+  border-radius: 0px !important;
+}
+#cityPicker .input-block-level {
+  border-radius: 0px !important;
+}
+#citySelect .input-sm {
+    -webkit-border-radius: 0px !important;
+}
+#tier2Table{
+  overflow-y: scroll;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 90vh;
+
+}
+#users{
+    overflow-y: scroll;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 90vh;
+
+}
+#companyData{
+  overflow-y: hidden;
+}
+#usersTable{
+  overflow-y: hidden;
+  background-color: #f9f9f9;
 }

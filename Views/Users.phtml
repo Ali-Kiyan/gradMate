@@ -1,5 +1,65 @@
-<?php require('Template/header.phtml') ?>
-    <h1>Users</h1>
+<?php
+require('Template/header.phtml');
+require('Template/nav.phtml');
+require('Template/sideNav.phtml');
+?>
+<script>
+$('#hamburger-6').click(function(){
+      $('#usersTable').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
+});
+</script>
+
+
+<div class="container-fluid">
+  <div class="col-xs-12 " id="users">
+   <table id="usersTable" class="table table-hover table-bordered table-responsive">
+   <thead>
+     <tr>
+
+       <td>First Name</td>
+       <td>Last Name</td>
+       <td>Username</td>
+       <td>Email</td>
+       <td>Phone</td>
+       <td>Postcode</td>
+       <td>Date of Birth</td>
+       <td>Degree</td>
+       <td>Edit</td>
+       <td>Delete</td>
+
+     </tr>
+
+   </thead>
+    <?php
+     foreach ($view->userList as $user){
+             echo '<tr class="centerText" >
+             <td>'. $user->getFirstName() .  '</td>
+             <td>'. $user->getLastName()  . '</td>
+             <td>'. $user->getUsername()  . '</td>
+             <td>'. $user->getEmail()     . '</td>
+             <td>'. $user->getPhone()  . '</td>
+             <td>'. $user->getPostcode()  . '</td>
+             <td>'. $user->getDOB()     . '</td>
+             <td>'. $user->getDegree()    . '</td>
+             <td>'.  '<button class="btn btn-sm btn-info circle"> Edit '. $user->getLastName()  .'</button>'  . '</td>
+             <td>'.  '<button class="btn btn-sm btn-danger circle"> Delete '. $user->getLastName()  .'</button>'  . '</td>'
+             ;
+     }
+    ?>
+   </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
     <ul>
         <?php foreach ($view->userList as $user) : ?>
             <li>
@@ -10,3 +70,4 @@
         <?php endforeach; ?>
     </ul>
 <?php require('Template/footer.phtml') ?>
+<link rel="stylesheet" href="./assets/css/ham.css">
