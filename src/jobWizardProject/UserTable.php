@@ -45,7 +45,7 @@ class UserTable extends TableAbstract {
                 $_SESSION["Username"] = $row["Username"];
                 $_SESSION["Password"] = $row["Password"];
                 $_SESSION["User_id"] = $row["User_id"];
-                $_SESSION["User_id"] = $row["Is_Admin"];
+                $_SESSION["Is_Admin"] = $row["Is_Admin"];
                 return $result = 1;
             }
         }

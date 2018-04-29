@@ -1,14 +1,19 @@
 <?php
-session_start();
-function redirect_to($new_location) {
-    header("Location: " .$new_location );
+
+function redirectTo($new_location) {
+    header("Location: " . $new_location );
     exit;
 }
 
-function confirm_logged_in () {
-
+function confirmLoggedIn () {
     if (!isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
-        redirect_to("./index.php");
+        redirectTo("./index.php");
+    }
+}
+function confirmAdmin () {
+
+    if (!isset($_SESSION['Is_Admin'])) {
+        redirectTo("./index.php");
     }
 }
 
