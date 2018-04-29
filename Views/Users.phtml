@@ -11,6 +11,7 @@ $('#hamburger-6').click(function(){
 
 
 <div class="container-fluid">
+  
   <div class="col-xs-12 " id="users">
    <table id="usersTable" class="table table-hover table-bordered table-responsive">
    <thead>
@@ -24,7 +25,6 @@ $('#hamburger-6').click(function(){
        <td>Postcode</td>
        <td>Date of Birth</td>
        <td>Degree</td>
-       <td>Edit</td>
        <td>Delete</td>
 
      </tr>
@@ -41,8 +41,7 @@ $('#hamburger-6').click(function(){
              <td>'. $user->getPostcode()  . '</td>
              <td>'. $user->getDOB()     . '</td>
              <td>'. $user->getDegree()    . '</td>
-             <td>'.  '<button class="btn btn-sm btn-info circle"> Edit '. $user->getLastName()  .'</button>'  . '</td>
-             <td>'.  '<button class="btn btn-sm btn-danger circle"> Delete '. $user->getLastName()  .'</button>'  . '</td>'
+             <td>'.  '<a class="btn btn-sm btn-danger circle" href="./userProfile.php"> Delete '. $user->getLastName()  .'</a>'  . '</td>'
              ;
      }
     ?>
