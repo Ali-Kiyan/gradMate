@@ -55,8 +55,11 @@ class UserTable extends TableAbstract {
     //INSERT
     public function insertUser($data){
         // Converting Null value of php to null value of mysql
+        // extra security check in the backend
         $data["Username"] == null ? $data["Username"] = NULL : $data["Username"];
-        $data["Password"] == null ? $data["Password"] = NULL : $data["Password"];
+        if($data["Password"] == NULL ||  $data["Is_Admin"] == NULL || $data["Password"] == "" || $data["Is_Admin"] == "")
+        return false;
+
         //encrypting pass with BCRYPT algorithm
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
         $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username, :Password, :Is_Admin); INSERT INTO User_Detail (User_id) Values (LAST_INSERT_ID()) ";

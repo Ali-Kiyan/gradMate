@@ -21,14 +21,14 @@ TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:1
                                   <label for="Username" class="col-xs-3 control-label">Username</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="username" class="form-control circle" name="Username" value="">
+                                      <input id="username" class="form-control circle" name="Username" value="" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label for="email" class="col-xs-3 control-label">Email Address</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="email" class="form-control circle" name="Email" value="">
+                                      <input id="email" class="form-control circle" name="Email" value="" required> 
                                   </div>
                               </div>
 
@@ -36,7 +36,7 @@ TweenLite.fromTo($('.signUpForm'),2,{x:+1200,y:-500,rotation: "-=120"}, {x:0,y:1
                                   <label for="password" class="col-xs-3 control-label">Password</label>
 
                                   <div class=" col-xs-9 col-md-7">
-                                      <input id="password" type="password" class="form-control circle" name="Password">
+                                      <input id="password" type="password" class="form-control circle" name="Password" required>
                                       <br>
                                       <button type="submit" name="Rsubmit" class="btn btn-md btn-success circle">sign up
                                       </button>
