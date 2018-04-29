@@ -32,25 +32,26 @@ class UserTable extends TableAbstract {
 
 
 
-  //
-  //   //AUTH
-  //   public function auth($Username, $Password)
-  //   {
-  //       $results = $this->fetchAll();
-  //
-  //       while($row = $results->fetch())
-  //       {
-  //           if($row["Username"] == $Username && password_verify($Password, $row["Password"]))
-  //           {
-  //               $_SESSION["Username"] = $row["Username"];
-  //               $_SESSION["Password"] = $row["Password"];
-  //               $_SESSION["User_id"] = $row["User_id"];
-  //               return $result = 1;
-  //           }
-  //       }
-  //
-  //   }
-  //
+
+    //AUTH
+    public function auth($Username, $Password)
+    {
+        $results = $this->fetchAll();
+
+        while($row = $results->fetch())
+        {
+            if($row["Username"] == $Username && password_verify($Password, $row["Password"]))
+            {
+                $_SESSION["Username"] = $row["Username"];
+                $_SESSION["Password"] = $row["Password"];
+                $_SESSION["User_id"] = $row["User_id"];
+                $_SESSION["User_id"] = $row["Is_Admin"];
+                return $result = 1;
+            }
+        }
+
+    }
+
     //INSERT
     public function insertUser($data){
         // Converting Null value of php to null value of mysql
@@ -58,11 +59,12 @@ class UserTable extends TableAbstract {
         $data["Password"] == null ? $data["Password"] = NULL : $data["Password"];
         //encrypting pass with BCRYPT algorithm
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-        $sql = "INSERT INTO $this->name (Username, Password) VALUES (:Username, :Password); INSERT INTO User_Detail (User_id) Values (LAST_INSERT_ID()) ";
+        $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username, :Password, :Is_Admin); INSERT INTO User_Detail (User_id) Values (LAST_INSERT_ID()) ";
         $results = $this->dbh->prepare($sql);
         $response  = $results->execute(array(
             ':Username' => $data['Username'],
-            ':Password' => $data['Password']
+            ':Password' => $data['Password'],
+            ':Is_Admin' => $data['Is_Admin']
         ));
         return $response;
     }

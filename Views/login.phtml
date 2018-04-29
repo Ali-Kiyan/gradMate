@@ -1,0 +1,63 @@
+<?php
+require('Template/header.phtml');
+require('Template/nav.phtml');
+require('Template/sideNav.phtml');
+?>
+<script>
+  $(document).ready(function(){
+  TweenLite.fromTo($('#login'),3,{x:-100,y:500,rotation: "+=120",  rotationX: -100, rotationZ: +300 }, {x:0,y:0,rotation: "-=120",   rotationZ: 0, rotationX:0,opacity: 1});
+  });
+</script>
+    <div class="login">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 fade" id="login">
+                  <div class="panel panel-default loginForm "  style="background-color: white;">
+                      <div class="panel-heading">Login</div>
+                      <div class="panel-body">
+                          <form class="form-horizontal" role="form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                              <div class=" form-group">
+                                <img src="./assets/images/graph_loop.gif" alt="" class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
+                              </div>
+                              <div class="form-group">
+                                  <label for="email" class="col-xs-3 control-label">User Name</label>
+
+                                  <div class=" col-xs-9 col-md-7">
+                                      <input id="email" class="form-control circle" name="Username" value="">
+                                  </div>
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="password" class="col-xs-3 control-label">Password</label>
+
+                                  <div class=" col-xs-9 col-md-7">
+                                      <input id="password" type="password" class="form-control circle" name="Password">
+                                      <br>
+                                      <button type="submit" name="Lsubmit" class="btn btn-md btn-info circle">Login
+                                      </button>
+                                      <a href="./userRegister.phtml" class="btn btn-md btn-warning circle">Sign Up!</a>
+                                  </div>
+                              </div>
+
+
+                              <div class="form-group">
+                                  <div class="col-xs-12">
+
+                                  </div>
+                              </div>
+                              <br>
+                              <?php echo " $view->result"; ?>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</body>
+
+</html>
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
