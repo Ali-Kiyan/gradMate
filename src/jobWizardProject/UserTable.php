@@ -19,7 +19,8 @@ class UserTable extends TableAbstract {
     return $userArray;
   }
 
-  public function fetchAllUsersInfo(){
+  public function fetchAllUsersInfo()
+  {
     $sql = "SELECT * FROM $this->name AS U INNER JOIN $this->detail AS UD ON U.$this->primaryKey = UD.$this->primaryKey";
     $results = $this->dbh->prepare($sql);
     $results->execute();
@@ -28,6 +29,18 @@ class UserTable extends TableAbstract {
       $userArray[] = new User($row);
     }
     return $userArray;
+  }
+
+
+
+
+  public function fetchUserInfo($key)
+  {
+    $sql = "SELECT * FROM $this->name AS U INNER JOIN $this->detail AS UD ON U.$this->primaryKey = UD.$this->primaryKey WHERE U.$this->primaryKey = $key limit 1";
+    $results = $this->dbh->prepare($sql);
+    $results->execute();
+    $user = new User($results->fetch());
+    return $user;
   }
 
 
@@ -53,7 +66,8 @@ class UserTable extends TableAbstract {
     }
 
     //INSERT
-    public function insertUser($data){
+    public function insertUser($data)
+    {
         // Converting Null value of php to null value of mysql
         // extra security check in the backend
         $data["Username"] == null ? $data["Username"] = NULL : $data["Username"];

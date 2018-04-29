@@ -1,7 +1,7 @@
 <?php
 namespace jobWizardProject;
 class User {
-  protected $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path, $Is_Admin;
+  public $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path, $Is_Admin;
   public function __construct($dbrow) {
     $this->User_id = $dbrow['User_id'];
     $this->First_Name = $dbrow['First_Name'];
@@ -9,7 +9,7 @@ class User {
     $this->Username = $dbrow['Username'];
     $this->Email = $dbrow['Email'];
     $this->Password = $dbrow['Password'];
-    $this->Add1 = $dbrow['Address_line1'];
+    $this->Add1 = $dbrow['Address_Line1'];
     $this->Add2 = $dbrow['Address_Line2'];
     $this->Phone = $dbrow['Phone'];
     $this->Postcode = $dbrow['Postcode'];
