@@ -96,23 +96,13 @@ class UserTable extends TableAbstract {
 
 
 
-        $sql =         "UPDATE $this->name AS U INNER JOIN User_Detail AS UD ON U.User_Id = UD.User_Id SET First_name = :First_Name, Last_Name = :Last_Name, Username = "
-                      . ":Username, Password = :Password, Email= :Email, Address_Line1= :Address_Line1, Address_Line2 = :Address_Line2, Postcode = :Postcode, DOB = :DOB,"
-                      . "Degree_Id = :Degree_Id, Phone = :Phone WHERE $this->primaryKey = :User_id LIMIT 1";
+        $sql = "UPDATE  $this->name SET  Username = :Username, Password = :Password
+        WHERE User_id= :User_id";
         $result = $this->dbh->prepare($sql);
         $params = array(
             ':User_id' => $_SESSION['User_id'],
-            ':First_Name' => $data['First_Name'],
-            ':Last_Name' => $data['Last_Name'],
             ':Username' => $data['Username'],
             ':Password' => $data['Password'],
-            ':Email' => $data['Email'],
-            ':Address_Line1' => $data['Address_line1'],
-            ':Address_Line2' => $data['Address_Line2'],
-            ':Postcode' => $data['Postcode'],
-            ':DOB' => $data['DOB'],
-            ':Degree_Id' => $data['Degree_Id'],
-            ':Phone' => $data['Phone']
         );
         $response = $result->execute($params);
         return $response;
