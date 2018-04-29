@@ -11,11 +11,11 @@ require_once "./header.phtml";
                 </div>
                 <br>
                 <div class="">
-                <a href="UserLogin.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Job seekers</a>
+                <a href="login.php" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Job seekers</a>
                 <br>
                 <br>
                 <br>
-                <a href="companyLogin.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin</a>
+                <a href="adminLogin.phtml" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin</a>
                 </div>
             </div>
   <canvas id="demo-canvas"></canvas>

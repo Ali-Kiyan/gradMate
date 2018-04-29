@@ -5,6 +5,7 @@ require_once './vendor/autoload.php';
 
 if(isset($_POST['Rsubmit']))
 {
+
     $handle = new jobWizardProject\UserTable();
 
     $response = $handle->insertUser($_POST);
