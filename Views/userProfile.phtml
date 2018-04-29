@@ -3,7 +3,12 @@ require('Template/header.phtml');
 require('Template/nav.phtml');
 require('Template/sideNav.phtml');
 ?>
-      <div class="well col-sm-6 col-sm-offset-3" id="userProfile">
+ <div class="container-fluid">
+
+
+
+
+      <div class="well col-sm-6 col-sm-offset-3 bluredSection" id="userProfile">
 
           <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -75,6 +80,7 @@ require('Template/sideNav.phtml');
 
       </div>
       </div>
+    </div>
       <script>
       $(document).ready(function(){
       TweenLite.fromTo($('#userProfile'),5.7,{y: -50, rotationX: "-=30",rotationY: "-=30",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});

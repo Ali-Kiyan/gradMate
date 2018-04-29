@@ -640,7 +640,6 @@ table{
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     height: 90vh;
-
 }
 #companyData{
   overflow-y: hidden;
@@ -648,4 +647,9 @@ table{
 #usersTable{
   overflow-y: hidden;
   background-color: #f9f9f9;
+}
+#userProfile{
+  overflow-y: scroll;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
