@@ -21,7 +21,7 @@ class UserTable extends TableAbstract {
 
   public function fetchAllUsersInfo()
   {
-    $sql = "SELECT * FROM $this->name AS U INNER JOIN $this->detail AS UD ON U.$this->primaryKey = UD.$this->primaryKey";
+    $sql = "SELECT * FROM $this->name AS U Left JOIN $this->detail AS UD ON U.$this->primaryKey = UD.$this->primaryKey";
     $results = $this->dbh->prepare($sql);
     $results->execute();
     $userArray = array();

@@ -55,7 +55,7 @@ $('#hamburger-6').click(function(){
    <table id="usersTable" class="table table-hover table-bordered table-responsive">
    <thead>
      <tr class="centerText">
-
+       <td>Role</td>
        <td>First Name</td>
        <td>Last Name</td>
        <td>Username</td>
@@ -72,18 +72,20 @@ $('#hamburger-6').click(function(){
     <?php
      foreach ($view->userList as $user){
              echo '<tr class="centerText" >
-             <td>'. $user->getFirstName() .  '</td>
-             <td>'. $user->getLastName()  . '</td>
-             <td>'. $user->getUsername()  . '</td>
-             <td>'. $user->getEmail()     . '</td>
-             <td>'. $user->getPhone()  . '</td>
-             <td>'. $user->getPostcode()  . '</td>
-             <td>'. $user->getDOB()     . '</td>
-             <td>'. $user->getDegree()    . '</td>
+             <td>'. (($user->ifAdmin()==1)?"Admin":"User").  '</td>
+             <td>'. (($user->getFirstName())?$user->getFirstName():"Not Found") .  '</td>
+             <td>'. (($user->getLastName())?$user->getLastName():"Not Found"). '</td>
+             <td>'. (($user->getUsername())?$user->getUsername():"Not Found"). '</td>
+             <td>'. (($user->getEmail())?$user->getEmail():"Not Found").'</td>
+             <td>'. (($user->getPhone())?$user->getPhone():"Not Found").'</td>
+             <td>'. (($user->getPostcode())?$user->getPostcode():"Not Found").'</td>
+             <td>'. (($user->getDOB())?$user->getDOB():"Not Found").'</td>
+             <td>'. (($user->getDegree())?$user->getDegree():"Not Found").'</td>
              <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
                      <input type="hidden" name="User_id" value="'. $user->getUserId() .'">
                      <button class="btn btn-xs btn-danger circle" type="submit" name="Dsubmit">Delete ' . $user->getFirstName() . ' ' . $user->getLastName() .'</button>
-                     </form>'  . '</td>'
+                     </form>'  .
+             '</td>'
              ;
      }
     ?>

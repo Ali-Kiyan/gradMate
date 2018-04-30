@@ -1,6 +1,6 @@
 <?php
-require_once  "./Views/template/includedFunctions.php";
-confirmLoggedIn ();
+require('./Views/Template/includedFunctions.php');
+confirmLoggedIn();
 $view = new stdClass();
 $view->pageTitle = 'User Profile';
 require_once  './vendor/autoload.php';

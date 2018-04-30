@@ -8,13 +8,13 @@ function redirectTo($new_location) {
 
 function confirmLoggedIn () {
     if (!isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
-      redirectTo("./index.php");
+      redirectTo("./Views/Template/logout.php");
     }
 }
 function confirmAdmin () {
 
-    if (!isset($_SESSION['Is_Admin'])) {
-        redirectTo("./index.php");
+    if (!$_SESSION['Is_Admin']) {
+        redirectTo("./Views/Template/logout.php");
     }
 }
 

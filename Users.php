@@ -1,5 +1,6 @@
 <?php
-require_once "./Views/template/includedFunctions.php";
+require_once "./Views/Template/includedFunctions.php";
+confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Users';
 require_once './vendor/autoload.php';
@@ -17,6 +18,12 @@ $view->userList = $database->fetchAllUsersInfo();
     }
     if(isset($_POST['Asubmit'])){
     $respond = $database->insertAdmin($_POST);
+    if($respond){
+      redirectTo("./Users.php");
+    }
+    else{
+      $view->result = '<div class="alert alert-danger"> Please Check your input</div>';
+    }
     }
 
 
