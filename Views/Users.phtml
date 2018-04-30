@@ -1,7 +1,7 @@
 <?php
 require('Template/header.phtml');
-require('Template/nav.phtml');
-require('Template/sideNav.phtml');
+require('Template/adminNav.phtml');
+require('Template/adminSideNav.phtml');
 ?>
 <script>
 $('#hamburger-6').click(function(){
@@ -107,7 +107,6 @@ $('#hamburger-6').click(function(){
         <?php foreach ($view->userList as $user) : ?>
             <li>
                 <?php  echo $user->getAll();
-                var_dump($user);
                  ?>
             </li>
         <?php endforeach; ?>
