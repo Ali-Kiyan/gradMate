@@ -9,7 +9,6 @@ $userdb = new JobWizardProject\UserTable();
 $Current_User = $userdb->fetchUser($_SESSION['User_id']);
 if(isset($_POST['Usubmit']))
 {
-    $userdb = new jobWizardProject\UserTable();
     $_SESSION["Username"] = $_POST["Username"];
     $_SESSION["Password"] = $_POST["Password"];
     $respond = $userdb->editAdmin($_POST);

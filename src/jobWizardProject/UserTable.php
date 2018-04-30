@@ -145,22 +145,18 @@ class UserTable extends TableAbstract {
 
         public function editAdmin($data)
         {
-            $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-            $sql = "UPDATE  $this->name Username = :Username, Password = :Password,
-             WHERE User_id= :User_id";
-            $result = $this->dbh->prepare($sql);
-            $params = array(
-                ':User_id' => $_SESSION['User_id'],
-                ':Username' => $data['Username'],
-                ':Password' => $data['Password']
-            );
+          $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
 
-            $response = $result->execute($params);
-            var_dump($data);
-            var_dump($_SESSION);
-            var_dump($result);
-            var_dump($response);
-            return $response;
+          $sql = "UPDATE  $this->name SET Username = :Username, Password = :Password
+          WHERE User_id= :User_id";
+          $result = $this->dbh->prepare($sql);
+          $params = array(
+              ':User_id' => $_SESSION['User_id'],
+              ':Username' => $data['Username'],
+              ':Password' => $data['Password']
+          );
+          $response = $result->execute($params);
+          return $response;
 
         }
 
