@@ -9,7 +9,7 @@ if(isset($_POST['Lsubmit']))
     $result = $database->auth($_POST["Username"], $_POST["Password"]);
     if($result)
     {
-      header('location: ./Dashboard.php');
+      (($_SESSION["Is_Admin"])==1?header('location: ./adminDashboard.php'):header('location: ./Dashboard.php'));
     }
     else
     {
