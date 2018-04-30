@@ -8,14 +8,64 @@ $('#hamburger-6').click(function(){
       $('#usersTable').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
 });
 </script>
+<div class="row">
+    <div class="container-fluid text-center animated fadeIn" id="createAdmin">
+        <div class="col-lg-12">
+            <div class="panel">
+                <div class="caption">
+                    <button type="button" class="btn btn-primary circle" data-toggle="modal" data-target="#exampleModal">Add new Admin</button>
+                </div>
+            </div>
+    </div>
+
+    </div>
+
+
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="border-radius: 50%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="locationProfile">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create new location</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 150px">
+                <form role="form" name="createForm" action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
+                    <div class="form-group">
+                        <label for="Name" class=" control-label">Name</label>
+                        <input type="text" name="Name" class="form-control half">
+                    </div>
+                    <div class="form-group">
+                        <label for="Description" class=" control-label">Description</label>
+                        <input type="text" name="Description" class="form-control half" >
+                    </div>
+                    <div class="right">
+                    <button type="submit" name="Csubmit" class="btn btn-success btn-md">create</button>
+                    <button type="button" class="btn btn-secondary black" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 <div class="container-fluid">
-  
+
   <div class="col-xs-12 " id="users">
    <table id="usersTable" class="table table-hover table-bordered table-responsive">
    <thead>
-     <tr>
+     <tr class="centerText">
 
        <td>First Name</td>
        <td>Last Name</td>
@@ -41,7 +91,10 @@ $('#hamburger-6').click(function(){
              <td>'. $user->getPostcode()  . '</td>
              <td>'. $user->getDOB()     . '</td>
              <td>'. $user->getDegree()    . '</td>
-             <td>'.  '<a class="btn btn-sm btn-danger circle" href="./userProfile.php"> Delete '. $user->getLastName()  .'</a>'  . '</td>'
+             <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
+                     <input type="hidden" name="User_id" value="'. $user->getUserId() .'">
+                     <button class="btn btn-xs btn-danger circle" type="submit" name="Dsubmit">Delete ' . $user->getFirstName() . ' ' . $user->getLastName() .'</button>
+                     </form>'  . '</td>'
              ;
      }
     ?>
