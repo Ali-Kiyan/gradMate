@@ -41,8 +41,8 @@ require('Template/sideNav.phtml');
                 </div>
 
                 <div class="form-group">
-                <label for="degree_id " class=" control-label">Highest Degree Level</label>
-                <select name="Degree_Id" id="degree_id" class="form-control">
+                <label for="degree" class=" control-label">Highest Degree Level</label>
+                <select name="Degree" id="degree" class="form-control">
                   <option value="<?php echo $Current_User->getDegree(); ?>" selected><?php echo $Current_User->getDegree(); ?></option>
                   <option value="Bachelor">Bachelor</option>
                   <option value="Masters">Masters</option>

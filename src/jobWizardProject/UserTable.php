@@ -93,7 +93,7 @@ class UserTable extends TableAbstract {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
 
         $sql = "UPDATE  $this->name as U inner join $this->detail as UD  SET  First_Name = :First_Name, Last_Name = :Last_Name, Email = :Email, Username = :Username, Password = :Password, Address_Line1 = :Address_Line1, Address_Line2 = :Address_Line2, Phone = :Phone, PostCode = :Postcode, DOB = :DOB,
-        Degree_Id = :Degree_Id WHERE U.User_id= :User_id and UD.User_id= :User_id ";
+        Degree = :Degree WHERE U.User_id= :User_id and UD.User_id= :User_id ";
         $result = $this->dbh->prepare($sql);
         $params = array(
             ':User_id' => $_SESSION['User_id'],
@@ -107,7 +107,7 @@ class UserTable extends TableAbstract {
             ':Phone' => $data['Phone'],
             ':Postcode' => $data["Postcode"],
             ':DOB' => $data['DOB'],
-            ':Degree_Id' => $data['Degree_Id']
+            ':Degree' => $data['Degree']
         );
         $response = $result->execute($params);
         return $response;

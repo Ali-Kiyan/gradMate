@@ -1,7 +1,7 @@
 <?php
 namespace jobWizardProject;
 class User {
-  protected $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree_Id, $Photo_Path, $Is_Admin;
+  protected $User_id, $First_Name, $Last_Name, $Username, $Email, $Password, $Add1, $Add2, $Phone, $Postcode, $DOB, $Degree, $Photo_Path, $Is_Admin;
   public function __construct($dbrow) {
     $this->User_id = $dbrow['User_id'];
     $this->First_Name = $dbrow['First_Name'];
@@ -14,7 +14,7 @@ class User {
     $this->Phone = $dbrow['Phone'];
     $this->Postcode = $dbrow['Postcode'];
     $this->DOB = $dbrow['DOB'];
-    $this->Degree_Id = $dbrow['Degree_Id'];
+    $this->Degree = $dbrow['Degree'];
     $this->Photo_Path = $dbrow['Photo_Path'];
     $this->Is_Admin = $dbrow['Is_Admin'];
 }
@@ -30,7 +30,7 @@ class User {
   public function getPhone() {return $this->Phone;}
   public function getPostcode() {return $this->Postcode;}
   public function getDOB() {return $this->DOB;}
-  public function getDegree() {return $this->Degree_Id;}
+  public function getDegree() {return $this->Degree;}
   public function getPhotoPath() {return $this->Photo_Path;}
   public function ifAdmin() {return $this->Is_Admin;}
 
