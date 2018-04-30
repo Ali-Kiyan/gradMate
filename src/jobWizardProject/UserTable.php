@@ -85,6 +85,18 @@ class UserTable extends TableAbstract {
         ));
         return $response;
     }
+    public function insertAdmin($data){
+      $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
+      $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username,:Password, 1);";
+      $results = $this->dbh->prepare($sql);
+      $response  = $results->execute(array(
+          ':Username' => $data['Username'],
+          ':Password' => $data['Password']
+      ));
+      return $response;
+    }
+
+
 
     //EDIT
 
@@ -122,7 +134,6 @@ class UserTable extends TableAbstract {
         $params = array(':User_id' => $key);
         $results = $this->dbh->prepare($sql);
         $response = $results->execute($params);
-
         return $response;
     }
 
