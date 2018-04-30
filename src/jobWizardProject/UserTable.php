@@ -10,6 +10,11 @@ class UserTable extends TableAbstract {
   protected $name = 'User';
   protected $primaryKey = 'User_id';
   protected $detail = 'User_Detail';
+
+
+
+
+
   public function fetchAllUsers() {
     $results = $this->fetchAll();
     $userArray = array();
@@ -30,7 +35,14 @@ class UserTable extends TableAbstract {
     }
     return $userArray;
   }
-
+  public function fetchUser($key){
+      $sql= 'SELECT * FROM ' . $this->name . ' WHERE ' . $this->primaryKey . ' = :id LIMIT 1';
+      $params = array(':id' => $key);
+      $results = $this->dbh->prepare($sql);
+      $results->execute($params);
+      $user = new User($results->fetch());
+      return $user;
+  }
 
 
 
@@ -85,6 +97,9 @@ class UserTable extends TableAbstract {
         ));
         return $response;
     }
+
+
+    //INSERT ADMIN
     public function insertAdmin($data){
       $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
       $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username,:Password, 1);";
@@ -98,7 +113,7 @@ class UserTable extends TableAbstract {
 
 
 
-    //EDIT
+    //EDIT USER
 
     public function editUser($data)
     {
@@ -125,6 +140,33 @@ class UserTable extends TableAbstract {
         return $response;
 
     }
+
+    // EDIT ADMIN
+
+        public function editAdmin($data)
+        {
+            $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
+            $sql = "UPDATE  $this->name Username = :Username, Password = :Password,
+             WHERE User_id= :User_id";
+            $result = $this->dbh->prepare($sql);
+            $params = array(
+                ':User_id' => $_SESSION['User_id'],
+                ':Username' => $data['Username'],
+                ':Password' => $data['Password']
+            );
+
+            $response = $result->execute($params);
+            var_dump($data);
+            var_dump($_SESSION);
+            var_dump($result);
+            var_dump($response);
+            return $response;
+
+        }
+
+
+
+
     //DELETE USER
 
 
