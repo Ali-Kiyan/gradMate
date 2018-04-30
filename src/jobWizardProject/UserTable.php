@@ -116,12 +116,13 @@ class UserTable extends TableAbstract {
     //DELETE USER
 
 
-    public function delete($data)
+    public function delete($key)
     {
-        $sql = 'DELETE FROM' . $this->name . 'WHERE' . $this->primaryKey . ' = :id LIMIT 1';
-        $params = array(':id' => $data['User_id']);
+        $sql = "DELETE FROM $this->name WHERE $this->primaryKey = :User_id";
+        $params = array(':User_id' => $key);
         $results = $this->dbh->prepare($sql);
         $response = $results->execute($params);
+
         return $response;
     }
 
