@@ -71,17 +71,17 @@ class UserTable extends TableAbstract {
         // Converting Null value of php to null value of mysql
         // extra security check in the backend
         $data["Username"] == null ? $data["Username"] = NULL : $data["Username"];
-        if($data["Password"] == NULL ||  $data["Is_Admin"] == NULL || $data["Password"] == "" || $data["Is_Admin"] == "")
+        if($data["Password"] == NULL || $data["Password"] == "")
         return false;
 
         //encrypting pass with BCRYPT algorithm
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-        $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username, :Password, :Is_Admin); INSERT INTO User_Detail (User_id) Values (LAST_INSERT_ID()) ";
+        $sql = "INSERT INTO $this->name (Username, Password, Is_Admin) VALUES (:Username, :Password, 0); INSERT INTO User_Detail (User_id,Email) Values (LAST_INSERT_ID(), :Email) ";
         $results = $this->dbh->prepare($sql);
         $response  = $results->execute(array(
             ':Username' => $data['Username'],
             ':Password' => $data['Password'],
-            ':Is_Admin' => $data['Is_Admin']
+            ':Email' => $data['Email']
         ));
         return $response;
     }
@@ -92,8 +92,8 @@ class UserTable extends TableAbstract {
     {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
 
-        $sql = "UPDATE  $this->name as U inner join $this->detail  SET  First_Name = :First_Name, Last_Name = :Last_Name, Email = :Email, Username = :Username, Password = :Password, Address_Line1 = :Address_Line1, Address_Line2 = :Address_Line2, Phone = :Phone, PostCode = :Postcode, DOB = :DOB,
-        Degree_Id = :Degree_Id WHERE U.User_id= :User_id";
+        $sql = "UPDATE  $this->name as U inner join $this->detail as UD  SET  First_Name = :First_Name, Last_Name = :Last_Name, Email = :Email, Username = :Username, Password = :Password, Address_Line1 = :Address_Line1, Address_Line2 = :Address_Line2, Phone = :Phone, PostCode = :Postcode, DOB = :DOB,
+        Degree_Id = :Degree_Id WHERE U.User_id= :User_id and UD.User_id= :User_id ";
         $result = $this->dbh->prepare($sql);
         $params = array(
             ':User_id' => $_SESSION['User_id'],
