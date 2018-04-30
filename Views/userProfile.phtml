@@ -2,7 +2,6 @@
 require('Template/header.phtml');
 require('Template/nav.phtml');
 require('Template/sideNav.phtml');
-var_dump($Current_User);
 
 ?>
  <div class="container-fluid">
@@ -10,7 +9,7 @@ var_dump($Current_User);
 
 
 
-      <div class="well col-sm-6 col-sm-offset-3 bluredSection" id="userProfile">
+      <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
 
           <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -26,11 +25,11 @@ var_dump($Current_User);
                 </div>
                 <div class="form-group">
                   <label for="address_line1" class=" control-label">Address line1</label>
-                  <input type="text" name="Address_line1" value="<?php echo $Current_User->getAdd1();?>" class="form-control circle" id="address_line1">
+                  <input type="text" name="Address_Line1" value="<?php echo $Current_User->getAdd1();?>" class="form-control circle" id="address_line1">
                 </div>
                 <div class="form-group">
                   <label for="address_line2" class=" control-label">Address line2</label>
-                  <input type="text" name="Address_line2" value="<?php echo $Current_User->getAdd2();?>" class="form-control circle" id="address_line2">
+                  <input type="text" name="Address_Line2" value="<?php echo $Current_User->getAdd2();?>" class="form-control circle" id="address_line2">
                 </div>
                 <div class="form-group">
                   <label for="postcode" class=" control-label">Postcode</label>
@@ -90,7 +89,7 @@ var_dump($Current_User);
     </div>
       <script>
       $(document).ready(function(){
-      TweenLite.fromTo($('#userProfile'),5.7,{y: -50, rotationX: "-=30",rotationY: "-=30",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
+      TweenLite.fromTo($('#userProfile'),4.7,{y: 450, rotationX: "-=130",rotationX: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
       });
       </script>
       <style>

@@ -91,18 +91,23 @@ class UserTable extends TableAbstract {
     public function editUser($data)
     {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT);
-        $sql = "";
-        /* update query UPDATE User AS U INNER JOIN User_Detail AS UD ON U.User_id = UD.User_Id SET First_name='Ali',Last_Name='Kiyan',Username= 'Ali',Password='123',email='Alikiyand@gmail.com',Address_Line1="Bolton", Address_Line2='Greater Manchester', Postcode='M53HK', DOB='1992-8-3', Degree_Id=1, phone=123 where U.Username="Ali" and U.Password = "123" */
 
-
-
-        $sql = "UPDATE  $this->name SET  Username = :Username, Password = :Password
-        WHERE User_id= :User_id";
+        $sql = "UPDATE  $this->name as U inner join $this->detail  SET  First_Name = :First_Name, Last_Name = :Last_Name, Email = :Email, Username = :Username, Password = :Password, Address_Line1 = :Address_Line1, Address_Line2 = :Address_Line2, Phone = :Phone, PostCode = :Postcode, DOB = :DOB,
+        Degree_Id = :Degree_Id WHERE U.User_id= :User_id";
         $result = $this->dbh->prepare($sql);
         $params = array(
             ':User_id' => $_SESSION['User_id'],
             ':Username' => $data['Username'],
             ':Password' => $data['Password'],
+            ':First_Name' => $data['First_Name'],
+            ':Last_Name' => $data['Last_Name'],
+            ':Email' => $data['Email'],
+            ':Address_Line1' => $data['Address_Line1'],
+            ':Address_Line2' => $data['Address_Line2'],
+            ':Phone' => $data['Phone'],
+            ':Postcode' => $data["Postcode"],
+            ':DOB' => $data['DOB'],
+            ':Degree_Id' => $data['Degree_Id']
         );
         $response = $result->execute($params);
         return $response;
