@@ -4,7 +4,7 @@ namespace jobWizardProject;
 session_start();
 require_once __DIR__ . '/User.php';
 require_once __DIR__ . '/TableAbstract.php';
-
+require_once "./Views/Template/includedFunctions.php";
 
 class UserTable extends TableAbstract {
   protected $name = 'User';
@@ -172,7 +172,11 @@ class UserTable extends TableAbstract {
         $params = array(':User_id' => $key);
         $results = $this->dbh->prepare($sql);
         $response = $results->execute($params);
+        if($_SESSION['User_id'] == $key){
+                  redirectTo("./index.php");
+        }
         return $response;
+
     }
 
 
