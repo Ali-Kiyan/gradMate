@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 header('secretToken: 007');
-if($_SERVER['HTTP_X_REQUESTED_WITH']){
+// if($_SERVER['HTTP_X_REQUESTED_WITH']){
   $connect = mysqli_connect("localhost","root","root","jobWizard");
   $cData = json_decode(file_get_contents('http://localhost:8888/dissertation/companiesPerCounty.php'), true);
   $numOfCompany = array();
@@ -35,5 +35,5 @@ if($_SERVER['HTTP_X_REQUESTED_WITH']){
   $result = json_encode($result);
   echo $result;
 
-}
+// }
 ?>

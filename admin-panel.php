@@ -2,7 +2,7 @@
 require_once "Header.phtml";
 require_once "navAdmin.phtml";
 $connect = mysqli_connect("localhost","root","root","jobWizard");
-$query = "Select * FROM company ORDER BY company_id DESC LIMIT 12";
+$query = "Select * FROM company ORDER BY Company_Id DESC LIMIT 12";
 $result = mysqli_query($connect, $query);
 ?>
 
@@ -47,7 +47,7 @@ $result = mysqli_query($connect, $query);
     while($row = mysqli_fetch_array($result)){
       echo '<tr>
 
-      <td>'.$row['company_name'].'</td>
+      <td>'.$row['Company_Name'].'</td>
       <td>'.$row['company_website'].'</td>
       <td>'.$row['county'].'</td>
       <td>'.$row['subtier'].'</td>

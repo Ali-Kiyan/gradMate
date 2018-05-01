@@ -609,7 +609,7 @@ label{
   opacity: 1;
 }
 table{
-  margin-top: 10%;
+  margin-top: 2%;
 
 }
 .table-hover > tbody > tr:hover {
@@ -645,11 +645,33 @@ table{
   overflow-y: hidden;
 }
 #usersTable{
-  overflow-y: hidden;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+}
+#outdatedCompaniesTable{
+  background-color: #f9f9f9;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 70vh;
+}
+
+#newlyAddedCompaniesTable{
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+}
+#CompaniesTable{
+  overflow-y: scroll;
   background-color: #f9f9f9;
 }
 #userProfile{
   overflow-y: scroll;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+}
+.largeDataHandler{
+  overflow-y: scroll;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 90vh;
 }

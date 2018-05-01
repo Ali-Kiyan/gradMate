@@ -1,0 +1,39 @@
+<?php
+require("Template/header.phtml");
+require("Template/adminNav.phtml");
+require("Template/adminSideNav.phtml");
+?>
+<script>
+$('#hamburger-6').click(function(){
+      $('.largeDataHandler').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
+});
+</script>
+<div class="container-fluid">
+  <div class="col-xs-12 largeDataHandler">
+   <table id="newlyAddedCompaniesTable" class="table table-hover table-bordered table-responsive">
+   <thead>
+     <tr class="centerText">
+       <td>Company Name</td>
+       <td>Functionality</td>
+     </tr>
+   </thead>
+    <?php
+
+     foreach ($companyList as $company){
+             echo '<tr class="centerText" >
+             <td>'. $company->getCompanyName() .  '</td>
+             <td>'. '<form action="./addCompany.php" method="POST">
+                     <input type="hidden" name="Company_Name" value="'. $company->getCompanyName() .'">
+                     <button class="btn btn-sm btn-success circle" type="submit" name="Asubmit">Add to the Database </button>
+                     </form>'.
+             '</td>'
+             ;
+     }
+    ?>
+   </table>
+  </div>
+</div>
+
+<?php
+require("Template/footer.phtml");
+?>

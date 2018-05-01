@@ -11,7 +11,7 @@ class CompanyTable extends TableAbstract {
     protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
     protected $LocationForeignKey = 'Location_Id';
-    protected $UpdatedCompanies = 'UpdatedCompanies';
+    protected $newList = 'UpdatedCompanies';
 
     // FETCHING ALL COMPANIES
     public function fetchAllCompanies() {
@@ -25,9 +25,9 @@ class CompanyTable extends TableAbstract {
 
     // FETCHING OUTDATED COMPANY BY COMPARING EXISTING COMPANY LIST AND NEWLY ADDED LIST
 
-    public function fetchOutdatedCompanies()
+    public function fetchOutdatedCompanies($start,$count)
     {
-      $sql = "SELECT U.Company_Name FROM $this->UpdatedCompanies AS U LEFT JOIN $this->name AS C ON U.Company_Name = C.Company_Name WHERE C.Company_Name IS NULL LIMIT 20";
+      $sql = "SELECT $this->name.Company_Name,$this->name.Company_Id FROM $this->name LEFT JOIN $this->newList on $this->name.Company_Name = $this->newList.Company_Name WHERE $this->newList.Company_Name IS NULL AND $this->name.Company_Name != '' LIMIT $start,$count";
       $results = $this->dbh->prepare($sql);
       $results->execute();
       $companyArray = array();
@@ -39,9 +39,9 @@ class CompanyTable extends TableAbstract {
 
     // FETCHING NEWLLY ADDED COMPANY BY COMPARING EXISTING COMPANY LIST AND NEWLY ADDED LIST
 
-    public function fetchNewlyAddedCompanies($key)
+    public function fetchNewlyAddedCompanies($start,$count)
     {
-      $sql = "SELECT U.Company_Name FROM $this->UpdatedCompanies AS U LEFT JOIN $this->name AS C ON U.Company_Name = C.Company_Name WHERE C.Company_Name IS NULL LIMIT 20";
+      $sql = "SELECT U.Company_Name FROM $this->UpdatedCompanies AS U LEFT JOIN $this->name AS C ON U.Company_Name = C.Company_Name WHERE C.Company_Name IS NULL LIMIT $start,$count";
       $results = $this->dbh->prepare($sql);
       $companyArray = array();
       while($row = $results->fetch()) {
