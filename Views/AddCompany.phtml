@@ -6,61 +6,56 @@ require("Template/adminSideNav.phtml");
 <div class="container-fluid">
 
 
-     <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
+     <div class="well col-sm-6 col-sm-offset-3 bluredSection" id="userProfile">
 
          <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                <div class="col-xs-5">
 
                <div class="form-group">
-                 <label for="email" class=" control-label">Company Name</label>
-                 <input type="text" name="First_Name" value="<?php echo $Current_User->getFirstName();?>" class="form-control circle">
+                 <label for="companyname" class=" control-label">Company Name</label>
+                 <input type="text" name="Company_Name" value="<?php echo $Current_Company->getFirstName();?>" class="form-control circle" id="companyname">
                </div>
                <div class="form-group">
-                 <label for="email" class=" control-label">Company Website</label>
-                 <input type="text" name="Username" value="<?php echo $Current_User->getUserName();?>" class="form-control circle" >
+                 <label for="companywebsite" class=" control-label">Company Website</label>
+                 <input type="text" name="Company_Website" value="<?php echo $Current_Company->getCompanyName();?>" class="form-control circle" id="companywebsite">
                </div>
                <div class="form-group">
-                 <label for="address_line1" class=" control-label">Town</label>
-                 <input type="text" name="Address_Line1" value="<?php echo $Current_User->getAdd1();?>" class="form-control circle" id="address_line1">
+                 <label for="town" class=" control-label">Town</label>
+                 <input type="text" name="Town" value="<?php echo $Current_Company->getAdd1();?>" class="form-control circle" id="town">
                </div>
                <div class="form-group">
-                 <label for="address_line2" class=" control-label">County</label>
-                 <input type="text" name="Address_Line2" value="<?php echo $Current_User->getAdd2();?>" class="form-control circle" id="address_line2">
+                 <label for="county" class=" control-label">County</label>
+                 <input type="text" name="County" value="<?php echo $Current_Company->getAdd2();?>" class="form-control circle" id="county">
                </div>
                <div class="form-group">
-                 <label for="postcode" class=" control-label">Main Tier</label>
-                 <input type="text" name="Postcode" value="<?php echo $Current_User->getPostcode();?>" class="form-control circle" >
+                 <label for="maintier" class=" control-label">Main Tier</label>
+                 <input type="text" name="Main_Tier" value="<?php echo $Current_Company->getPostcode();?>" class="form-control circle" id="maintier">
                </div>
                <div class="form-group">
-                 <label for="dateofbirth" class=" control-label">Subtier</label>
-                 <input type="date" name="DOB" value="<?php echo $Current_User->getDOB();?>" class="form-control circle" id="dateofbirth">
+                 <label for="subtier" class=" control-label">Subtier</label>
+                 <input type="text" name="Subtier" value="<?php echo $Current_Company->getDOB();?>" class="form-control circle" id="subtier">
                </div>
 
                </div>
                <div class="col-xs-1"></div>
                <div class="col-xs-5">
                <div class="form-group">
-                 <label for="lastname" class=" control-label">Industry</label>
-                 <input type="text" name="Last_Name" value="<?php echo $Current_User->getLastName();?>" class="form-control circle" id="lastname">
+                 <label for="industry" class=" control-label">Industry</label>
+                 <input type="text" name="Industry" value="<?php echo $Current_Company->getLastName();?>" class="form-control circle" id="industry">
                </div>
 
                <div class="form-group">
-                 <label for="email" class=" control-label">Date Added</label>
-                 <input type="date" name="Email" value="<?php echo $Current_User->getEmail();?>" class="form-control circle" id="email">
+                 <label for="dateadded" class=" control-label">Date Added</label>
+                 <input type="date" name="Date_Added" value="<?php echo $Current_Company->getEmail();?>" class="form-control circle" id="dateadded">
                </div>
 
                <div class="form-group">
-                 <label for="phone" class=" control-label">location_Id</label>
-                 <input type="text" name="Phone" value="<?php echo $Current_User->getPhone();?>" class="form-control circle" id="phone">
+                 <label for="lcoationid" class=" control-label">location_Id</label>
+                 <input type="text" name="Location_Id" value="<?php echo $Current_Company->getPhone();?>" class="form-control circle" id="Locationid">
                </div>
-
-               <div class="form-group">
-                 <label for="password" class=" control-label">Password</label>
-                 <input type="password" name="Password" value="" class="form-control circle" id="password">
-               </div>
-               <button type="submit" name="Usubmit" class="btn btn-info circle">Update</button>
-               <a href="./dashboard.php" class="btn btn-warning circle">Back to Dashboard</a>
+               <button type="submit" name="Usubmit" class="btn btn-success circle">Add Company</button>
+               <a href="./adminDashboard.php" class="btn btn-danger circle">Back to Dashboard</a>
                <br>
                <br>
                    <?php echo $view->result; ?>
