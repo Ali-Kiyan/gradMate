@@ -1,13 +1,13 @@
 <?php
 
 namespace jobWizardProject;
-// session_start();
+session_start();
 require_once __DIR__ . '/Company.php';
 require_once __DIR__ . '/TableAbstract.php';
 require_once "./Views/Template/includedFunctions.php";
 
 class CompanyTable extends TableAbstract {
-  
+
     protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
     protected $LocationForeignKey = 'Location_Id';
@@ -86,6 +86,34 @@ class CompanyTable extends TableAbstract {
         return $response;
     }
 
+
+
+    //EDIT COMPANY
+
+    public function editCompany($data)
+    {
+
+        $sql = "UPDATE  $this->name SET Company_Name = :Company_Name, Company_Website = :Company_Website, Town = :Town, County = :County, Main_Tier = :Main_Tier, Subtier = :Subtier, Industry =
+        :Industry, Date_Added = :Date_Added, Location_Id = :Location_Id WHERE $this->name.Company_Id = :Company_Id";
+        $result = $this->dbh->prepare($sql);
+        $params = array(
+            ':Company_Id' => $_SESSION['Company_Id'],
+            ':Company_Name' => $data['Company_Name'],
+            ':Company_Website' => $data['Company_Website'],
+            ':Town' => $data['Town'],
+            ':County' => $data['County'],
+            ':Main_Tier' => $data['Main_Tier'],
+            ':Subtier' => $data['Subtier'],
+            ':Industry' => $data['Industry'],
+            ':Date_Added' => $data['Date_Added'],
+            ':Location_Id' => $data['Location_Id']
+        );
+
+
+        $response = $result->execute($params);
+        return $response;
+
+    }
 
 
     //DELETE Company

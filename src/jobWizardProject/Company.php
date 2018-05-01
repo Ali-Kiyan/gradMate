@@ -3,7 +3,7 @@ namespace jobWizardProject;
 class Company {
   protected $Company_id, $Company_Name, $Company_Website, $Town, $County, $Main_Tier, $Subtier, $Industry, $Date_Added, $Location_Id;
   public function __construct($dbrow) {
-    $this->Company_id = $dbrow['Company_id'];
+    $this->Company_id = $dbrow['Company_Id'];
     $this->Company_Name = $dbrow['Company_Name'];
     $this->Company_Website = $dbrow['Company_Website'];
     $this->Town = $dbrow['Town'];
