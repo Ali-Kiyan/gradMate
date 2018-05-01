@@ -13,7 +13,7 @@ function confirmLoggedIn () {
 }
 function confirmAdmin () {
 
-    if (!$_SESSION['Is_Admin']) {
+    if (!$_SESSION['Is_Admin'] && !isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
         redirectTo("./Views/Template/logout.php");
     }
 }

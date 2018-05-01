@@ -81,8 +81,8 @@ class UserTable extends TableAbstract {
     public function insertUser($data)
     {
         // Converting Null value of php to null value of mysql
-        // extra security check in the backend
         $data["Username"] == null ? $data["Username"] = NULL : $data["Username"];
+        // extra security check in the backend
         if($data["Password"] == NULL || $data["Password"] == "")
         return false;
 
