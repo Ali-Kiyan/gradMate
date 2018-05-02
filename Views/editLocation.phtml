@@ -6,11 +6,11 @@ require("Template/adminSideNav.phtml");
 <div class="container-fluid">
 
 
-     <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
+     <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="locationProfile">
 
          <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
-               <div class="col-xs-5">
+               <div class="col-xs-12">
 
                <div class="form-group">
                  <label for="Locaitonname" class=" control-label">Location Name</label>
@@ -42,12 +42,12 @@ require("Template/adminSideNav.phtml");
    </div>
      <script>
      $(document).ready(function(){
-     TweenLite.fromTo($('#userProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
+     TweenLite.fromTo($('#locationProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
      });
      </script>
      <style>
 
-     #userProfile{
+     #locationProfile{
      opacity: 0;
      border-radius: 0px;
      background-color: rgba(255,255,255,0.3);

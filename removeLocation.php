@@ -1,6 +1,6 @@
 <?php
-// require('./Views/Template/includedFunctions.php');
-// confirmLoggedIn();
+require('./Views/Template/includedFunctions.php');
+confirmLoggedIn();
 $view = new stdClass();
 $view->pageTitle = 'Removing Locations';
 require_once  './vendor/autoload.php';
@@ -11,7 +11,8 @@ $locationList = $locationdb->fetchLocations($pageStart,$rowCount);
 
 if(isset($_POST['Dsubmit']))
 {
-    $respond = $companydb->deleteCompany($_POST['Location_Id']);
+
+    $respond = $locationdb->deleteLocation($_POST['Location_Id']);
     if($respond)
     {
         redirectTo("./removeLocation.php");

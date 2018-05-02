@@ -111,18 +111,18 @@ class LocationTable extends TableAbstract {
     // }
     //
     //
-    // //DELETE Company
-    //
-    //
-    // public function deleteCompany($key)
-    // {
-    //     $sql = "DELETE FROM $this->name WHERE $this->primaryKey = :Company_Id";
-    //     $params = array(':Company_Id' => $key);
-    //     $results = $this->dbh->prepare($sql);
-    //     $response = $results->execute($params);
-    //     return $response;
-    //
-    // }
+    //DELETE Location
+
+
+    public function deleteLocation($key)
+    {
+        $sql = "DELETE FROM $this->name WHERE $this->primaryKey = :Location_Id";
+        $params = array(':Location_Id' => $key);
+        $results = $this->dbh->prepare($sql);
+        $response = $results->execute($params);
+        return $response;
+
+    }
 
 
 }
