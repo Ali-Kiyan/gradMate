@@ -22,7 +22,7 @@ $('#hamburger-6').click(function(){
      foreach ($companyList as $company){
              echo '<tr class="centerText" >
              <td>'. $company->getCompanyName() .  '</td>
-             <td>'. '<form action="./addCompany.php" method="POST">
+             <td>'. '<form action="./addNewCompany.php" method="POST">
                      <input type="hidden" name="Company_Name" value="'. $company->getCompanyName() .'">
                      <button class="btn btn-sm btn-success circle" type="submit" name="Asubmit">Add to the Database </button>
                      </form>'.
