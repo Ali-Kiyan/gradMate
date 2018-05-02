@@ -108,8 +108,6 @@ class CompanyTable extends TableAbstract {
             ':Date_Added' => $data['Date_Added'],
             ':Location_Id' => $data['Location_Id']
         );
-
-
         $response = $result->execute($params);
         return $response;
 

@@ -5,12 +5,16 @@ session_start();
 $view = new stdClass();
 $view->pageTitle = 'Add New Company';
 require_once  './vendor/autoload.php';
-$_SESSION['Company_Id'] = 29240;
 $companydb = new JobWizardProject\CompanyTable();
+if(isset($_POST['Esubmit'])){
+  $_SESSION['Company_Id'] = $_POST['Company_Id'];
+}
 $Current_Company = $companydb->fetchCompany($_SESSION['Company_Id']);
 
 if(isset($_POST['Isubmit']))
 {
+
+    $_SESSION['Company_Id'] = $_POST['Company_Id'];
     $respond = $companydb->editCompany($_POST);
     if($respond)
     {

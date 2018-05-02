@@ -54,6 +54,7 @@ require("Template/adminSideNav.phtml");
                  <label for="lcoationid" class=" control-label">location_Id</label>
                  <input type="text" name="Location_Id" value="<?php echo $Current_Company->getCompanyLocationId();?>" class="form-control circle" id="Locationid">
                </div>
+               <input type="hidden" name="Company_Id" value="<?php echo $Current_Company->getCompanyId();?>">
                <button type="submit" name="Isubmit" class="btn btn-success circle">Update</button>
 
                <a href="./adminDashboard.php" class="btn btn-warning circle">Back to Dashboard</a>

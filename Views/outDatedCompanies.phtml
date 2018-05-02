@@ -15,6 +15,7 @@ $('#hamburger-6').click(function(){
            <thead>
              <tr class="centerText">
                <td>Company Name</td>
+               <td>Edit</td>
                <td>Delete</td>
              </tr>
 
@@ -25,9 +26,14 @@ $('#hamburger-6').click(function(){
                      echo '<tr class="centerText" >
 
                      <td>'. (($company->getCompanyName())?$company->getCompanyName():"Not Found") .  '</td>
+                     <td>'. '<form action="./editCompany.php" method="POST">
+                             <input type="hidden" name="Company_Id" value="'. $company->getCompanyId() .'">
+                             <button class="btn btn-md btn-info circle" type="submit" name="Esubmit">Edit Company </button>
+                             </form>'  .
+                     '</td>'.'
                      <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
                              <input type="hidden" name="Company_Id" value="'. $company->getCompanyId() .'">
-                             <button class="btn btn-xs btn-danger circle" type="submit" name="Dsubmit">Delete </button>
+                             <button class="btn btn-md btn-danger circle" type="submit" name="Dsubmit">Delete Company </button>
                              </form>'  .
                      '</td>'
                      ;
