@@ -8,7 +8,7 @@ require_once __DIR__ . '/TableAbstract.php';
 
 class LocationTable extends TableAbstract {
 
-    protected $name = 'Location_Detail2';
+    protected $name = 'Location_Detail';
     protected $primaryKey = 'Location_Id';
 
 
@@ -23,11 +23,6 @@ class LocationTable extends TableAbstract {
         $location = new Location($results->fetch());
         return $location;
     }
-
-
-
-
-
 
 
 
@@ -70,15 +65,6 @@ class LocationTable extends TableAbstract {
         return $response;
 
     }
-
-
-
-
-
-
-
-
-
 
 
 
