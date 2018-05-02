@@ -41,8 +41,9 @@ class CompanyTable extends TableAbstract {
 
     public function fetchNewlyAddedCompanies($start,$count)
     {
-      $sql = "SELECT U.Company_Name FROM $this->UpdatedCompanies AS U LEFT JOIN $this->name AS C ON U.Company_Name = C.Company_Name WHERE C.Company_Name IS NULL LIMIT $start,$count";
+      $sql = "SELECT U.Company_Name FROM $this->newList AS U LEFT JOIN $this->name AS C ON U.Company_Name = C.Company_Name WHERE C.Company_Name IS NULL LIMIT $start,$count";
       $results = $this->dbh->prepare($sql);
+      $results->execute();
       $companyArray = array();
       while($row = $results->fetch()) {
         $companyArray[] = new Company($row);
@@ -69,8 +70,9 @@ class CompanyTable extends TableAbstract {
         // extra security check in the backend
         if($data["Company_Name"] == NULL || $data["Company_Name"] == "")
         return false;
-        $sql = "INSERT INTO $this->name (Company_Name, Company_Website, Town, County, Main_Tier, Subtier, Industry, Date_Added, Location_Id) VALUES (:Company_Name, :Company_Website, Town, County, Main_Tier, Subtier, Industry, Date_Added, Location_Id);";
-        $results = $this->dbh->prepare($sql);
+        $sql = "INSERT INTO $this->name (Company_Name, Company_Website, Town, County, Main_Tier, Subtier, Industry, Date_Added, Location_Id) VALUES (:Company_Name, :Company_Website, :Town, :County, :Main_Tier, :Subtier, :Industry, :Date_Added, :Location_Id);";
+        $result = $this->dbh->prepare($sql);
+
         $params = array(
           ':Company_Name' => $data['Company_Name'],
           ':Company_Website' => $data['Company_Website'],
@@ -80,9 +82,9 @@ class CompanyTable extends TableAbstract {
           ':Subtier' => $data['Subtier'],
           ':Industry' => $data['Industry'],
           ':Date_Added' => $data['Date_Added'],
-          ':Location_Id' => $data['Location_Id']
+          ':Location_Id' =>  $data['Location_Id']
         );
-        $response  = $results->execute($params);
+        $response  = $result->execute($params);
         return $response;
     }
 

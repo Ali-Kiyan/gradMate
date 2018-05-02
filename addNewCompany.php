@@ -15,9 +15,8 @@ if(isset($_POST['Asubmit'])){
 
 if(isset($_POST['Isubmit']))
 {
-
-    $_SESSION['Company_Id'] = $_POST['Company_Id'];
-    $respond = $companydb->editCompany($_POST);
+    $companydb = new JobWizardProject\CompanyTable();
+    $respond = $companydb->insertCompany($_POST);
     if($respond)
     {
         redirectTo("./editCompany.php");
