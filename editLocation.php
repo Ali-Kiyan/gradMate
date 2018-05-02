@@ -1,7 +1,6 @@
 <?php
 require('./Views/Template/includedFunctions.php');
-confirmLoggedIn();
-session_start();
+confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Edit Location';
 require_once  './vendor/autoload.php';

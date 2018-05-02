@@ -1,6 +1,6 @@
 <?php
 require('./Views/Template/includedFunctions.php');
-confirmLoggedIn();
+confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Admin Profile';
 require_once  './vendor/autoload.php';

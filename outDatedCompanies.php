@@ -1,6 +1,6 @@
 <?php
-// require('./Views/Template/includedFunctions.php');
-// confirmLoggedIn();
+require('./Views/Template/includedFunctions.php');
+confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Deleting Outdated Companies';
 require_once  './vendor/autoload.php';
