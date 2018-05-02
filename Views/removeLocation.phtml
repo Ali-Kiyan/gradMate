@@ -1,0 +1,69 @@
+<?php
+require("Template/header.phtml");
+require("Template/adminNav.phtml");
+require("Template/adminSideNav.phtml");
+
+?>
+
+
+
+
+        <div class="container-fluid">
+          <div class="col-xs-12 largeDataHandler">
+           <table id="outdatedCompaniesTable" class="table table-hover table-bordered table-responsive">
+           <thead>
+             <tr class="centerText">
+               <td>Location Name</td>
+               <td>Longitude</td>
+               <td>Latitude</td>
+               <td>Edit</td>
+               <td>Delete</td>
+             </tr>
+
+           </thead>
+            <?php
+
+             foreach ($locationList as $location){
+                     echo '<tr class="centerText" >
+
+                     <td>'. (($location->getlocationName())?$location->getlocationName():"Not Found") .  '</td>
+                     <td>'. (($location->getlocationName())?$location->getlocationLongitude():"Not Found") .  '</td>
+                     <td>'. (($location->getlocationName())?$location->getlocationLatitude():"Not Found") .  '</td>
+                     <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
+                             <input type="hidden" name="Location_Id" value="'. $location->getLocationId() .'">
+                             <button class="btn btn-md btn-warning circle" type="submit" name="Esubmit">Edit Location </button>
+                             </form>'  .
+                     '</td>
+                     <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
+                             <input type="hidden" name="Location_Id" value="'. $location->getLocationId() .'">
+                             <button class="btn btn-md btn-danger circle" type="submit" name="Dsubmit">Delete Location </button>
+                             </form>'  .
+                     '</td>'
+                     ;
+             }
+            ?>
+           </table>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$('#hamburger-6').click(function(){
+      $('.largeDataHandler').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
+});
+</script>
+
+
+<?php
+require("Template/footer.phtml");
+?>

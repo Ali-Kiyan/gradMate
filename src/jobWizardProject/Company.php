@@ -25,9 +25,4 @@ class Company {
   public function getCompanyIndustry() { return $this->Industry;}
   public function getCompanyDate() {return $this->Date_Added;}
   public function getCompanyLocationId() {return $this->Location_Id;}
-  public function getAll(){
-    foreach ($this as $row){
-      return $row;
-    }
-  }
 }
