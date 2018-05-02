@@ -6,10 +6,21 @@
 
 <div id="sideNav" class="col-xs-3 col-md-2" style="display:none;">
   <ul class="sideLinks">
+
+    <li><a href="#" class="btn btn-sm" id="showhideAnalysis"><i class="fa fa-chevron-down" aria-hidden="true"></i> Location</a>
+      <div id="charts" style="display:none;">
+        <a href="./addLocation.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Add</a>
+        <a href="./removeLocation.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Remove</a>
+      </div>
+    </li>
+    <li><a href="#" class="btn btn-sm" id="showhideCV"><i class="fa fa-chevron-down" aria-hidden="true"></i> Companies</a>
+      <div id="cvs" style="display:none;">
+        <a href="./newlyAddedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> New</a>
+        <a href="./outDatedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Outdated</a>
+        <!-- <a href="#" class="btn btn-sm"><i class="fa fa-bar-chart" aria-hidden="true"></i> Map</a> -->
+      </div>
+    </li>
     <li><a href="./Users.php" class="btn btn-sm"><i class="fa fa-user-circle" aria-hidden="true"></i> Users</a></li>
-    <li><a href="./newlyAddedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> New Companies</a></li>
-    <li><a href="./outDatedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Outdated Companies</a></li>
-    <li><a href="./editCompany.php" class="btn btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Edit Company</a></li>
   </ul>
 </div>
 <style>

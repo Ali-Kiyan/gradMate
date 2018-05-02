@@ -9,9 +9,11 @@ $(document).ready(function(){
   $('#showhideAnalysis').click(function(){
     $('#charts').slideToggle(400);
   });
+  
   $('#showhideCV').click(function(){
     $('#cvs').slideToggle(400);
   });
+
   $('#hamburger-6').click(function(){
     $('#sideNav').toggle("slide",600);
         $('.hamburger').toggleClass('hamMargin',1000);
