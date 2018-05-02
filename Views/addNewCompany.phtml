@@ -14,27 +14,27 @@ require("Template/adminSideNav.phtml");
 
                <div class="form-group">
                  <label for="companyname" class=" control-label">Company Name</label>
-                 <input type="text" name="Company_Name" value="<?php echo '$Current_Company->getCompanyName();'?>" class="form-control circle" id="companyname">
+                 <input type="text" name="Company_Name" value="<?php echo $Current_Company->getCompanyName();?>" class="form-control circle" id="companyname">
                </div>
                <div class="form-group">
                  <label for="companywebsite" class=" control-label">Company Website</label>
-                 <input type="text" name="Company_Website" value="<?php echo '$Current_Company->getCompanyWebsite()';?>" class="form-control circle" id="companywebsite">
+                 <input type="text" name="Company_Website" value="<?php echo $Current_Company->getCompanyWebsite();?>" class="form-control circle" id="companywebsite">
                </div>
                <div class="form-group">
                  <label for="town" class=" control-label">Town</label>
-                 <input type="text" name="Town" value="<?php echo '$Current_Company->getCompanyTown()';?>" class="form-control circle" id="town">
+                 <input type="text" name="Town" value="<?php echo $Current_Company->getCompanyTown();?>" class="form-control circle" id="town">
                </div>
                <div class="form-group">
                  <label for="county" class=" control-label">County</label>
-                 <input type="text" name="County" value="<?php echo '$Current_Company->getCompanyCounty()';?>" class="form-control circle" id="county">
+                 <input type="text" name="County" value="<?php echo $Current_Company->getCompanyCounty();?>" class="form-control circle" id="county">
                </div>
                <div class="form-group">
                  <label for="maintier" class=" control-label">Main Tier</label>
-                 <input type="text" name="Main_Tier" value="<?php echo '$Current_Company->getCompanyMainTier()';?>" class="form-control circle" id="maintier">
+                 <input type="text" name="Main_Tier" value="<?php echo $Current_Company->getCompanyMainTier();?>" class="form-control circle" id="maintier">
                </div>
                <div class="form-group">
                  <label for="subtier" class=" control-label">Subtier</label>
-                 <input type="text" name="Subtier" value="<?php echo '$Current_Company->getCompanysubtier()';?>" class="form-control circle" id="subtier">
+                 <input type="text" name="Subtier" value="<?php echo $Current_Company->getCompanysubtier();?>" class="form-control circle" id="subtier">
                </div>
 
                </div>
@@ -42,17 +42,17 @@ require("Template/adminSideNav.phtml");
                <div class="col-xs-5">
                <div class="form-group">
                  <label for="industry" class=" control-label">Industry</label>
-                 <input type="text" name="Industry" value="<?php echo '$Current_Company->getCompanyIndustry()';?>" class="form-control circle" id="industry">
+                 <input type="text" name="Industry" value="<?php echo $Current_Company->getCompanyIndustry();?>" class="form-control circle" id="industry">
                </div>
 
                <div class="form-group">
                  <label for="dateadded" class=" control-label">Date Added</label>
-                 <input type="date" name="Date_Added" value="<?php echo '$Current_Company->getCompanyDate()';?>" class="form-control circle" id="dateadded">
+                 <input type="date" name="Date_Added" value="<?php echo $Current_Company->getCompanyDate();?>" class="form-control circle" id="dateadded">
                </div>
 
                <div class="form-group">
                  <label for="lcoationid" class=" control-label">location_Id</label>
-                 <input type="text" name="Location_Id" value="<?php echo '$Current_Company->getCompanyLocationId()';?>" class="form-control circle" id="Locationid">
+                 <input type="text" name="Location_Id" value="<?php echo $Current_Company->getCompanyLocationId();?>" class="form-control circle" id="Locationid">
                </div>
                <button type="submit" name="Isubmit" class="btn btn-success circle">Add to Database</button>
 
