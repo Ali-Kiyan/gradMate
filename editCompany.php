@@ -1,6 +1,6 @@
 <?php
-// require('./Views/Template/includedFunctions.php');
-// confirmLoggedIn();
+require('./Views/Template/includedFunctions.php');
+confirmLoggedIn();
 session_start();
 $view = new stdClass();
 $view->pageTitle = 'Add New Company';

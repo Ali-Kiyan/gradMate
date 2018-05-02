@@ -1,5 +1,5 @@
 <?php
-// require('./Views/Template/includedFunctions.php');
+require('./Views/Template/includedFunctions.php');
 // confirmLoggedIn();
 session_start();
 $view = new stdClass();
@@ -18,7 +18,7 @@ if(isset($_POST['Isubmit']))
     $respond = $companydb->insertCompany($_POST);
     if($respond)
     {
-        redirectTo("./newlyAddedCompanies.php");
+        redirectTo("./addNewCompany.php");
         $view->result = '<div class="alert alert-success">Successfully Updated </div>';
     }
     else

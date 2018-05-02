@@ -29,9 +29,9 @@ require("Template/adminSideNav.phtml");
                      <td>'. (($location->getlocationName())?$location->getlocationName():"Not Found") .  '</td>
                      <td>'. (($location->getlocationName())?$location->getlocationLongitude():"Not Found") .  '</td>
                      <td>'. (($location->getlocationName())?$location->getlocationLatitude():"Not Found") .  '</td>
-                     <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
+                     <td>'. '<form action="./editLocation.php" method="POST">
                              <input type="hidden" name="Location_Id" value="'. $location->getLocationId() .'">
-                             <button class="btn btn-md btn-warning circle" type="submit" name="Esubmit">Edit Location </button>
+                             <button class="btn btn-md btn-warning circle" type="submit" name="editLocationSubmit">Edit Location </button>
                              </form>'  .
                      '</td>
                      <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">

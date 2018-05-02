@@ -8,8 +8,29 @@ require_once __DIR__ . '/TableAbstract.php';
 
 class LocationTable extends TableAbstract {
 
-    protected $name = 'LocationDetail';
+    protected $name = 'Location_Detail2';
     protected $primaryKey = 'Location_Id';
+
+
+
+
+    // FETCHING A Location
+    public function fetchLocation($key){
+        $sql= 'SELECT * FROM ' . $this->name . ' WHERE ' . $this->primaryKey . ' = :id LIMIT 1';
+        $params = array(':id' => $key);
+        $results = $this->dbh->prepare($sql);
+        $results->execute($params);
+        $location = new Location($results->fetch());
+        return $location;
+    }
+
+
+
+
+
+
+
+
 
     // FETCHING Locations
     public function fetchLocations($start,$count) {
@@ -22,6 +43,45 @@ class LocationTable extends TableAbstract {
       }
       return $locationArray;
     }
+
+
+
+
+    //EDIT LOCATION
+
+    public function editLocation($data)
+    {
+
+        // typecast
+        $data['Location_Id'] = (int) $data['Location_Id'];
+        $data['Latitude'] = (double) $data['Latitude'] ;
+        $data['Longitude'] = (double) $data['Longitude'];
+
+        $sql = "UPDATE  $this->name SET Location = :Location, Latitude= :Latitide, Longitude = :Longitude WHERE $this->name.Location_Id = :Location_Id";
+        $result = $this->dbh->prepare($sql);
+        $params = array(
+            ':Location_Id' => $data['Location_Id'],
+            ':Location' => $data['Location_Name'],
+            ':Latitide' => $data['Latitude'],
+            ':Longitude' => $data['Longitude']
+        );
+
+        $response = $result->execute($params);
+        return $response;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     //
     // // INSERT COMPANY
