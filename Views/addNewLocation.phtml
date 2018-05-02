@@ -12,12 +12,13 @@ require("Template/adminSideNav.phtml");
 $('#hamburger-6').click(function(){
       $('.largeDataHandler').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
 });
-TweenLite.fromTo($('#userProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
+$(document).ready(function(){
+TweenLite.fromTo($('#location'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
 });
 </script>
 <div class="container-fluid">
 
-           <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
+           <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="location">
 
                <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -45,7 +46,14 @@ TweenLite.fromTo($('#userProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-
 
 
      </div>
+     <style>
 
+     #location{
+     opacity: 0;
+     border-radius: 0px;
+     background-color: rgba(255,255,255,0.3);
+     }
+     </style>
 <?php
 require("Template/footer.phtml");
 ?>

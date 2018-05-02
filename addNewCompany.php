@@ -1,7 +1,6 @@
 <?php
 require('./Views/Template/includedFunctions.php');
-// confirmLoggedIn();
-session_start();
+confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Add New Company';
 require_once  './vendor/autoload.php';
@@ -19,7 +18,6 @@ if(isset($_POST['Isubmit']))
     if($respond)
     {
         redirectTo("./addNewCompany.php");
-        $view->result = '<div class="alert alert-success">Successfully Updated </div>';
     }
     else
     {

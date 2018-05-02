@@ -69,34 +69,28 @@ class LocationTable extends TableAbstract {
 
 
 
-    //
-    // // INSERT COMPANY
-    // public function insertCompany($data)
-    // {
-    //     // Converting Null value of php to null value of mysql
-    //     $data["Company_Name"] == null ? $data["Company_Name"] = NULL : $data["Company_Name"];
-    //     // extra security check in the backend
-    //     if($data["Company_Name"] == NULL || $data["Company_Name"] == "")
-    //     return false;
-    //     $sql = "INSERT INTO $this->name (Company_Name, Company_Website, Town, County, Main_Tier, Subtier, Industry, Date_Added, Location_Id) VALUES (:Company_Name, :Company_Website, :Town, :County, :Main_Tier, :Subtier, :Industry, :Date_Added, :Location_Id);";
-    //     $result = $this->dbh->prepare($sql);
-    //
-    //     $params = array(
-    //       ':Company_Name' => $data['Company_Name'],
-    //       ':Company_Website' => $data['Company_Website'],
-    //       ':Town' => $data['Town'],
-    //       ':County' => $data['County'],
-    //       ':Main_Tier' => $data['Main_Tier'],
-    //       ':Subtier' => $data['Subtier'],
-    //       ':Industry' => $data['Industry'],
-    //       ':Date_Added' => $data['Date_Added'],
-    //       ':Location_Id' =>  $data['Location_Id']
-    //     );
-    //     $response  = $result->execute($params);
-    //     return $response;
-    // }
-    //
-    //
+
+    // INSERT Location
+    public function insertLocation($data)
+    {
+        // Converting Null value of php to null value of mysql
+        $data["Location_Name"] == null ? $data["Location_Name"] = NULL : $data["Location_Name"];
+        // extra security check in the backend
+        if($data["Location_Name"] == NULL || $data["Location_Name"] == "")
+        return false;
+        $sql = "INSERT INTO $this->name (Location, Longitude, Latitude) VALUES (:Location_Name, :Longitude, :Latitude);";
+        $result = $this->dbh->prepare($sql);
+
+        $params = array(
+          ':Location_Name' => $data['Location_Name'],
+          ':Longitude' => $data['Longitude'],
+          ':Latitude' => $data['Latitude']
+        );
+        $response  = $result->execute($params);
+        return $response;
+    }
+
+
     //DELETE Location
 
 
