@@ -6,7 +6,7 @@ $view = new stdClass();
 $view->pageTitle = 'Add New Company';
 require_once  './vendor/autoload.php';
 $companydb = new JobWizardProject\CompanyTable();
-if(isset($_POST['Esubmit'])){
+if(isset($_POST['outdatedEsubmit'])){
   $_SESSION['Company_Id'] = $_POST['Company_Id'];
 }
 $Current_Company = $companydb->fetchCompany($_SESSION['Company_Id']);

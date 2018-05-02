@@ -28,7 +28,7 @@ $('#hamburger-6').click(function(){
                      <td>'. (($company->getCompanyName())?$company->getCompanyName():"Not Found") .  '</td>
                      <td>'. '<form action="./editCompany.php" method="POST">
                              <input type="hidden" name="Company_Id" value="'. $company->getCompanyId() .'">
-                             <button class="btn btn-md btn-info circle" type="submit" name="Esubmit">Edit Company </button>
+                             <button class="btn btn-md btn-info circle" type="submit" name="outdatedEsubmit">Edit Company </button>
                              </form>'  .
                      '</td>'.'
                      <td>'. '<form action="'. $_SERVER['PHP_SELF'] .'" method="POST">
