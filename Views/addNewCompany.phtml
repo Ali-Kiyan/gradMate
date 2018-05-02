@@ -2,6 +2,8 @@
 require("Template/header.phtml");
 require("Template/adminNav.phtml");
 require("Template/adminSideNav.phtml");
+
+
 ?>
 <div class="container-fluid">
 
@@ -11,10 +13,9 @@ require("Template/adminSideNav.phtml");
          <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                <div class="col-xs-5">
-
                <div class="form-group">
                  <label for="companyname" class=" control-label">Company Name</label>
-                 <input type="text" name="Company_Name" value="<?php echo $Current_Company->getCompanyName();?>" class="form-control circle" id="companyname">
+                 <input type="text" name="Company_Name" value="<?php echo $Current_Company->getCompanyName() . ' before => ' . $_POST['Company_Name'];?>" class="form-control circle" id="companyname">
                </div>
                <div class="form-group">
                  <label for="companywebsite" class=" control-label">Company Website</label>

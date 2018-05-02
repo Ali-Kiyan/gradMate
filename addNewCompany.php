@@ -12,20 +12,23 @@ if(isset($_POST['Asubmit'])){
   $Current_Company = $API->fetchCompanyInfo($generalInfo);
 }
 
-
 if(isset($_POST['Isubmit']))
 {
     $companydb = new JobWizardProject\CompanyTable();
     $respond = $companydb->insertCompany($_POST);
     if($respond)
     {
-        redirectTo("./editCompany.php");
+        redirectTo("./newlyAddedCompanies.php");
         $view->result = '<div class="alert alert-success">Successfully Updated </div>';
     }
     else
     {
+        $API = new JobWizardProject\ApiCompany();
+        $generalInfo = $API->fetchGeneralInfo($_POST['Company_Name']);
+        $Current_Company = $API->fetchCompanyInfo($generalInfo);
         $view->result = '<div class="alert alert-danger">Please check your input </div>';
     }
+
 
 }
 
