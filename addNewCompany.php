@@ -11,13 +11,21 @@ if(isset($_POST['Asubmit'])){
   $Current_Company = $API->fetchCompanyInfo($generalInfo);
 }
 
+
+$locationHandle = new JobWizardProject\LocationTable();
+$locations = $locationHandle->fetchLocations(0,1000000);
+
 if(isset($_POST['Isubmit']))
 {
+
+
+$_POST['Location_Id'] = settype($_POST['Location_Id'], int);
     $companydb = new JobWizardProject\CompanyTable();
     $respond = $companydb->insertCompany($_POST);
     if($respond)
     {
-        redirectTo("./addNewCompany.php");
+
+        redirectTo("./newlyAddedCompanies.php");
     }
     else
     {
