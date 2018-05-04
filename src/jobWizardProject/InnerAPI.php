@@ -18,7 +18,6 @@ class InnerAPI extends TableAbstract {
       $sql = "SELECT COUNT(DISTINCT Company_Name) AS Companies, County FROM $this->name WHERE County != ' ' GROUP BY County HAVING COUNT(Company_Name)>0";
       $results = $this->dbh->prepare($sql);
       $results->execute();
-        $result = array();
       while($row = $results->fetch()){
         $result[] = $row;
       }
@@ -57,6 +56,22 @@ class InnerAPI extends TableAbstract {
         $CompaniesPerCordinate = json_encode($result);
       }
         return $CompaniesPerCordinate;
+    }
+
+
+    public function industryPerCounty($county){
+        $sql = "SELECT COUNT(Industry) AS numOfCompany, Industry FROM $this->name WHERE County != ' ' AND Industry != ' ' AND County = '". $county . "' GROUP BY Industry";
+        $results = $this->dbh->prepare($sql);
+        $results->execute();
+        while($row = $results->fetch()){
+          $result[] = $row;
+        }
+        for($i=0;$i<sizeof($result);$i++){
+          settype($result[$i]['numOfCompany'] , int);
+          unset($result[$i][0]);
+          unset($result[$i][1]);
+        }
+        return json_encode($result);
     }
 
     //
