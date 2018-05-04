@@ -1,18 +1,11 @@
 <?php
 require_once "./Views/Template/header.phtml";
 require_once "./Views/Template/nav.phtml";
+require_once "./Views/Template/sideNav.phtml";
 ?>
 
   <link rel="stylesheet" href="./assets/css/userStyle.css"/>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-  <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-  <?php
-  require_once "./Views/Template/sideNav.phtml";
-  ?>
 
   <div class="container">
 
@@ -40,23 +33,13 @@ require_once "./Views/Template/nav.phtml";
     </div>
 
     </div>
-
-
-
-
+    
   </div>
 
-</body>
+
 
 <?php
 require_once "footer.phtml";
 ?>
-
-
-
-
-<script src="industryPerCountyChart.js">
-
-
-</script>
+<script src="./assets/js/industriesPerCountyChart.js"></script>
 <link rel="stylesheet" href="./assets/css/ham.css">
