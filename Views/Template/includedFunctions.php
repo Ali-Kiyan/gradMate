@@ -17,5 +17,15 @@ function confirmAdmin () {
         redirectTo("./Views/Template/logout.php");
     }
 }
+function authRedirect(){
+  if($_SESSION['Is_Admin'] && isset($_SESSION['Username']) && isset($_SESSION['Password']))
+  {
+    redirectTo("./adminDashboard.php");
+  }
+  else if($_SESSION['Is_Admin']==0 && isset($_SESSION['Username']) && isset($_SESSION['Password']))
+  {
+    redirectTo("./Dashboard.php");
+  }
+}
 
 ?>

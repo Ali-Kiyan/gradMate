@@ -6,7 +6,7 @@ require_once "../Views/Template/includedFunctions.php";
 require_once '../vendor/autoload.php';
 $companies = new jobWizardProject\InnerAPI();
 $x = $companies->companiesPerCounty();
-echo $x;
-
+$y = $companies->CompaniesPerCordinate($x);
+var_dump($y);
 
 ?>

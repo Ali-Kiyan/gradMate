@@ -12,8 +12,7 @@ class InnerAPI extends TableAbstract {
     protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
     protected $LocationForeignKey = 'Location_Id';
-
-
+    protected $numOfCompany, $county, $query, $result, $companyData = array();
 
     public function companiesPerCounty(){
       $sql = "SELECT COUNT(DISTINCT Company_Name) AS Companies, County FROM $this->name WHERE County != ' ' GROUP BY County HAVING COUNT(Company_Name)>0";
@@ -28,6 +27,38 @@ class InnerAPI extends TableAbstract {
         unset($result[$i][1]);
       }
       return json_encode($result);
+    }
+
+
+
+
+
+    public function CompaniesPerCordinate($inputData){
+
+      $companyData = json_decode($inputData, true);
+
+      for($i=0; $i<sizeof($companyData);$i++){
+        $numOfCompany[$i] = $companyData[$i]["Companies"];
+        $county[$i] = $companyData[$i]['County'];
+        $query[$i] = "SELECT Location, Latitude, Longitude from Location_Detail where Location != 'Unknown' AND Location LIKE '". trim($county[$i]) ."%' limit 1";
+      }
+
+      for($j=0;$j<sizeof($companyData);$j++){
+        $results = $this->dbh->prepare($query[$j]);
+        $results->execute();
+        $result[$j] = $results->fetch();
+        unset($result[$j][0]);
+        unset($result[$j][1]);
+        unset($result[$j][2]);
+        if($result[$j]['Latitude'] != 0 && $result[$j]['Longitude'] != 0){
+          $result[$j]['Latitude']=(double)$result[$j]['Latitude'];
+          $result[$j]['Longitude']=(double)$result[$j]['Longitude'];
+          $result[$j]['numOfCompany']=(double)$numOfCompany[$j];
+        }
+        $result[$j]['Location'] = trim($companyData[$j]['county']);
+        $CompaniesPerCordinate = json_encode($result);
+      }
+        return $CompaniesPerCordinate;
     }
 
     //
