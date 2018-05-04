@@ -12,7 +12,7 @@ var vs;
     var url = that.attr('action');
     var type = that.attr('method');
     var cdata = {};
-    cdata.county = $('#citySelect').val();
+    cdata.Industry = $('#citySelect').val();
     console.log(cdata);
     if($('#citySelect').val() != ''){
     $.ajax({
