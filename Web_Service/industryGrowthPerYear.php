@@ -4,9 +4,9 @@ require_once "../Views/Template/includedFunctions.php";
 // confirmAdmin();
 
 require_once '../vendor/autoload.php';
-$companies = new jobWizardProject\InnerAPI();
-$companiesPerCounty = $companies->industryGrowthPerYear('IT');
-echo $companiesPerCounty;
+$API = new jobWizardProject\InnerAPI();
+$industerisPerYear = $API->industryGrowthPerYear($_POST['Industry']);
+echo $industerisPerYear;
 
 //industeries
 // $indstries = $companies->AllIndustries();
