@@ -22,7 +22,7 @@ require_once "navAdmin.phtml";
   <div class="container">
 
   <div class="container bluredSection">
-    <form action="./industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
+    <form action="./Web_Service/industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
           </select>
@@ -94,10 +94,10 @@ var vs;
         var pp = [];
         var qq = [];
         for (var i=0; i<d.length; i++) {
-         pp.push( d[i].industry);
+         pp.push( d[i].Industry);
         }
         for (var j=0; j<d.length; j++) {
-         qq.push( d[j].num);
+         qq.push( d[j].numOfCompany);
         }
         var chartData = {
           labels: pp,

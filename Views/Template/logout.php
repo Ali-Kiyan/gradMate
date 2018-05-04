@@ -1,11 +1,10 @@
 <?php
      session_start();
-      $_SESSION = array();
-      $_SESSION['User_id'] = null;
-      $_SESSION['First_Name'] = null;
-      $_SESSION['Username'] = null;
-      $_SESSION['Password'] = null;
-      unset($_SESSION);
+     unset($_SESSION['User_id']);
+     unset($_SESSION['First_Name']);
+     unset($_SESSION['Username']);
+     unset($_SESSION['Password']);
+     unset($_SESSION);
       $directory = __DIR__;
 	header("Location: ../../login.php" );
 ?>

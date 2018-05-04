@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: application/json');
 require_once "../Views/Template/includedFunctions.php";
 // confirmAdmin();
 
