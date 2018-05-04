@@ -13,6 +13,9 @@ $(document).ready(function(){
   $('#showhideACC2').click(function(){
     $('#ACC2').slideToggle(400);
   });
+  $('#showhideACC3').click(function(){
+    $('#ACC3').slideToggle(400);
+  });
 
   $('#hamburger-6').click(function(){
     $('#sideNav').toggle("slide",600);

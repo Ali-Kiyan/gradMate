@@ -72,3 +72,18 @@ border-left: solid 0.6vh #71daed;
   border: solid 0.004vh #b7c780;
   border-left: solid 0.6vh #c3eaaa;
 }
+#ACC3 a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #ddefee;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#ACC3 a:hover{
+  background-color: #ddefee;
+  border: solid 0.004vh #b7c780;
+  border-left: solid 0.6vh #c3eaaa;
+}
