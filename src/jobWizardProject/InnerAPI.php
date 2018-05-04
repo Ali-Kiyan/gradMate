@@ -74,6 +74,25 @@ class InnerAPI extends TableAbstract {
         return json_encode($result);
     }
 
+
+
+    public function industryGrowthPerYear($industry){
+        $sql = "select count(company_id), YEAR(Date_Added) from company where Industry = '". $industry ."' group by YEAR(Date_Added)";
+        $results = $this->dbh->prepare($sql);
+        $results->execute();
+        while($row = $results->fetch()){
+          $result[] = $row;
+        }
+        for($i=0;$i<sizeof($result);$i++){
+          // settype($result[$i]['numOfCompany'] , int);
+          unset($result[$i][0]);
+          unset($result[$i][1]);
+        }
+        return json_encode($result);
+
+
+    }
+
     //
     //
     //
