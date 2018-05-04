@@ -55,7 +55,7 @@ class InnerAPI extends TableAbstract {
           $result[$j]['Longitude']=(double)$result[$j]['Longitude'];
           $result[$j]['numOfCompany']=(double)$numOfCompany[$j];
         }
-        $result[$j]['Location'] = trim($companyData[$j]['county']);
+        $result[$j]['Location'] = trim($companyData[$j]['County']);
         $CompaniesPerCordinate = json_encode($result);
       }
         return $CompaniesPerCordinate;
