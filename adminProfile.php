@@ -25,4 +25,4 @@ if(isset($_POST['Usubmit']))
 }
 
 
-require_once './Views/adminProfile.phtml';
+require_once './Views/Profile.phtml';
