@@ -8,4 +8,11 @@ $companies = new jobWizardProject\InnerAPI();
 $companiesPerCounty = $companies->industryGrowthPerYear('IT');
 echo $companiesPerCounty;
 
+//industeries
+// $indstries = $companies->AllIndustries();
+// for($i=0;$i<sizeof($indstries);$i++){
+//   echo $indstries[$i]["Industry"];
+// }
+
+
 ?>

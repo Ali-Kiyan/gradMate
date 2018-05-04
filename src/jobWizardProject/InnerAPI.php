@@ -77,7 +77,7 @@ class InnerAPI extends TableAbstract {
 
 
     public function industryGrowthPerYear($industry){
-        $sql = "SELECT COUNT(company_id) AS numOfCompany, YEAR(Date_Added) AS Year FROM Company WHERE Industry = '". $industry ."' AND YEAR(Date_Added) != '0' GROUP BY YEAR(Date_Added)";
+        $sql = "SELECT COUNT($this->primaryKey) AS numOfCompany, YEAR(Date_Added) AS Year FROM $this->name WHERE Industry = '". $industry ."' AND YEAR(Date_Added) != '0' GROUP BY YEAR(Date_Added)";
         $results = $this->dbh->prepare($sql);
         $results->execute();
         while($row = $results->fetch()){
@@ -91,6 +91,19 @@ class InnerAPI extends TableAbstract {
         return json_encode($result);
 
 
+    }
+
+    public function AllIndustries(){
+      $sql = "SELECT DISTINCT Industry FROM Company";
+      $results = $this->dbh->prepare($sql);
+      $results->execute();
+      while($row = $results->fetch()){
+        $result[] = $row;
+      }
+              for($i=0;$i<sizeof($result);$i++){
+                unset($result[$i][0]);
+              }
+      return $result;
     }
 
     //
