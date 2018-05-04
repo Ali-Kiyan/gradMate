@@ -6,6 +6,11 @@
 }
 .hamMargin{
 float: right;
+clear: both;
+}
+/* clearing the taken space */
+.hamMargin:after {
+  clear: both;
 }
 
 .hamburger .line{

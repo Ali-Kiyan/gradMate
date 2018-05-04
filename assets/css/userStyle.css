@@ -1,24 +1,12 @@
 body{
   background-color: #fbfbfb;
-  height: 100vh;
 }
-
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #eee;
     background-color: #eaeaea;
     position: relative;
     z-index: 1000;
 }
-
-
-.content {
-  margin-top: 10px;
-  border-radius: 0px;
-}
-
-
-
-
 @media (maxwidth:600px){
   .scrollable{
     overflow: scroll;

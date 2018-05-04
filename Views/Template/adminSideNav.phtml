@@ -7,14 +7,14 @@
 <div id="sideNav" class="col-xs-3 col-md-2" style="display:none;">
   <ul class="sideLinks">
 
-    <li><a href="#" class="btn btn-sm" id="showhideAnalysis"><i class="fa fa-chevron-down" aria-hidden="true"></i> Location</a>
-      <div id="charts" style="display:none;">
+    <li><a href="#" class="btn btn-sm" id="showhideACC"><i class="fa fa-chevron-down" aria-hidden="true"></i> Location</a>
+      <div id="ACC" style="display:none;">
         <a href="./addNewLocation.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Add</a>
         <a href="./removeLocation.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Remove</a>
       </div>
     </li>
-    <li><a href="#" class="btn btn-sm" id="showhideCV"><i class="fa fa-chevron-down" aria-hidden="true"></i> Companies</a>
-      <div id="cvs" style="display:none;">
+    <li><a href="#" class="btn btn-sm" id="showhideACC2"><i class="fa fa-chevron-down" aria-hidden="true"></i> Companies</a>
+      <div id="ACC2" style="display:none;">
         <a href="./newlyAddedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> New</a>
         <a href="./outDatedCompanies.php" class="btn btn-sm"><i class="fa fa-building" aria-hidden="true"></i> Outdated</a>
         <!-- <a href="#" class="btn btn-sm"><i class="fa fa-bar-chart" aria-hidden="true"></i> Map</a> -->
@@ -23,81 +23,5 @@
     <li><a href="./Users.php" class="btn btn-sm"><i class="fa fa-user-circle" aria-hidden="true"></i> Users</a></li>
   </ul>
 </div>
-<style>
-.six {
-  width: 49.2%;
-}
-#sideNav{
-  background-color: black;
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  padding: 0;
-  height: 100vh;
-  background-color: #ddefee;
-  z-index: 1000;
-  overflow-y: scroll;
-}
-.sideLinks{
-  background-color: #ddefee;
-  text-decoration: none;
-  list-style: none;
-  padding-left: 0px;
-
-}
-.sideLinks .btn-sm{
-  color: rgba(85, 85, 85, 0.71) !important;
-}
-.sideLinks> li > .btn-success:focus{
-  background-color: #41394c !important;
-}
-.sideLinks a:hover {
-background-color: #fcfcfc;
-border: solid 0.004vh #707070;
-border-left: solid 0.6vh #71daed;
-}
-.sideLinks li > a{
-  width: 100%;
-    color: rgba(#595959, 0.71) !important;
-    border-radius: 0px;
-    background-color: #ddefee;
-    border-size: 1px;
-    border-width: 0;
-    border-color: black;
-    text-align: left;
-    padding: 2vh 0px 2vh 3vh;
-    border: solid #f3ffed 0.1px;
-}
-#charts a{
-  width: 100%;
-  border-radius: 0px;
-  background-color: #ddefee;
-  border-size: 1px;
-  border-width: 0;
-  border-color: black;
-  text-align: left;
-  padding: 2vh 0px 2vh 3vh;
-}
-#charts a:hover{
-  background-color: #ddefee;
-  border: solid 0.004vh #b7c780;
-  border-left: solid 0.6vh #c3eaaa;
-}
-#cvs a{
-  width: 100%;
-  border-radius: 0px;
-  background-color: #ddefee;
-  border-size: 1px;
-  border-width: 0;
-  border-color: black;
-  text-align: left;
-  padding: 2vh 0px 2vh 3vh;
-}
-#cvs a:hover{
-  background-color: #ddefee;
-  border: solid 0.004vh #b7c780;
-  border-left: solid 0.6vh #c3eaaa;
-}
-
-</style>
+<link rel="stylesheet" href="./assets/css/sideNavStyle.css">
 <link rel="stylesheet" href="./assets/css/ham.css">

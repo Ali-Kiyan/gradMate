@@ -3,12 +3,15 @@ $(document).ready(function(){
   TweenLite.fromTo($('#usersTable'),2,{y: 30}, {y:0, opacity: 1});
 
 
-  $('#showhideAnalysis').click(function(){
-    $('#charts').slideToggle(400);
+
+
+
+  $('#showhideACC').click(function(){
+    $('#ACC').slideToggle(400);
   });
 
-  $('#showhideCV').click(function(){
-    $('#cvs').slideToggle(400);
+  $('#showhideACC2').click(function(){
+    $('#ACC2').slideToggle(400);
   });
 
   $('#hamburger-6').click(function(){
