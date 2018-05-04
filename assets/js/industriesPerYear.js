@@ -4,24 +4,16 @@ var vs;
 
   TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
   TweenLite.fromTo($('#chartType'),1.5,{x:1000,opacity:0, rotationX: "-=210"}, {x:0,opacity:1, rotationX: "+=210"});
-  $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
-    var counties = data.map(function(element){
-      return element.County
-    })
-    counties.forEach(function(element){
-      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-    });
-   });
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
-    TweenLite.fromTo($('#pie'),3,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
+    TweenLite.fromTo($('#pie'),4,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
     var that = $(this);
     var url = that.attr('action');
     var type = that.attr('method');
     var cdata = {};
-    var chartType = $('#chartType').val();
     cdata.county = $('#citySelect').val();
+    console.log(cdata);
     if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
@@ -32,7 +24,7 @@ var vs;
         var pp = [];
         var qq = [];
         for (var i=0; i<d.length; i++) {
-         pp.push( d[i].Industry);
+         pp.push( d[i].Year);
         }
         for (var j=0; j<d.length; j++) {
          qq.push( d[j].numOfCompany);
@@ -43,60 +35,36 @@ var vs;
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'Companies',
-              backgroundColor: [
-               'rgba(255, 99, 132, 0.2)',
+              label : 'Companies Per Industry In Each Year',
+              backgroundColor:
                'rgba(54, 162, 235, 0.2)',
-               'rgba(255, 206, 86, 0.2)',
-               'rgba(75, 192, 192, 0.2)',
-               'rgba(153, 102, 255, 0.2)',
-               'rgba(255, 159, 64, 0.2)',
-               'rgba(255, 236, 64, 0.2)',
-           ],
               borderWidth: 0.5,
-              hoverBackgroundColor:  [
-               'rgba(245, 7, 45, 0.9)',
-               'rgba(0, 152, 255, 1)',
-               'rgba(255, 206, 85, 1)',
-               'rgba(75, 193, 193, 1)',
-               'rgba(153, 102, 255, 1)',
-               'rgba(255, 159, 64, 1)',
-               'rgba(255, 236, 64, 1)',
-           ],
+              hoverBackgroundColor:
+
+               'rgba(0, 152, 255, 1)'
+
+           ,
               pointStyle: 'Doughnut',
-              borderColor: [
-               'rgba(224, 27, 58, 1)',
-               'rgba(54, 162, 235, 1)',
-               'rgba(255, 206, 86, 1)',
-               'rgba(75, 192, 192, 1)',
-               'rgba(153, 102, 255, 1)',
-               'rgba(255, 159, 64, 1)',
-               'rgba(255, 253, 64, 1)',
-              ],
-
-
+              borderColor: 'rgba(54, 162, 235, 1)',
               data: qq,
             },
           ],
-
-
         }
-        $('#chartType').on('change', function(){
+        $('#citySelect').on('change', function(){
           if(vs !== undefined)
           vs.update();
         });
-
         var pie = $('#pie');
         if (vs) {
             vs.destroy();
           }
          vs = new Chart(pie, {
-          type: Line,
+          type: 'line',
           data: chartData,
           pointStyle: 'rect',
           options:{
             animation: {
-              duration: 3000,
+              duration: 4000,
               easing: 'easeInQuad'
             },
             elements: {
@@ -112,7 +80,7 @@ var vs;
             },
             title:{
               display: true,
-              text: 'Industires in region',
+              text: 'Industries Over Years',
                           fontFamily: 'Dosis',
               fontColor: '#000',
               defaultFontColor: 'black',
@@ -140,34 +108,17 @@ var vs;
 
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
-        Chart.defaults.global.defaultFontSize = 7;
+        Chart.defaults.global.defaultFontSize = 9;
                 vs.update();
       }
     });
     }
     else{
-      alert("Please select a city.");
+      alert("Please select an industry");
       return false;
     }
 
   });
 
-  $('#cityPicker').keyup(function(e){
-    var input = e.target.value;
-    if(input.length > 1){
-      getListOfCompaniesByCounty(input)
-    }
-  })
 
-
-  function getListOfCompaniesByCounty(input){
-   $.getJSON("./Web_Service/companyPerCounty.php", function(data){
-     var counties = data.map(function(element){
-       return element.county
-     });
-     counties.forEach(function(element){
-      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-    });
-    });
-  }
 });

@@ -5,7 +5,7 @@ require_once "../Views/Template/includedFunctions.php";
 
 require_once '../vendor/autoload.php';
 $API = new jobWizardProject\InnerAPI();
-$industerisPerYear = $API->industryGrowthPerYear($_POST['Industry']);
+$industerisPerYear = $API->industryGrowthPerYear('IT');
 echo $industerisPerYear;
 
 //industeries
