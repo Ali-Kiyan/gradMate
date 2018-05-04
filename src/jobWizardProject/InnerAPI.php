@@ -34,9 +34,7 @@ class InnerAPI extends TableAbstract {
 
 
     public function CompaniesPerCordinate($inputData){
-
       $companyData = json_decode($inputData, true);
-
       for($i=0; $i<sizeof($companyData);$i++){
         $numOfCompany[$i] = $companyData[$i]["Companies"];
         $county[$i] = $companyData[$i]['County'];
