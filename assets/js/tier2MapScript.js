@@ -1,3 +1,7 @@
+//aniamting input with Tween MAX
+$(document).ready(function(){
+TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:10,y:-200, rotationX: "-=230"}, {x:0,y:0, rotationX: "+=230",opacity: 1});
+});
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
 var bounds = [
     [-163.21778,-73.16939], // Southwest coordinates
@@ -7,7 +11,7 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/dark-v9',
 center: [-1, 35], // starting position
-zoom: 3, // starting zoom
+zoom: 1, // starting zoom
 bearing: 30,
 pitch: 0,
 maxBounds: bounds
@@ -49,9 +53,9 @@ map.on('load', function() {
     });
 
     map.flyTo({
-        // These options control the ending camera position: centered at
-        // the target, at zoom level 9, and north up.
-          style: 'mapbox://styles/mapbox/basic-v9',
+        // These options control the ending camera position: centered at [-2, 53]
+        // the target, at zoom level 6.5, and north up.
+        style: 'mapbox://styles/mapbox/basic-v9',
         center: [-2, 53],
         zoom: 6.5,
         bearing: 0,
@@ -64,31 +68,30 @@ map.on('load', function() {
         bearing: -10,
     });
 
+      //CREATING GEOJASON file
+      var arrangeData = function(data){
+        var obj = {
+          type:"FeatureCollection",
+          features:[]
+        };
+        data.forEach(function(element){
+               obj.features.push({
+                 "type": "Feature",
+                 "geometry": {
+                     "type": "Point",
+                     "coordinates": [element['Longitude'], element['Latitude']]
+                 },
+                 "properties": {
+                     "title": element['Location'],
+                     "icon": "monument",
+                     "numOfCompany": Number(element['numOfCompany'])
+                 }
+               })
 
-  var arrangeData = function(data){
-    var obj = {
-      type:"FeatureCollection",
-      features:[]
-    };
-    data.forEach(function(element){
-      console.log(element);
-           obj.features.push({
-             "type": "Feature",
-             "geometry": {
-                 "type": "Point",
-                 "coordinates": [element['Longitude'], element['Latitude']]
-             },
-             "properties": {
-                 "title": element['Location'],
-                 "icon": "monument",
-                 "numOfCompany": Number(element['numOfCompany'])
-             }
-           })
-
-    })
-    return obj;
-  }
-
+        })
+        return obj;
+      }
+   //AJAX CALL To Inside API
    $.getJSON("./Web_Service/mapData.php", function(data){
         map.addLayer({
             "id": "points",
@@ -147,17 +150,10 @@ map.on('load', function() {
           }
 
     });
-
-
-
+    // CONTROLLING POINTS ANIMATION
     setTimeout(function() {
       map.setPaintProperty('points', 'circle-opacity', 1);
     }, 7400);
-
-
-
-
-
     });
 
 
