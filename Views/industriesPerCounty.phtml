@@ -1,0 +1,62 @@
+<?php
+require_once "./Views/Template/header.phtml";
+require_once "./Views/Template/nav.phtml";
+?>
+
+  <link rel="stylesheet" href="./assets/css/userStyle.css"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <?php
+  require_once "./Views/Template/sideNav.phtml";
+  ?>
+
+  <div class="container">
+
+  <div class="container bluredSection">
+    <form action="./Web_Service/industryPerCounty.php" class="col-xs-12 fade" id="cityPicker" method="post">
+          <select class="from-control input-sm" id="citySelect">
+            <option value="">Select County</option>
+          </select>
+          <select class="from-control input-sm" id="chartType">
+            <option value="">Select Chart Type</option>
+            <option value="bar">Bar</option>
+            <option value="doughnut">Doughnut</option>
+            <option value="pie">Pie</option>
+            <option value="polarArea">Polar Area</option>
+          </select>
+          <br>
+          <br>
+          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
+    </form>
+
+    <div class="chart-container col-xs-12">
+
+        <canvas id="pie" class="fade" width="100vw" height="60vh"></canvas>
+
+    </div>
+
+    </div>
+
+
+
+
+  </div>
+
+</body>
+
+<?php
+require_once "footer.phtml";
+?>
+
+
+
+
+<script src="industryPerCountyChart.js">
+
+
+</script>
+<link rel="stylesheet" href="./assets/css/ham.css">
