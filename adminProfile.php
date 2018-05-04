@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Admin Profile';
 require_once  './vendor/autoload.php';
-//
+
 $userdb = new JobWizardProject\UserTable();
 $Current_User = $userdb->fetchUser($_SESSION['User_id']);
 if(isset($_POST['Usubmit']))
@@ -25,4 +25,4 @@ if(isset($_POST['Usubmit']))
 }
 
 
-require_once './Views/Profile.phtml';
+require_once './Views/adminProfile.phtml';
