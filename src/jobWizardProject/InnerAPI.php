@@ -77,14 +77,14 @@ class InnerAPI extends TableAbstract {
 
 
     public function industryGrowthPerYear($industry){
-        $sql = "select count(company_id), YEAR(Date_Added) from company where Industry = '". $industry ."' group by YEAR(Date_Added)";
+        $sql = "SELECT COUNT(company_id) AS numOfCompany, YEAR(Date_Added) AS Year FROM Company WHERE Industry = '". $industry ."' AND YEAR(Date_Added) != '0' GROUP BY YEAR(Date_Added)";
         $results = $this->dbh->prepare($sql);
         $results->execute();
         while($row = $results->fetch()){
           $result[] = $row;
         }
         for($i=0;$i<sizeof($result);$i++){
-          // settype($result[$i]['numOfCompany'] , int);
+          settype($result[$i]['numOfCompany'] , int);
           unset($result[$i][0]);
           unset($result[$i][1]);
         }
