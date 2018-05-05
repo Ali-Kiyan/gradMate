@@ -24,6 +24,7 @@ class InnerAPI extends TableAbstract {
       for($i=0;$i<sizeof($result);$i++){
         unset($result[$i][0]);
         unset($result[$i][1]);
+        settype($result[$i]['Companies'] , int);
       }
       return json_encode($result);
     }
