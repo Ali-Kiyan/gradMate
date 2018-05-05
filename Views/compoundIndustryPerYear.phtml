@@ -7,9 +7,9 @@ require_once "./Views/Template/sideNav.phtml";
 <link rel="stylesheet" href="./assets/css/userStyle.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
   <div class="container bluredSection">
-        <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker" method="post">
+        <form action="./Web_Service/industryGrowthPerYear.php" class="col-xs-12" id="cityPicker" method="post">
               <select class="from-control input-sm" id="citySelect">
-                <option value="">Select County</option>
+                <option value="">Select Industry</option>
                 <?php
                 for($i=0;$i<sizeof($industries);$i++){
                   echo '<option value="' . $industries[$i]["Industry"] . '">' . $industries[$i]["Industry"] . '</option>';
@@ -24,9 +24,9 @@ require_once "./Views/Template/sideNav.phtml";
         <br>
         <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
         </form>
-        <form action="./industryPerCounty.php" class="col-xs-12" id="cityPicker2" method="post">
+        <form action="./Web_Service/industryGrowthPerYear.php" class="col-xs-12" id="cityPicker2" method="post">
               <select class="from-control input-sm" id="citySelect2">
-                <option value="">Select County</option>
+                <option value="">Select Industry</option>
                 <?php
                 for($i=0;$i<sizeof($industries);$i++){
                   echo '<option value="' . $industries[$i]["Industry"] . '">' . $industries[$i]["Industry"] . '</option>';

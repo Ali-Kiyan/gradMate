@@ -12,7 +12,7 @@ $(document).ready(function(){
     var type = that.attr('method');
     var cdata = {};
     var chartType = $('#chartType').val();
-    cdata.county = $('#citySelect').val();
+    cdata.Industry = $('#citySelect').val();
     if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
@@ -23,10 +23,10 @@ $(document).ready(function(){
         var pp = [];
         var qq = [];
         for (var i=0; i<d.length; i++) {
-         pp.push( d[i].industry);
+         pp.push( d[i].Industry);
         }
         for (var j=0; j<d.length; j++) {
-         qq.push( d[j].num);
+         qq.push( d[j].numOfCompany);
         }
         if(vs){
           vs.destroy();
@@ -37,7 +37,7 @@ $(document).ready(function(){
           var url2 = that.attr('action');
           var type2 = that.attr('method');
           var cdata2 = {};
-          cdata2.county = $('#citySelect2').val();
+          cdata2.Industry = $('#citySelect2').val();
             if($('#citySelect2').val() != ''){
               $.ajax({
                 url: url2,
@@ -48,10 +48,10 @@ $(document).ready(function(){
                   var aa = [];
                   var bb = [];
                   for (var i=0; i<r.length; i++) {
-                   aa.push( r[i].industry);
+                   aa.push( r[i].Industry);
                   }
                   for (var j=0; j<r.length; j++) {
-                   bb.push( r[j].num);
+                   bb.push( r[j].numOfCompany);
                function largerCompany(first,second){
                 return (first.length > second.length ? first : second);
                }
@@ -62,7 +62,7 @@ $(document).ready(function(){
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'First',
+              label : cdata.Industry,
               backgroundColor: [
                'rgba(255, 99, 132, 0.2)'
            ],
@@ -77,7 +77,7 @@ $(document).ready(function(){
               data: qq,
             },
             {
-              label : 'Second',
+              label : cdata2.Industry,
               backgroundColor: [
                'rgba(157, 218, 255, 0.87)'
            ],

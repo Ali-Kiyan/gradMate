@@ -35,7 +35,7 @@ var vs;
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'Companies Per Industry In Each Year',
+              label : cdata.Industry,
               backgroundColor:
                'rgba(54, 162, 235, 0.2)',
               borderWidth: 0.5,
