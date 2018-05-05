@@ -85,35 +85,12 @@ $(document).ready(function(){
               label : 'Companies in ' + cdata2.county,
               backgroundColor: [
                'rgba(87, 209, 37, 0.3)',
-               'rgba(200, 206, 16, 0.7)',
-               'rgba(130, 102, 255, 0.7)',
-               'rgba(44, 162, 235, 0.7)',
-               'rgba(220, 236, 64, 0.7)',
-                'rgba(10, 92, 22, 0.7)',
-                'rgba(30, 392, 192, 0.7)',
+
            ],
               borderWidth: 0.5,
-              hoverBackgroundColor:  [
-               'rgba(255, 255, 255, 1)',
-               'rgba(0, 152, 255, 1)',
-               'rgba(255, 206, 85, 1)',
-               'rgba(75, 193, 193, 1)',
-               'rgba(153, 102, 255, 1)',
-               'rgba(255, 159, 64, 1)',
-               'rgba(255, 236, 64, 1)',
-           ],
               pointStyle: 'Doughnut',
-              borderColor: [
+              borderColor:
                'rgba(44, 99, 132, 1)',
-               'rgba(200, 206, 16, 1)',
-               'rgba(130, 102, 255, 1)',
-               'rgba(44, 162, 235, 1)',
-               'rgba(220, 236, 64, 1)',
-                'rgba(10, 92, 22, 1)',
-                'rgba(30, 392, 192, 1)',
-           ],
-
-
               data: bb,
             }
           ],
@@ -147,9 +124,10 @@ $(document).ready(function(){
             },
             legend:{
             display:true,
-            position:'left',
+            position:'bottom',
             labels:{
               fontColor:'#000',
+              fontSize: 10,
 
             }
           },
@@ -160,7 +138,6 @@ $(document).ready(function(){
         });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
-        Chart.defaults.global.defaultFontSize = 13;
         vs.update();
       }
     }

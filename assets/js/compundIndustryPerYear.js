@@ -130,7 +130,6 @@ $(document).ready(function(){
             position:'right',
             labels:{
               fontColor:'#000',
-
             }
           },
                 tooltips: {
