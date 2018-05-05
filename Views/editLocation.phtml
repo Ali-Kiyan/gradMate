@@ -22,7 +22,7 @@ require("Template/adminSideNav.phtml");
                </div>
                <div class="form-group">
                  <label for="longitude" class=" control-label">Longitude</label>
-                 <input type="text" name="Longitude" value="<?php echo $Current_Location->getLocationLongitude();?>" class="form-control circle" id="longitude" required> 
+                 <input type="text" name="Longitude" value="<?php echo $Current_Location->getLocationLongitude();?>" class="form-control circle" id="longitude" required>
                </div>
                <input type="hidden" name="Location_Id" value="<?php echo $Current_Location->getLocationId();?>">
                <button type="submit" name="Usubmit" class="btn btn-success circle">Update Locaiton</button>
@@ -42,7 +42,7 @@ require("Template/adminSideNav.phtml");
    </div>
      <script>
      $(document).ready(function(){
-     TweenLite.fromTo($('#locationProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
+     TweenLite.fromTo($('#locationProfile'),6.7,{y: 350, rotationX: "-=70",rotationY: "-=30",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
      });
      </script>
      <style>

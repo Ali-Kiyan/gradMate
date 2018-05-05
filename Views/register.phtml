@@ -3,8 +3,7 @@ require('Template/header.phtml');
 ?>
 <script>
 $(document).ready(function(){
-TweenLite.fromTo($('.signUpForm'),1.5,{x:+230,y:-300,rotation: "-=20"}, {x:0,y:100,rotation: "+=20",opacity: 1});
-
+TweenLite.fromTo($('.signUpForm'),1.7,{z: -1150, rotationX: "+=120",rotationY: "+=10",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
 });
 </script>
     <div class="login">

@@ -1,0 +1,31 @@
+<?php
+require_once "./Views/Template/header.phtml";
+require_once "./Views/Template/guideSideNav.phtml";
+?>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
+     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
+     <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
+    <div id='map' class="bluredSection"></div>
+    <div class='map-overlay top'>
+    <div class='map-overlay-inner bluredSection'>
+            <fieldset>
+                <select id='industry' name='layer' >
+                    <option value=''>Please Choose the industry</option>
+                    <?php
+                    for($i=0;$i<sizeof($industries);$i++){
+                      echo '<option value="' . $industries[$i]["Industry"] . '">' . $industries[$i]["Industry"] . '</option>';
+                    }
+                    ?>
+                </select>
+            </fieldset>
+        </div>
+    </div>
+<link rel="stylesheet" href="./assets/css/mapStyle.css">
+    <script src="./assets/js/stableCompaniesPerIndustryMap.js"></script>
+
+<?php
+require_once "./Views/Template/footer.phtml";
+?>

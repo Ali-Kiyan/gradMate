@@ -10,7 +10,7 @@ require("Template/adminSideNav.phtml");
 
         <div class="container-fluid">
           <div class="col-xs-12 largeDataHandler">
-           <table id="outdatedCompaniesTable" class="table table-hover table-bordered table-responsive">
+           <table id="outdatedCompaniesTable" class="table table-hover table-bordered table-responsive fade">
            <thead>
              <tr class="centerText">
                <td>Location Name</td>
@@ -60,6 +60,9 @@ require("Template/adminSideNav.phtml");
 <script>
 $('#hamburger-6').click(function(){
       $('.largeDataHandler').toggleClass('col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2',200);
+});
+$(document).ready(function(){
+TweenLite.fromTo($('#outdatedCompaniesTable'),6.7,{z: -350, rotationX: "+=30",rotationY: "+=10",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
 });
 </script>
 
