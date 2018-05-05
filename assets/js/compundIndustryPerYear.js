@@ -1,9 +1,6 @@
 
 $(document).ready(function(){
   var vs;
-
-
-
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
@@ -55,7 +52,6 @@ $(document).ready(function(){
                function largerCompany(first,second){
                 return (first.length > second.length ? first : second);
                }
-               console.log(largerCompany(aa,pp));
         var chartData = {
           labels: largerCompany(pp,aa),
           backgroundColor: 'black',
@@ -107,8 +103,8 @@ $(document).ready(function(){
           pointStyle: 'rect',
           options:{
             animation: {
-              duration: 2000,
-              easing: 'linear'
+              duration: 8000,
+              easing: 'easeOutSine'
             },
             elements: {
               point: {
