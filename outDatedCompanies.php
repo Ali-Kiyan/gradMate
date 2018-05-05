@@ -6,9 +6,9 @@ $view->pageTitle = 'Deleting Outdated Companies';
 require_once  './vendor/autoload.php';
 $companydb = new JobWizardProject\CompanyTable();
 
-$pageStart = 0;
-$rowCount = ($pageStart+1)*10;
-$companyList = $companydb->fetchOutdatedCompanies($pageStart,$rowCount);
+$companydb->pageStart = 0;
+$rowCount = ($pageStart+1)*12;
+$companyList = $companydb->fetchOutdatedCompanies($companydb->pageStart,$rowCount);
 
 if(isset($_POST['Dsubmit']))
 {
@@ -24,6 +24,19 @@ if(isset($_POST['Dsubmit']))
     }
 
 }
+
+
+if(isset($_GET['page']))
+{
+
+$_SESSION['page'] = $_SESSION['page'] + $rowCount;
+$companydb->pageStart  = $_SESSION['page'];
+$companyList = $companydb->fetchOutdatedCompanies($companydb->pageStart, $rowCount);
+
+}
+
+
+
 
 require_once "./Views/outDatedCompanies.phtml"
 
