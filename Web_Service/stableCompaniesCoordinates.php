@@ -5,7 +5,7 @@ require_once "../Views/Template/includedFunctions.php";
 
 require_once '../vendor/autoload.php';
 $API = new jobWizardProject\InnerAPI();
-$stableCompaniesPerIndustry = $API->stableCompaniesCoordinates('IT');
+$stableCompaniesPerIndustry = $API->stableCompaniesCoordinates($_GET['Industry']);
 echo $stableCompaniesPerIndustry;
 
 

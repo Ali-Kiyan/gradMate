@@ -114,12 +114,10 @@ map.on('load', function() {
         bearing: 0,
     });
 
-    var apiURL = "./stabilityApi.php?type=stable&industry=" + this.value ;
+    var apiURL = "./Web_Service/stableCompaniesCoordinates.php?Industry=" + this.value ;
 
     $.getJSON(apiURL, function(data){
-      // if(map.getLayer('point')){
-      //   map.removeLayer('point');
-      // }
+
       if(map.getLayer('points')){
         map.removeLayer('points');
       }
