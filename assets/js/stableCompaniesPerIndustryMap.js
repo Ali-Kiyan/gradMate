@@ -68,34 +68,6 @@ map.on('load', function() {
         bearing: -10,
     });
 
-
-   //  map.addLayer({
-   //     'id': 'population',
-   //     'type': 'circle',
-   //     'source': {
-   //         type: 'vector',
-   //         url: 'mapbox://examples.8fgz4egr'
-   //     },
-   //     'source-layer': 'sf2010',
-   //     'paint': {
-   //         // make circles larger as the user zooms from z12 to z22
-   //         'circle-radius': {
-   //             'base': 1.75,
-   //             'stops': [[12, 2], [22, 180]]
-   //         },
-   //         // color circles by ethnicity, using a match expression
-   //         // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-   //         'circle-color': [
-   //             'match',
-   //             ['get', 'ethnicity'],
-   //             'White', '#fbb03b',
-   //             'Black', '#223b53',
-   //             'Hispanic', '#e55e5e',
-   //             'Asian', '#3bb2d0',
-   //             /* other */ '#ccc'
-   //         ]
-   //     }
-   // });
    var bounds = [
        [-74.04728500751165, 40.68392799015035], // Southwest coordinates
        [-73.91058699000139, 40.87764500765852]  // Northeast coordinates
@@ -112,10 +84,10 @@ map.on('load', function() {
              "type": "Feature",
              "geometry": {
                  "type": "Point",
-                 "coordinates": [element['longitude'], element['latitude']]
+                 "coordinates": [element['Longitude'], element['Latitude']]
              },
              "properties": {
-                 "title": element['location'],
+                 "title": element['Location'],
                  "icon": "monument",
                  "numOfCompany": Number(element['numOfCompany'])
              }
