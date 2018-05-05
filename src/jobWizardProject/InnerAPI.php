@@ -28,10 +28,6 @@ class InnerAPI extends TableAbstract {
       return json_encode($result);
     }
 
-
-
-
-
     public function CompaniesPerCordinate($inputData){
       $companyData = json_decode($inputData, true);
       for($i=0; $i<sizeof($companyData);$i++){
