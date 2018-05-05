@@ -137,8 +137,24 @@ class InnerAPI extends TableAbstract {
         unset($result[$i][2]);
       }
       return json_encode($result);
+    }
 
 
+    public function startUpCompaniesCoordinates($industry){
+      $sql = "SELECT $this->locationData.Longitude, $this->locationData.Latitude, COUNT($this->primaryKey) AS numOfCompany FROM $this->name INNER JOIN $this->locationData ON  $this->locationData.Location = $this->name.County WHERE YEAR(NOW()) - YEAR(Date_Added) < 2 AND Date_Added != '0000-00-00' AND County != '' AND Industry ='".
+      $industry . "' GROUP BY County;";
+      $results = $this->dbh->prepare($sql);
+      $results->execute();
+      while($row = $results->fetch()){
+        $result[] = $row;
+      }
+      for($i=0;$i<sizeof($result);$i++){
+        settype($result[$i]['numOfCompany'] , int);
+        unset($result[$i][0]);
+        unset($result[$i][1]);
+        unset($result[$i][2]);
+      }
+      return json_encode($result);
     }
 
 }
