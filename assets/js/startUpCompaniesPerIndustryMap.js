@@ -111,10 +111,10 @@ map.on('load', function() {
              "type": "Feature",
              "geometry": {
                  "type": "Point",
-                 "coordinates": [element['longitude'], element['latitude']]
+                 "coordinates": [element['Longitude'], element['Latitude']]
              },
              "properties": {
-                 "title": element['location'],
+                 "title": element['Location'],
                  "icon": "monument",
                  "numOfCompany": Number(element['numOfCompany'])
              }
@@ -141,7 +141,7 @@ map.on('load', function() {
         bearing: 0,
     });
 
-    var apiURL = "./stabilityApi.php?type=startup&industry=" + this.value ;
+    var apiURL = "./Web_Service/startUpCompaniesCoordinates.php?Industry=" + this.value ;
 
     $.getJSON(apiURL, function(data){
       // if(map.getLayer('point')){
