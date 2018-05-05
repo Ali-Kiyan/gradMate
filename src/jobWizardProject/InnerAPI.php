@@ -4,13 +4,13 @@ namespace jobWizardProject;
 session_start();
 require_once __DIR__ . '/Company.php';
 require_once __DIR__ . '/TableAbstract.php';
-
 require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
 class InnerAPI extends TableAbstract {
 
     protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
+    protected $locationData = 'Location_Detail';
     protected $LocationForeignKey = 'Location_Id';
     protected $numOfCompany, $county, $query, $result, $companyData = array();
 
@@ -101,6 +101,26 @@ class InnerAPI extends TableAbstract {
                 unset($result[$i][0]);
               }
       return $result;
+    }
+
+
+
+
+    public function companiesPerIndustryCoordinates($industry){
+        $sql = "SELECT COUNT(Company_Id) AS numOfCompany, $this->locationData.Longitude, $this->locationData.Latitude FROM $this->name INNER JOIN $this->locationData ON $this->locationData.Location = $this->name.County WHERE Industry = '" . $industry . "' GROUP BY County";
+        $results = $this->dbh->prepare($sql);
+        $results->execute();
+        while($row = $results->fetch()){
+          $result[] = $row;
+        }
+
+        for($i=0;$i<sizeof($result);$i++){
+          settype($result[$i]['numOfCompany'] , int);
+          unset($result[$i][0]);
+          unset($result[$i][1]);
+          unset($result[$i][2]);
+        }
+        return json_encode($result);
     }
 
     //
