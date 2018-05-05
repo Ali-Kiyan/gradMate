@@ -10,6 +10,7 @@ class LocationTable extends TableAbstract {
 
     protected $name = 'Location_Detail';
     protected $primaryKey = 'Location_Id';
+    public $pageStart = 0;
 
 
 
