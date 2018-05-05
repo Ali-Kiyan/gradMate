@@ -8,11 +8,5 @@ $API = new jobWizardProject\InnerAPI();
 $industerisPerYear = $API->industryGrowthPerYear($_POST["Industry"]);
 echo $industerisPerYear;
 
-//industeries
-// $indstries = $companies->AllIndustries();
-// for($i=0;$i<sizeof($indstries);$i++){
-//   echo $indstries[$i]["Industry"];
-// }
-
 
 ?>
