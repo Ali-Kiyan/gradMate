@@ -109,9 +109,7 @@ map.on('load', function() {
     });
     var apiURL = "./Web_Service/companiesPerIndustryCoordinates.php?Industry=" + this.value ;
     $.getJSON(apiURL, function(data){
-      // if(map.getLayer('point')){
-      //   map.removeLayer('point');
-      // }
+
       if(map.getLayer('points')){
         map.removeLayer('points');
       }
