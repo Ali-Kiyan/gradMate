@@ -6,9 +6,19 @@ $view->pageTitle = 'Adding Newly Added Companies';
 require_once  './vendor/autoload.php';
 $companydb = new JobWizardProject\CompanyTable();
 
-$pageStart = 0;
-$rowCount = ($pageStart+1)*10;
-$companyList = $companydb->fetchNewlyAddedCompanies($pageStart,$rowCount);
+$companydb->pageStart = 0;
+$rowCount = ($companydb->pageStart+1)*13;
+$companyList = $companydb->fetchNewlyAddedCompanies($companydb->pageStart,$rowCount);
+
+
+if(isset($_GET['page']))
+{
+
+$_SESSION['page'] = $_SESSION['page'] + $rowCount;
+$companydb->pageStart  = $_SESSION['page'];
+$companyList = $companydb->fetchNewlyAddedCompanies($companydb->pageStart, $rowCount);
+
+}
 
 require_once "./Views/newlyAddedCompanies.phtml";
 ?>

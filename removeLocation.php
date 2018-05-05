@@ -5,7 +5,7 @@ $view = new stdClass();
 $view->pageTitle = 'Removing Locations';
 require_once  './vendor/autoload.php';
 $locationdb = new JobWizardProject\LocationTable();
-$rowCount = 10;
+$rowCount = ($locationdb->pageStart+1)*10;
 $locationList = $locationdb->fetchLocations($locationdb->pageStart, $rowCount);
 
 if(isset($_POST['Dsubmit']))

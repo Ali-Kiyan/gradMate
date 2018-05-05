@@ -12,6 +12,7 @@ class CompanyTable extends TableAbstract {
     protected $primaryKey = 'Company_Id';
     protected $LocationForeignKey = 'Location_Id';
     protected $newList = 'UpdatedCompanies';
+    public $pageStart;
 
     // FETCHING ALL COMPANIES
     public function fetchAllCompanies() {
