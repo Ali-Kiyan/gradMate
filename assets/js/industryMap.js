@@ -107,9 +107,7 @@ map.on('load', function() {
         pitch: 0,
         bearing: 0,
     });
-
-    var apiURL = "./itApi.php?industry=" + this.value ;
-
+    var apiURL = "./Web_Service/companiesPerIndustryCoordinates.php?Industry=" + this.value ;
     $.getJSON(apiURL, function(data){
       // if(map.getLayer('point')){
       //   map.removeLayer('point');
@@ -120,14 +118,6 @@ map.on('load', function() {
       if(map.getSource('points')){
         map.removeSource('points');
       }
-      // map.removeLayer('point');
-      // map.removeSource('point');
-      console.log(map.getSource('points'));
-      // console.log(map.getStyle().layers);
-      // console.log(map.getStyle().sources);
-
-      console.log(map.getLayer('point'));
-      console.log(map.getLayer('points'));
 
          map.addLayer({
              "id": "points",

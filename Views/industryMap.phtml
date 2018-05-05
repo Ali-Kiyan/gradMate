@@ -20,7 +20,7 @@ require_once "./Views/Template/guideSideNav.phtml";
                     <?php
 
                     for($i=0;$i<sizeof($industries);$i++){
-                      echo "<option value=\"" . $industries[$i]['Industry'] . "\">" .  $industries[$i]['Industry'] ."</option>";
+                      echo '<option value="' . $industries[$i]["Industry"] . '">' .  $industries[$i]['Industry'] . '</option>';
                     }
 
                     ?>

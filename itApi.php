@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 $connect = mysqli_connect("localhost","root","root","jobWizard");
-$query = "select count(Company_id) AS numOfCompany,l.Longitude,l.Latitude from Company as c inner join Location_Detail as l ON l.Location = c.County where Industry='IT' group by County";
+$query = "select count(Company_id) AS numOfCompany,l.Longitude,l.Latitude from Company as c inner join Location_Detail as l ON l.Location = c.County where Industry='". $_GET['Industry'] . "' group by County";
 $result = mysqli_query($connect, $query);
 $json_array = array();
 
