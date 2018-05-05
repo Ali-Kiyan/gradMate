@@ -9,9 +9,6 @@ require("Template/adminSideNav.phtml");
 
 
         <div class="container-fluid">
-          <form action="<?php $_SERVER['PHP_SELF'] ?>" method="GET">
-              <button tpye="submit" class="btn btn-md btn-info circle" name="page">Next</button>
-          </form>
           <div class="col-xs-12 largeDataHandler">
            <table id="outdatedCompaniesTable" class="table table-hover table-bordered table-responsive fade">
            <thead>
@@ -49,7 +46,11 @@ require("Template/adminSideNav.phtml");
            </table>
 
           </div>
-
+          <div class="row">
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="GET" class="col-xs-2 col-xs-offset-5">
+                <button tpye="submit" class="btn btn-md btn-info circle" name="page">Next</button>
+            </form>
+          </div>
         </div>
 
 

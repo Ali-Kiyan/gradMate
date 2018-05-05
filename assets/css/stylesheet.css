@@ -673,5 +673,9 @@ table{
   overflow-y: scroll;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  height: 90vh;
+  height: 80vh;
+}
+.x{
+position: absolute;
+bottom: 10px;
 }
