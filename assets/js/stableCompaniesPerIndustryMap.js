@@ -108,9 +108,9 @@ map.on('load', function() {
         // These options control the flight curve, making it move
         // slowly and zoom out almost completely before starting
         // to pan.
-        speed: 0.4, // make the flying slow
+        speed: 0.3, // make the flying slow
         curve: 0.4, // change the speed at which it zooms out
-        pitch: 0,
+        pitch: 20,
         bearing: 0,
     });
 
@@ -137,7 +137,7 @@ map.on('load', function() {
 
              "circle-opacity": 0,
              "circle-opacity-transition": {
-               duration: 6000
+               duration: 2500
              },
              "circle-color":
                ["interpolate",
@@ -196,8 +196,7 @@ map.on('load', function() {
                    bearing: -10,
                });
        map.setPaintProperty('points', 'circle-opacity', 1);
-     }, 7400);
-
+     }, 7000);
      });
      });
   });
