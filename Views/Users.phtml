@@ -1,7 +1,7 @@
 <?php
-require('Template/header.phtml');
-require('Template/adminNav.phtml');
-require('Template/adminSideNav.phtml');
+require('./Views/Template/header.phtml');
+require('./Views/Template/adminNav.phtml');
+require('./Views/Template/adminSideNav.phtml');
 ?>
 <script>
 
@@ -10,7 +10,7 @@ $('#hamburger-6').click(function(){
 });
 
 </script>
-</script>
+
 <div class="row">
     <div class="container-fluid text-center" id="createAdmin">
         <div class="col-lg-12">
@@ -55,7 +55,7 @@ $('#hamburger-6').click(function(){
 <div class="container-fluid">
 
   <div class="col-xs-12" id="users">
-   <table id="usersTable" class="table table-hover table-bordered table-responsive fade">
+   <table id="usersTable" class="table table-hover table-bordered table-responsive fade scrollable">
    <thead>
      <tr class="centerText">
        <td>Role</td>
@@ -98,21 +98,5 @@ $('#hamburger-6').click(function(){
 
 
 
-
-
-
-
-
-
-
-
-    <ul>
-        <?php foreach ($view->userList as $user) : ?>
-            <li>
-                <?php  echo $user->getAll();
-                 ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php require('Template/footer.phtml') ?>
+<?php require('./Views/Template/footer.phtml') ?>
 <link rel="stylesheet" href="./assets/css/ham.css">
