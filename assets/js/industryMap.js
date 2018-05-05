@@ -6,10 +6,10 @@ var bounds = [
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/dark-v9',
-center: [-1, 60], // starting position
-zoom: 1, // starting zoom
-bearing: 250,
-pitch: 0,
+center: [-2.2712566, 	53.4855012], // starting position
+zoom: 17.5, // starting zoom
+bearing: 100,
+pitch: 60,
 maxBounds: bounds
 });
 var geocoder = new MapboxGeocoder({
@@ -38,7 +38,8 @@ map.on('load', function() {
         "paint": {
             "circle-radius": 5,
             "circle-color": "#007cbf"
-        }
+        },
+        "speed": 0.9
     });
 
 
@@ -57,7 +58,7 @@ map.on('load', function() {
         // These options control the flight curve, making it move
         // slowly and zoom out almost completely before starting
         // to pan.
-        speed: 0.4, // make the flying slow
+        speed: 0.9, // make the flying slow
         curve: 0.4, // change the speed at which it zooms out
         pitch: 90,
         bearing: -10,
