@@ -48,3 +48,33 @@ body{
 .hamburger .line {
    background-color: #ececec;
 }
+
+
+
+.hamburger{
+margin: 1rem;
+}
+.hamburger .line {
+   background-color: #ececec;
+}
+.map-overlay {
+    font: 12px/20px 'Dosis', Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.map-overlay .map-overlay-inner {
+    border-radius: 0px;
+    padding: 10px;
+    margin-bottom: 10px;
+    opacity: 0;
+
+}
+
+.map-overlay-inner fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 10px;
+}
