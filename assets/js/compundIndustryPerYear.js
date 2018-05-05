@@ -23,7 +23,7 @@ $(document).ready(function(){
         var pp = [];
         var qq = [];
         for (var i=0; i<d.length; i++) {
-         pp.push( d[i].Industry);
+         pp.push( d[i].Year);
         }
         for (var j=0; j<d.length; j++) {
          qq.push( d[j].numOfCompany);
@@ -48,7 +48,7 @@ $(document).ready(function(){
                   var aa = [];
                   var bb = [];
                   for (var i=0; i<r.length; i++) {
-                   aa.push( r[i].Industry);
+                   aa.push( r[i].Year);
                   }
                   for (var j=0; j<r.length; j++) {
                    bb.push( r[j].numOfCompany);
