@@ -5,6 +5,7 @@ require_once __DIR__ . '/Location.php';
 require_once __DIR__ . '/tableAbstract.php';
 require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
+
 class LocationTable extends tableAbstract {
 
     protected $name = 'Location_Detail';
