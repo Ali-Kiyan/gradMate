@@ -92,7 +92,7 @@ map.on('load', function() {
         return obj;
       }
    //AJAX CALL To Inside API
-   $.getJSON("./mapData.php", function(data){
+   $.getJSON("./Web_Service/mapData.php", function(data){
         map.addLayer({
             "id": "points",
             "source": {
