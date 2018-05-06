@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
     var counties = data.map(function(element){
-      return element.county
+      return element.County
     })
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
@@ -171,9 +171,9 @@ $(document).ready(function(){
 
 
   function getListOfCompaniesByCounty(input){
-   $.getJSON("./companiespercounty.php", function(data){
+   $.getJSON("././Web_Service/companyPerCountyAPI.php", function(data){
      var counties = data.map(function(element){
-       return element.county
+       return element.County
      })
      counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
