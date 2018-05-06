@@ -1,10 +1,9 @@
 <?php
 
 namespace jobWizardProject;
-session_start();
 require_once __DIR__ . '/Location.php';
 require_once __DIR__ . '/tableAbstract.php';
-require_once __DIR__ . '../../Views/Template/includedFunctions.php';
+require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
 class LocationTable extends tableAbstract {
 
@@ -40,9 +39,6 @@ class LocationTable extends tableAbstract {
       return $locationArray;
     }
 
-
-
-
     //EDIT LOCATION
 
     public function editLocation($data)
@@ -66,9 +62,6 @@ class LocationTable extends tableAbstract {
         return $response;
 
     }
-
-
-
 
 
     // INSERT Location
