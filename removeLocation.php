@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Removing Locations';
 require_once  './vendor/autoload.php';
-// $locationdb = new JobWizardProject\LocationTable();
+$locationdb = new JobWizardProject\LocationTable();
 // $rowCount = ($locationdb->pageStart+1)*10;
 // $locationList = $locationdb->fetchLocations($locationdb->pageStart, $rowCount);
 //
