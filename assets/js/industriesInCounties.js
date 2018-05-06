@@ -23,7 +23,7 @@ $(document).ready(function(){
     var type = that.attr('method');
     var cdata = {};
     var chartType = $('#chartType').val();
-    cdata.county = $('#citySelect').val();
+    cdata.County = $('#citySelect').val();
     if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
