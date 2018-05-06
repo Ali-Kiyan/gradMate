@@ -23,7 +23,7 @@ $(document).ready(function(){
     var type = that.attr('method');
     var cdata = {};
     var chartType = $('#chartType').val();
-    cdata.County = $('#citySelect').val();
+    cdata.county = $('#citySelect').val();
     if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
@@ -72,7 +72,7 @@ $(document).ready(function(){
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'Companies in ' + cdata.County,
+              label : 'Companies in ' + cdata.county,
               backgroundColor: 'rgba(255, 249, 99, 0.32)',
               borderWidth: 0.5,
               pointStyle: 'Doughnut',
@@ -82,7 +82,7 @@ $(document).ready(function(){
               data: qq,
             },
             {
-              label : 'Companies in ' + cdata2.County,
+              label : 'Companies in ' + cdata2.county,
               backgroundColor: [
                'rgba(87, 209, 37, 0.3)',
 
