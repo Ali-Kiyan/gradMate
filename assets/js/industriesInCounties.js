@@ -4,7 +4,7 @@ $(document).ready(function(){
   var vs;
   var chartData;
 
-  $.getJSON("./companiespercounty.php", function(data){
+  $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
     var counties = data.map(function(element){
       return element.county
     })
