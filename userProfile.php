@@ -29,5 +29,6 @@ $view->userList = $database->fetchAllUsersInfo();
 //
 // }
 
-
+echo $database;
+var_dump($database);
 // require_once './Views/userProfile.phtml';
