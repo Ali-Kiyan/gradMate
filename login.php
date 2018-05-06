@@ -7,7 +7,7 @@ require_once './vendor/autoload.php';
 
 if(isset($_POST['Lsubmit']))
 {
-  redirectTo("./adminDashboard.php");
+  redirectTo("./Dashboard.php");
     $database = new jobWizardProject\UserTable();
     $result = $database->auth($_POST["Username"], $_POST["Password"]);
     if($result)
