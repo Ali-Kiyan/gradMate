@@ -17,7 +17,6 @@ if(isset($_POST['Lsubmit']))
     {
         $view->result = '<div class="alert alert-danger">Username/Password is wrong </div>';
     }
-    // require_once './Views/login.phtml';
 
 }
 

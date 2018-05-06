@@ -7,8 +7,8 @@ require_once "./Views/Template/includedFunctions.php";
 
 class UserTable extends TableAbstract {
   protected $name = 'user';
-  protected $primaryKey = 'User_id';
-  protected $detail = 'user_Detail';
+  protected $primaryKey = 'user_id';
+  protected $detail = 'user_detail';
 
 
   public function fetchAllUsers() {
