@@ -1,5 +1,5 @@
 <?php
-require('./Views/Template/includedFunctions.php');
+require_once('./Views/Template/includedFunctions.php');
 confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Adding Newly Added Companies';
