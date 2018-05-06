@@ -6,7 +6,7 @@ require_once __DIR__ . '/Company.php';
 require_once __DIR__ . '/TableAbstract.php';
 require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
-class InnerAPI extends TableAbstract {
+class InnerAPI extends tableAbstract {
 
     protected $name = 'company';
     protected $primaryKey = 'Company_Id';

@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__ . '/tableAbstract.php';
 require_once "./Views/Template/includedFunctions.php";
 
-class UserTable extends TableAbstract {
+class UserTable extends tableAbstract {
   protected $name = 'User';
   protected $primaryKey = 'User_id';
   protected $detail = 'User_Detail';
