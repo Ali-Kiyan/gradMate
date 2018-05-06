@@ -1,5 +1,4 @@
 <?php
-
 require('./Views/Template/includedFunctions.php');
 confirmLoggedIn();
 require('./Views/Template/header.phtml');
