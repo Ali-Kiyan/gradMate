@@ -6,7 +6,7 @@ require_once __DIR__ . '/Company.php';
 require_once __DIR__ . '/TableAbstract.php';
 require_once "./Views/Template/includedFunctions.php";
 
-class CompanyTable extends TableAbstract {
+class CompanyTable extends tableAbstract {
 
     protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
