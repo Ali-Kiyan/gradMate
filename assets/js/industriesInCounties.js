@@ -34,10 +34,10 @@ $(document).ready(function(){
         var pp = [];
         var qq = [];
         for (var i=0; i<d.length; i++) {
-         pp.push( d[i].industry);
+         pp.push( d[i].Industry);
         }
         for (var j=0; j<d.length; j++) {
-         qq.push( d[j].num);
+         qq.push( d[j].numOfCompany);
         }
         if(vs){
           vs.destroy();
@@ -62,17 +62,17 @@ $(document).ready(function(){
                   var aa = [];
                   var bb = [];
                   for (var i=0; i<r.length; i++) {
-                   aa.push( r[i].industry);
+                   aa.push( r[i].Industry);
                   }
                   for (var j=0; j<r.length; j++) {
-                   bb.push( r[j].num);
+                   bb.push( r[j].numOfCompany);
          chartData = {
           labels: largerCompany(aa,pp),
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
             {
-              label : 'Companies in ' + cdata.county,
+              label : 'Companies in ' + cdata.County,
               backgroundColor: 'rgba(255, 249, 99, 0.32)',
               borderWidth: 0.5,
               pointStyle: 'Doughnut',
@@ -82,7 +82,7 @@ $(document).ready(function(){
               data: qq,
             },
             {
-              label : 'Companies in ' + cdata2.county,
+              label : 'Companies in ' + cdata2.County,
               backgroundColor: [
                'rgba(87, 209, 37, 0.3)',
 
@@ -171,7 +171,7 @@ $(document).ready(function(){
 
 
   function getListOfCompaniesByCounty(input){
-   $.getJSON("././Web_Service/companyPerCountyAPI.php", function(data){
+   $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
      var counties = data.map(function(element){
        return element.County
      })
