@@ -6,6 +6,6 @@ require_once './vendor/autoload.php';
 $companies = new jobWizardProject\InnerAPI();
 $companiesPerCounty = $companies->companiesPerCounty();
 $CompaniesPerCordinate = $companies->CompaniesPerCordinate($companiesPerCounty);
-echo "sdasd";
+echo $CompaniesPerCordinate;
 
 ?>
