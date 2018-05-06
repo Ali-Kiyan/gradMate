@@ -2,7 +2,7 @@
 
 namespace jobWizardProject;
 session_start();
-require_once __DIR__ . '/TableAbstract.php';
+require_once __DIR__ . '/tableAbstract.php';
 require_once "./Views/Template/includedFunctions.php";
 
 class UserTable extends TableAbstract {
