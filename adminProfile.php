@@ -5,7 +5,7 @@ $view = new stdClass();
 $view->pageTitle = 'Admin Profile';
 require_once  './vendor/autoload.php';
 
-$userdb = new JobWizardProject\UserTable();
+$userdb = new jobWizardProject\UserTable();
 $Current_User = $userdb->fetchUser($_SESSION['User_id']);
 if(isset($_POST['Usubmit']))
 {

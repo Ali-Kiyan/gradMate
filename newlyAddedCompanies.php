@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Adding Newly Added Companies';
 require_once  './vendor/autoload.php';
-$companydb = new JobWizardProject\CompanyTable();
+$companydb = new jobWizardProject\CompanyTable();
 
 $companydb->pageStart = 0;
 $rowCount = ($companydb->pageStart+1)*13;
