@@ -28,7 +28,5 @@ $view->userList = $database->fetchAllUsersInfo();
 //     }
 //
 // }
-
-echo $database;
-var_dump($database);
+echo "saddsa";
 // require_once './Views/userProfile.phtml';
