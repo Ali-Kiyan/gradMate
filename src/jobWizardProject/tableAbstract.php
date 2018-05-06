@@ -3,7 +3,7 @@
 namespace jobWizardProject;
 require_once __DIR__ . '/Database.php';
 
-abstract class TableAbstract
+abstract class tableAbstract
 {
     protected $name;
     protected $primaryKey = 'id', $dbh, $db;
