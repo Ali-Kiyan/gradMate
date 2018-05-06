@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Edit Location';
 require_once  './vendor/autoload.php';
-$locationdb = new JobWizardProject\LocationTable();
+$locationdb = new jobWizardProject\LocationTable();
 
 if(isset($_POST['editLocationSubmit'])){
   $_SESSION['Location_Id'] = $_POST['Location_Id'];

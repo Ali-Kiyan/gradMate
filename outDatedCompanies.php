@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Deleting Outdated Companies';
 require_once  './vendor/autoload.php';
-$companydb = new JobWizardProject\CompanyTable();
+$companydb = new jobWizardProject\CompanyTable();
 
 $companydb->pageStart = 0;
 $rowCount = ($pageStart+1)*12;

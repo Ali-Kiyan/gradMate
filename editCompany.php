@@ -4,7 +4,7 @@ confirmAdmin();
 $view = new stdClass();
 $view->pageTitle = 'Add New Company';
 require_once  './vendor/autoload.php';
-$companydb = new JobWizardProject\CompanyTable();
+$companydb = new jobWizardProject\CompanyTable();
 if(isset($_POST['outdatedEsubmit'])){
   $_SESSION['Company_Id'] = $_POST['Company_Id'];
 }
