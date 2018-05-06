@@ -1,5 +1,5 @@
 <?php
-require_once "./header.phtml";
+require_once "./Views/Template/header.phtml";
 ?>
 
 <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
@@ -21,7 +21,7 @@ require_once "./header.phtml";
 <script src="./assets/js/Easepack.min.js"></script>
 <script src="./assets/js/bgscript.js"></script>
 <?php
-require_once "./footer.phtml";
+require_once "./Views/Template/footer.phtml";
 ?>
 <script>
 $(document).ready(function(){
