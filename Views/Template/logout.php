@@ -5,6 +5,6 @@
      unset($_SESSION['Username']);
      unset($_SESSION['Password']);
      unset($_SESSION);
-      // $directory = __DIR__;
-	header("Location: ./login.php" );
+      $directory = __DIR__;
+	header("Location: ../../login.php" );
 ?>
