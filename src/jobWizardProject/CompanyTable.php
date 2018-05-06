@@ -8,10 +8,10 @@ require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
 class CompanyTable extends tableAbstract {
 
-    protected $name = 'company';
+    protected $name = 'Company';
     protected $primaryKey = 'Company_Id';
     protected $LocationForeignKey = 'Location_Id';
-    protected $newList = 'updatedcompanies';
+    protected $newList = 'UpdatedCompanies';
     public $pageStart;
 
     // FETCHING ALL COMPANIES
