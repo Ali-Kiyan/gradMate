@@ -2,7 +2,7 @@
 
 namespace jobWizardProject;
 // session_start();
-// require_once "./Views/Template/includedFunctions.php";
+// require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 require_once '../vendor/autoload.php';
 require_once __DIR__ . '/Company.php';
 

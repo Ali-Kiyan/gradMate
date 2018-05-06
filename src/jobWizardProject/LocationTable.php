@@ -8,7 +8,7 @@ require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
 class LocationTable extends tableAbstract {
 
-    protected $name = 'Location_Detail';
+    protected $name = 'location_detail';
     protected $primaryKey = 'Location_Id';
     public $pageStart = 0;
 

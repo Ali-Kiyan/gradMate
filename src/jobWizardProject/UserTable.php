@@ -6,9 +6,9 @@ require_once __DIR__ . '/tableAbstract.php';
 require_once __DIR__ . '../../../Views/Template/includedFunctions.php';
 
 class UserTable extends tableAbstract {
-  protected $name = 'User';
+  protected $name = 'user';
   protected $primaryKey = 'User_id';
-  protected $detail = 'User_Detail';
+  protected $detail = 'user_detail';
 
 
   public function fetchAllUsers() {
