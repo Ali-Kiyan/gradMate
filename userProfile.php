@@ -27,4 +27,4 @@ if(isset($_POST['Usubmit']))
 }
 
 
-require_once './Views/userprofile.phtml';
+require_once './Views/userProfile.phtml';
