@@ -5,5 +5,3 @@ companyData.csv
 sponsorList.csv
 /curl.php
 /vendor/
-Database.php
-/src/jobWizardProject/ApiCompany.php
