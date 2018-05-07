@@ -83,10 +83,7 @@ $(document).ready(function(){
             },
             {
               label : 'Companies in ' + cdata2.county,
-              backgroundColor: [
-               'rgba(87, 209, 37, 0.3)',
-
-           ],
+              backgroundColor: 'rgba(87, 209, 37, 0.3)',
               borderWidth: 0.5,
               pointStyle: 'Doughnut',
               borderColor:
