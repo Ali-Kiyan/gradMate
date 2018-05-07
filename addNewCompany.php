@@ -14,25 +14,25 @@ if(isset($_POST['Asubmit'])){
 
       $locationHandle = new jobWizardProject\LocationTable();
       $locations = $locationHandle->fetchLocations(0,1000000);
-      //
-      // if(isset($_POST['Isubmit']))
-      // {
-      // $_POST['Location_Id'] = settype($_POST['Location_Id'], int);
-      //     $companydb = new jobWizardProject\CompanyTable();
-      //     $respond = $companydb->insertCompany($_POST);
-      //     if($respond)
-      //     {
-      //
-      //         redirectTo("./newlyAddedCompanies.php");
-      //     }
-      //     else
-      //     {
-      //         $API = new jobWizardProject\ApiCompany();
-      //         $generalInfo = $API->fetchGeneralInfo($_POST['Company_Name']);
-      //         $Current_Company = $API->fetchCompanyInfo($generalInfo);
-      //         $view->result = '<div class="alert alert-danger">Please check your input </div>';
-      //     }
-      //   }
+      
+      if(isset($_POST['Isubmit']))
+      {
+      $_POST['Location_Id'] = settype($_POST['Location_Id'], int);
+          $companydb = new jobWizardProject\CompanyTable();
+          $respond = $companydb->insertCompany($_POST);
+          if($respond)
+          {
+
+              redirectTo("./newlyAddedCompanies.php");
+          }
+          else
+          {
+              $API = new jobWizardProject\ApiCompany();
+              $generalInfo = $API->fetchGeneralInfo($_POST['Company_Name']);
+              $Current_Company = $API->fetchCompanyInfo($generalInfo);
+              $view->result = '<div class="alert alert-danger">Please check your input </div>';
+          }
+        }
 
 
 
