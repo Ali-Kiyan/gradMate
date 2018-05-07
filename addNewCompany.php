@@ -12,9 +12,9 @@ if(isset($_POST['Asubmit'])){
 }
 
 
-      // $locationHandle = new jobWizardProject\LocationTable();
-      // $locations = $locationHandle->fetchLocations(0,1000000);
-
+      $locationHandle = new jobWizardProject\LocationTable();
+      $locations = $locationHandle->fetchLocations(0,1000000);
+      //
       // if(isset($_POST['Isubmit']))
       // {
       // $_POST['Location_Id'] = settype($_POST['Location_Id'], int);
