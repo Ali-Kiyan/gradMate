@@ -647,6 +647,7 @@ table{
 #usersTable{
   overflow-y: scroll;
   background-color: #f9f9f9;
+  max-width: none;
 }
 #outdatedCompaniesTable{
   background-color: #f9f9f9;
@@ -654,6 +655,7 @@ table{
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   height: 70vh;
+  max-width: none;
 }
 
 .scrollable{
@@ -682,6 +684,7 @@ table{
   -webkit-overflow-scrolling: touch;
   height: 80vh;
 }
+
 .x{
 position: absolute;
 bottom: 10px;
