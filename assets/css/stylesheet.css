@@ -678,6 +678,22 @@ table{
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
+#companyProfile{
+overflow-y: scroll;
+overflow-x: scroll;
+-webkit-overflow-scrolling: touch;
+opacity: 0;
+border-radius: 0px;
+background-color: rgba(255,255,255,0.3);
+}
+#adminProfile{
+overflow-y: scroll;
+overflow-x: scroll;
+-webkit-overflow-scrolling: touch;
+opacity: 0;
+border-radius: 0px;
+background-color: rgba(255,255,255,0.3);
+}
 .largeDataHandler{
   overflow-y: scroll;
   overflow-x: scroll;

@@ -5,7 +5,7 @@ require('Template/adminSideNav.phtml');
 ?>
  <div class="container-fluid">
 
-      <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
+      <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="adminProfile">
 
           <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -36,14 +36,6 @@ require('Template/adminSideNav.phtml');
       TweenLite.fromTo($('#userProfile'),6.7,{z: -550, rotationX: "+=30",rotationY: "+=40",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
       });
       </script>
-      <style>
-
-      #userProfile{
-      opacity: 0;
-      border-radius: 0px;
-      background-color: rgba(255,255,255,0.3);
-      }
-      </style>
 
 <?php require('Template/footer.phtml');
 ?>
