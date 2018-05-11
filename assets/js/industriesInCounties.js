@@ -1,6 +1,4 @@
-
-
-$(document).ready(function(){
+(function(){
   var vs;
   var chartData;
 
@@ -177,4 +175,4 @@ $(document).ready(function(){
     });
     });
   }
-});
+})();

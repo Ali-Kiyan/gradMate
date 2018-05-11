@@ -1,7 +1,5 @@
-
-$(document).ready(function(){
+(function(){
 var vs;
-
   TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
   TweenLite.fromTo($('#chartType'),1.5,{x:1000,opacity:0, rotationX: "-=210"}, {x:0,opacity:1, rotationX: "+=210"});
   $('#cityPicker').on('change', function(event){
@@ -100,12 +98,8 @@ var vs;
                 responsive: true,
                 maintainAspectRation: true,
                 fullwidth: true,
-
              },
-
-
         });
-
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
         Chart.defaults.global.defaultFontSize = 9;
@@ -117,8 +111,6 @@ var vs;
       alert("Please select an industry");
       return false;
     }
-
   });
-
-
 });
+})();

@@ -1,3 +1,5 @@
+(function(){
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
 var bounds = [
     [-24.27974 , 42.29207], // Southwest coordinates
@@ -195,3 +197,4 @@ map.on('load', function() {
      });
      });
   });
+})();

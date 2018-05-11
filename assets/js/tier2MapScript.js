@@ -1,7 +1,6 @@
 //aniamting input with Tween MAX
-$(document).ready(function(){
+(function(){
 TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:10,y:-200, rotationX: "-=230"}, {x:0,y:0, rotationX: "+=230",opacity: 1});
-});
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2l5YW55IiwiYSI6ImNqZW43Mm9wYzBmOW8yd3BiZHMzcm9kcG4ifQ.dOhD9h204eeqVa-dLMqRxQ';
 var bounds = [
     [-163.21778,-73.16939], // Southwest coordinates
@@ -158,3 +157,4 @@ map.on('load', function() {
 
 
 });
+})();

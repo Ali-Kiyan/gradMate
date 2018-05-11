@@ -1,6 +1,4 @@
-
-
-$(document).ready(function(){
+(function(){
 var vs;
 
   TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
@@ -171,4 +169,4 @@ var vs;
     });
     });
   }
-});
+})();
