@@ -1,4 +1,4 @@
-(function)(){
+(function(){
   var vs;
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
