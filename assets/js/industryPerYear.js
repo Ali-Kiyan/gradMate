@@ -11,7 +11,6 @@ var vs;
     var type = that.attr('method');
     var cdata = {};
     cdata.Industry = $('#citySelect').val();
-    console.log(cdata);
     if($('#citySelect').val() != ''){
     $.ajax({
       url: url,
@@ -112,5 +111,4 @@ var vs;
       return false;
     }
   });
-});
 })();
