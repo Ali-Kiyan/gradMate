@@ -14,7 +14,7 @@ var vs;
   $('#cityPicker').on('change', function(event){
     //prevent from submiting
     event.preventDefault();
-    TweenLite.fromTo($('#pie'),3,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
+    TweenLite.fromTo($('#chart'),3,{y:0,opacity:0,rotationY: "+=30"}, {y:0,opacity:1,rotationY: "-=30"});
     var that = $(this);
     var url = that.attr('action');
     var type = that.attr('method');
@@ -27,17 +27,17 @@ var vs;
       type: type,
       data: cdata,
       success: function(response){
-        var d = response;
-        var pp = [];
-        var qq = [];
-        for (var i=0; i<d.length; i++) {
-         pp.push( d[i].Industry);
+        var fetchedData = response;
+        var industryArray = [];
+        var numOfComapnyArray = [];
+        for (var i=0; i<fetchedData.length; i++) {
+         industryArray.push( fetchedData[i].Industry);
         }
-        for (var j=0; j<d.length; j++) {
-         qq.push( d[j].numOfCompany);
+        for (var j=0; j<fetchedData.length; j++) {
+         numOfComapnyArray.push( fetchedData[j].numOfCompany);
         }
         var chartData = {
-          labels: pp,
+          labels: industryArray,
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
@@ -74,7 +74,7 @@ var vs;
               ],
 
 
-              data: qq,
+              data: numOfComapnyArray,
             },
           ],
 
@@ -85,11 +85,11 @@ var vs;
           vs.update();
         });
 
-        var pie = $('#pie');
+        var chart = $('#chart');
         if (vs) {
             vs.destroy();
           }
-         vs = new Chart(pie, {
+         vs = new Chart(chart, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
@@ -151,8 +151,8 @@ var vs;
 
   });
 
-  $('#cityPicker').keyup(function(e){
-    var input = e.target.value;
+  $('#cityPicker').keyup(function(elemet){
+    var input = element.target.value;
     if(input.length > 1){
       getListOfCompaniesByCounty(input)
     }
