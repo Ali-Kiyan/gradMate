@@ -7,7 +7,7 @@
     var url = that.attr('action');
     var type = that.attr('method');
     var cdata = {};
-    var chartType = $('#chartType').val();
+    var chartType = 'line';
     cdata.Industry = $('#citySelect').val();
     if($('#citySelect').val() != ''){
     $.ajax({
@@ -15,14 +15,14 @@
       type: type,
       data: cdata,
       success: function(response){
-        var d = response;
-        var pp = [];
-        var qq = [];
-        for (var i=0; i<d.length; i++) {
-         pp.push( d[i].Year);
+        var fetchedData1 = response;
+        var yearsArray1 = [];
+        var numOfCompanyArray1 = [];
+        for (var i=0; i<fetchedData1.length; i++) {
+         yearsArray1.push( fetchedData1[i].Year);
         }
-        for (var j=0; j<d.length; j++) {
-         qq.push( d[j].numOfCompany);
+        for (var j=0; j<fetchedData1.length; j++) {
+         numOfCompanyArray1.push( fetchedData1[j].numOfCompany);
         }
         if(vs){
           vs.destroy();
@@ -40,19 +40,19 @@
                 type: type2,
                 data: cdata2,
                 success: function(response){
-                  var r = response;
-                  var aa = [];
-                  var bb = [];
-                  for (var i=0; i<r.length; i++) {
-                   aa.push( r[i].Year);
+                  var fetchedData2 = response;
+                  var yearsArray2 = [];
+                  var numOfCompanyArray2 = [];
+                  for (var i=0; i<fetchedData2.length; i++) {
+                   yearsArray2.push( fetchedData2[i].Year);
                   }
-                  for (var j=0; j<r.length; j++) {
-                   bb.push( r[j].numOfCompany);
+                  for (var j=0; j<fetchedData2.length; j++) {
+                   numOfCompanyArray2.push( fetchedData2[j].numOfCompany);
                function largerCompany(first,second){
                 return (first.length > second.length ? first : second);
                }
         var chartData = {
-          labels: largerCompany(pp,aa),
+          labels: largerCompany(yearsArray1,yearsArray2),
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
@@ -69,7 +69,7 @@
               borderColor: [
                'rgba(255,99,132,1)'
               ],
-              data: qq,
+              data: numOfCompanyArray1,
             },
             {
               label : cdata2.Industry,
@@ -86,17 +86,17 @@
            ],
 
 
-              data: bb,
+              data: numOfCompanyArray2,
             }
           ],
 
 
         }
-        var pie = $('#pie');
+        var chart = $('#chart');
         if(vs){
           vs.destroy();
         }
-         vs = new Chart(pie, {
+         vs = new Chart(chart, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',

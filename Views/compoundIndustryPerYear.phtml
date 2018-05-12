@@ -16,10 +16,6 @@ require_once "./Views/Template/sideNav.phtml";
                 }
                 ?>
         </select>
-        <select class="from-control input-sm" id="chartType" hidden>
-          <option value="">Select Chart Type</option>
-          <option value="line" selected="selected">Line</option>
-        </select>
         <br>
         <br>
         <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
@@ -35,14 +31,13 @@ require_once "./Views/Template/sideNav.phtml";
               </select>
               <br>
               <br>
-              <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
 
 
         </form>
 
     <div class="chart-container col-xs-12" style="position:reletive;">
 
-        <canvas id="pie" width="100vw" height="50vh"></canvas>
+        <canvas id="chart" width="100vw" height="50vh"></canvas>
 
     </div>
 
