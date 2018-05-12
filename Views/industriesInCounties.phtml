@@ -15,25 +15,18 @@ require_once "./Views/Template/sideNav.phtml";
           <select class="from-control input-sm" id="citySelect">
             <option value="">Select County</option>
           </select>
-          <select class="from-control input-sm" id="chartType" hidden>
-            <option value="">Select Chart Type</option>
-            <option value="radar" selected="selected">Radar</option>
-          </select>
           <br>
           <br>
-          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
     </form>
     <form action="./Web_Service/industryPerCounty.php" class="col-xs-12" id="cityPicker2" method="post">
           <select class="from-control input-sm" id="citySelect2">
             <option value="">Select County</option>
           </select>
-          <br>
-          <br>
-          <input type="submit" name="submit" class="btn btn-sm btn-info" hidden>
+
     </form>
     <div class="chart-container col-xs-12">
 
-        <canvas id="pie"></canvas>
+        <canvas id="chart"></canvas>
 
     </div>
 

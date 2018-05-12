@@ -20,7 +20,7 @@ $(document).ready(function(){
     var url = that.attr('action');
     var type = that.attr('method');
     var cdata = {};
-    var chartType = $('#chartType').val();
+    var chartType = 'radar';
     cdata.county = $('#citySelect').val();
     if($('#citySelect').val() != ''){
     $.ajax({
@@ -28,14 +28,14 @@ $(document).ready(function(){
       type: type,
       data: cdata,
       success: function(response){
-        var d = response;
-        var pp = [];
-        var qq = [];
-        for (var i=0; i<d.length; i++) {
-         pp.push( d[i].Industry);
+        var fetchedData1 = response;
+        var industryArray1 = [];
+        var numOfCompanyArray1 = [];
+        for (var i=0; i<fetchedData1.length; i++) {
+         industryArray1.push( fetchedData1[i].Industry);
         }
-        for (var j=0; j<d.length; j++) {
-         qq.push( d[j].numOfCompany);
+        for (var j=0; j<fetchedData1.length; j++) {
+         numOfCompanyArray1.push( fetchedData1[j].numOfCompany);
         }
         if(vs){
           vs.destroy();
@@ -56,16 +56,16 @@ $(document).ready(function(){
                 type: type2,
                 data: cdata2,
                 success: function(response){
-                  var r = response;
-                  var aa = [];
-                  var bb = [];
-                  for (var i=0; i<r.length; i++) {
-                   aa.push( r[i].Industry);
+                  var fetchedData2 = response;
+                  var industryArray2 = [];
+                  var numOfCompanyArray2 = [];
+                  for (var i=0; i<fetchedData2.length; i++) {
+                   industryArray2.push( fetchedData2[i].Industry);
                   }
-                  for (var j=0; j<r.length; j++) {
-                   bb.push( r[j].numOfCompany);
+                  for (var j=0; j<fetchedData2.length; j++) {
+                   numOfCompanyArray2.push( fetchedData2[j].numOfCompany);
          chartData = {
-          labels: largerCompany(aa,pp),
+          labels: largerCompany(industryArray2,industryArray1),
           backgroundColor: 'black',
           fontFamily: 'Dosis',
           datasets : [
@@ -77,27 +77,27 @@ $(document).ready(function(){
               borderColor: 'rgba(255, 141, 99, 1)',
 
 
-              data: qq,
+              data: numOfCompanyArray1,
             },
             {
               label : 'Companies in ' + cdata2.county,
               backgroundColor: 'rgba(87, 209, 37, 0.3)',
               borderWidth: 0.5,
-              pointStyle: 'Doughnut',
+              pointStyle: 'rect',
               borderColor:
                'rgba(44, 99, 132, 1)',
-              data: bb,
+              data: numOfCompanyArray2,
             }
           ],
 
 
         }
 
-        var pie = $('#pie');
+        var chart = $('#chart');
         if(vs){
           vs.destroy();
         }
-         vs = new Chart(pie, {
+         vs = new Chart(chart, {
           type: chartType,
           data: chartData,
           pointStyle: 'rect',
