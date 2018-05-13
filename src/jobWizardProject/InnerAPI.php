@@ -34,7 +34,7 @@ class InnerAPI extends tableAbstract {
       for($i=0; $i<sizeof($companyData);$i++){
         $numOfCompany[$i] = $companyData[$i]["Companies"];
         $county[$i] = $companyData[$i]['County'];
-        $query[$i] = "SELECT Location, Latitude, Longitude from Location_Detail where Location != 'Unknown' AND Location LIKE '". trim($county[$i]) ."%' limit 1";
+        $query[$i] = "SELECT Location, Latitude, Longitude from $this->locationData where Location != 'Unknown' AND Location LIKE '". trim($county[$i]) ."%' limit 1";
       }
 
       for($j=0;$j<sizeof($companyData);$j++){
