@@ -58,39 +58,27 @@
           datasets : [
             {
               label : cdata.Industry,
-              backgroundColor: [
-               'rgba(255, 99, 132, 0.2)'
-           ],
+              backgroundColor:
+               'rgba(255, 99, 132, 0.2)',
               borderWidth: 0.5,
-              hoverBackgroundColor:  [
-               'rgba(255, 255, 255, 1)'
-           ],
+              hoverBackgroundColor:
+               'rgba(209, 52, 52, 1)',
               pointStyle: 'Doughnut',
-              borderColor: [
-               'rgba(255,99,132,1)'
-              ],
+              borderColor:'rgba(255,99,132,1)',
               data: numOfCompanyArray1,
             },
             {
               label : cdata2.Industry,
-              backgroundColor: [
-               'rgba(157, 218, 255, 0.87)'
-           ],
+              backgroundColor:
+               'rgba(157, 218, 255, 0.87)',
               borderWidth: 0.5,
-              hoverBackgroundColor:
-           'rgba(255, 236, 64, 1)',
+              hoverBackgroundColor:'rgba(64, 186, 255, 1)',
 
               pointStyle: 'Point',
-              borderColor: [
-           'rgba(64, 146, 255, 1)'
-           ],
-
-
+              borderColor: 'rgba(64, 146, 255, 1)',
               data: numOfCompanyArray2,
             }
           ],
-
-
         }
         var chart = $('#chart');
         if(vs){
@@ -135,13 +123,6 @@
                   fontFamily: 'Dosis'
                 }
              },
-
-
-
-
-
-
-
         });
         Chart.defaults.global.defaultFontColor = 'rgb(46, 46, 46)';
                 Chart.defaults.global.defaultFontFamily = 'Dosis';
@@ -154,8 +135,6 @@
 });
 
 
-
-
       }
 
 
@@ -166,7 +145,6 @@
       alert("Please select a city.");
       return false;
     }
-
 
   });
 
