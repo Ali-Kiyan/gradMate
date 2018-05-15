@@ -1,0 +1,78 @@
+.six {
+  width: 49.2%;
+}
+
+#sideNav{
+  background-color: black;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #2f2f29;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+.sideLinks{
+  background-color: #191a1a;
+  text-decoration: none;
+  list-style: none;
+  padding-left: 0px;
+
+}
+.sideLinks .btn-sm{
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+.sideLinks> li > .btn-success:focus{
+  background-color: #41394c !important;
+}
+.sideLinks a:hover {
+background-color: #5f6055;
+border: solid 0.004vh #707070;
+border-left: solid 0.6vh #f2ec9c;
+}
+.sideLinks li > a{
+  width: 100%;
+    color: rgba(#595959, 0.71) !important;
+    border-radius: 0px;
+    background-color: #191a1a;
+    border-size: 1px;
+    border-width: 0;
+    border-color: black;
+    text-align: left;
+    padding: 2vh 0px 2vh 3vh;
+    border-top: solid #f3ffed 0.1px;
+    border-right: solid #f3ffed 0.1px;
+    border-bottom: solid #f3ffed 0.1px;
+    text-align: center;
+}
+#charts a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #191a1a;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#charts a:hover{
+  background-color: #ddefee;
+  border: solid 0.004vh #383838;
+  border-left: solid 0.3vh #383838;
+}
+#cvs a{
+  width: 100%;
+  border-radius: 0px;
+  background-color: #ddefee;
+  border-size: 1px;
+  border-width: 0;
+  border-color: black;
+  text-align: left;
+  padding: 2vh 0px 2vh 3vh;
+}
+#cvs a:hover{
+  background-color: #ddefee;
+  border: solid 0.004vh #b7c780;
+  border-left: solid 0.6vh #c3eaaa;
+}
