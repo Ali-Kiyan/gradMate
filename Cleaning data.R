@@ -3,24 +3,9 @@ install.package("stringr")
 install.packages("tm")
 library("pdftools")
 library("stringr")
-library("tm")
-library("dplyr")
-#cleaning data 
-#company_house <- read.csv("Company_House/companyData.csv", header=T) 
-#company_house <-company_house[order(company_house$company_name),]
-#company_house <- company_house[,c(-3, -4, -8, -9, -12, -13, -14, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,-45,-46,-47,-48,-49,-50,-51, -52, -53, -54, -55)]
-#write.csv(company_house, file='Company_House/company_detail.csv')
 
-#company_house <- read.csv('Company_House/company_detail.csv', header=T) 
 
-#test <- data.frame(sp=8:27,AUC=1:20)
-#test2 <- data.frame(sp=10:29,AUC=1:20)
-#z <- merge(test,test2,by=c('sp'),all.x = T)
-
-#full_company_info <- merge(tier2,company_house,by=c('company_name'),all.x = T)
-
-#download.file("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/682406/2018-02-19_Tier_2_5_Register_of_Sponsors.pdf","./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
-rawText <- pdf_text("./2018-02-19_Tier_2_5_Register_of_Sponsors.pdf")
+rawText <- pdf_text("./2018-05-16_Tier_2_5_Register_of_Sponsors.pdf")
 doc <- strsplit(rawText, "\n")
 head(doc)
 header_row <- grep("^No. of Sponsors on Register Licensed under Tiers 2 and 5:", doc[[1]])
@@ -82,7 +67,7 @@ dbListTables(con)
 typeof(temp)
 
 
-dbWriteTable(con, "UpdatedCompanies", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
+dbWriteTable(con, "UpdatedCompanies2", tier2CompanyList,overwrite=FALSE, append=TRUE,  field.types = NULL)
 
 
 
