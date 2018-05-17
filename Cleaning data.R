@@ -1,6 +1,5 @@
 install.packages("pdftools")
 install.package("stringr")
-install.packages("tm")
 library("pdftools")
 library("stringr")
 
