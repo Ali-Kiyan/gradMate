@@ -91,7 +91,7 @@ class InnerAPI extends tableAbstract {
     }
 
     public function AllIndustries(){
-      $sql = "SELECT DISTINCT Industry FROM Company";
+      $sql = "SELECT DISTINCT Industry FROM $this->name";
       $results = $this->dbh->prepare($sql);
       $results->execute();
       while($row = $results->fetch()){
