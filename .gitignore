@@ -7,3 +7,4 @@ sponsorList.csv
 /vendor/
 /src/jobWizardProject/Database.php
 /src/jobWizardProject/ApiCompany.php
+src/jobWizardProject/Database.php
