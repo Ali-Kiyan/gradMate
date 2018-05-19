@@ -5,10 +5,10 @@
       protected static $instance = null;
       protected $dbh;
       public static function getInstance() {
-         $host = "us-cdbr-iron-east-04.cleardb.net";
-         $dbname = "heroku_a312c5cedb491ff";
-         $username = "b0ee8bc257d496";
-         $password = "a2999f12";
+         $host = "localhost";
+         $dbname = "jobWizard";
+         $username = "root";
+         $password = "root";
         /* checking if the db object exists if not $instance get created */
         if(self::$instance === null)
         {
