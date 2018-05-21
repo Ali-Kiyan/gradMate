@@ -7,7 +7,7 @@ require_once "./Views/Template/header.phtml";
             <div id="showcase" class="fade">
 
                       <h1 style="font-family: 'Raleway Dots', cursive; font-size:4rem;">Job Wizard</h1>
-                      <p class="">United Kingdom Job Market analyisis for student outside of EEA</p>
+                      <p class="">United Kingdom Job Market analyisis for students outside of EEA</p>
 
                 <br>
                 <div class="">
