@@ -20,11 +20,11 @@ require_once "./Views/Template/header.phtml";
 <script src="./assets/js/Tweenlite.min.js"></script>
 <script src="./assets/js/Easepack.min.js"></script>
 <script src="./assets/js/bgscript.js"></script>
-<?php
-require_once "./Views/Template/footer.phtml";
-?>
 <script>
 $(document).ready(function(){
 TweenLite.fromTo($('#showcase'),2.7,{y:-50,rotationX: "-=60",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",ease: "Power4.easeOut"});
 });
 </script>
+<?php
+require_once "./Views/Template/footer.phtml";
+?>
