@@ -23,7 +23,6 @@ for($i=0; $i<sizeof($cData);$i++){
 }
 //forming the associative array to be inserted in the database
 for($i=0; $i<sizeof($cData);$i++){
-  $companyPerLocation [$i]["numOfCompany"] = $numOfCompany[$i];
   $companyPerLocation [$i]["county"] = $county[$i];
   $companyPerLocation [$i]["longitude"] = $longitude[$i];
   $companyPerLocation [$i]["latitude"] = $latitude[$i];
@@ -33,5 +32,4 @@ for ($j=0;$j<sizeof($cData);$j++){
   $query = "Insert into Location_Detail(Location, Latitude, Longitude) values ('".  $companyPerLocation [$j]["County"] ."',".  $companyPerLocation [$j]["latitude"]  .",".  $companyPerLocation [$j]["longitude"] .")";
   $result = mysqli_query($connect, $query);
 }
-
 ?>
