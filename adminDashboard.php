@@ -4,8 +4,6 @@ confirmAdmin();
 require('./Views/Template/header.phtml');
 require('./Views/Template/adminNav.phtml');
 require('./Views/Template/adminSideNav.phtml');
-
-
 ?>
 
 

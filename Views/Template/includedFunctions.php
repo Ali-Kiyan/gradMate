@@ -13,8 +13,9 @@ function confirmLoggedIn () {
 }
 function confirmAdmin () {
 
-    if (!$_SESSION['Is_Admin'] && !isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
+    if (!$_SESSION['Is_Admin'] || !isset($_SESSION['Username']) || !isset($_SESSION['Password'])) {
         redirectTo("./Views/Template/logout.php");
+
     }
 }
 function authRedirect(){
