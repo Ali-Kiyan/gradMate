@@ -33,10 +33,4 @@ class User {
   public function getDegree() {return $this->Degree;}
   public function getPhotoPath() {return $this->Photo_Path;}
   public function ifAdmin() {return $this->Is_Admin;}
-
-  public function getAll(){
-    foreach ($this as $row){
-      return $row;
-    }
-  }
 }
