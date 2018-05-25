@@ -64,7 +64,6 @@ class InnerAPI extends tableAbstract {
           $result[] = $row;
         }
         for($i=0;$i<sizeof($result);$i++){
-          // settype($result[$i]['numOfCompany'] , int);
           unset($result[$i][0]);
           unset($result[$i][1]);
         }
