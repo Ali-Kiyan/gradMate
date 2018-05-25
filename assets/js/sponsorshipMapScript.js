@@ -91,6 +91,7 @@ map.on('load', function() {
         return obj;
       }
    //AJAX CALL To Inside API
+   //The formula for scale is natural logarithm multiplied by four
    $.getJSON("./Web_Service/mapData.php", function(data){
         map.addLayer({
             "id": "points",
