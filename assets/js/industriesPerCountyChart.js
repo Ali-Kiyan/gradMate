@@ -152,22 +152,4 @@ var vs;
 
   });
 
-  $('#cityPicker').keyup(function(elemet){
-    var input = element.target.value;
-    if(input.length > 1){
-      getListOfCompaniesByCounty(input)
-    }
-  })
-
-
-  function getListOfCompaniesByCounty(input){
-   $.getJSON("./Web_Service/companyPerCounty.php", function(data){
-     var counties = data.map(function(element){
-       return element.county
-     });
-     counties.forEach(function(element){
-      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-    });
-    });
-  }
 })();

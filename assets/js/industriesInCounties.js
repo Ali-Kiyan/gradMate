@@ -158,22 +158,4 @@ $(document).ready(function(){
 
   });
 
-  $('#cityPicker').keyup(function(e){
-    var input = e.target.value;
-    if(input.length > 1){
-      getListOfCompaniesByCounty(input)
-    }
-  })
-
-
-  function getListOfCompaniesByCounty(input){
-   $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
-     var counties = data.map(function(element){
-       return element.County
-     })
-     counties.forEach(function(element){
-      $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
-    });
-    });
-  }
 });
