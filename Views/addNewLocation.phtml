@@ -20,7 +20,7 @@ TweenLite.fromTo($('#location'),6.7,{y: 350, rotationX: "-=70",rotationY: "-=30"
 
            <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="location">
 
-               <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+               <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                      <div class="form-group">
                        <label for="locationname" class=" control-label">Location Name</label>
@@ -40,9 +40,10 @@ TweenLite.fromTo($('#location'),6.7,{y: 350, rotationX: "-=70",rotationY: "-=30"
                      <br>
                      <br>
                          <?php echo $view->result; ?>
+                </form>
            </div>
 
-         </form>
+
 
 
      </div>
