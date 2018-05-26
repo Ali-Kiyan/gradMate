@@ -6,6 +6,7 @@ require_once "./Views/Template/guideSideNav.phtml";
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+     <link rel="stylesheet" href="./assets/css/mapStyle.css">
      <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
      <link rel="stylesheet" href="./assets/css/adminStyle.css"/>
@@ -27,14 +28,13 @@ require_once "./Views/Template/guideSideNav.phtml";
         </div>
     </div>
 
-<link rel="stylesheet" href="./assets/css/mapStyle.css">
     <script src="./assets/js/industryMap.js"></script>
+    <script>
+    $(document).ready(function(){
+    TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:500}, {x:0,y:0,opacity: 1});
+    TweenLite.fromTo($('.map-overlay-inner'),3,{x:-500}, {x:0,y:0,opacity: 1});
+    });
+    </script>
 <?php
 require_once "./Views/Template/footer.phtml";
 ?>
-<script>
-$(document).ready(function(){
-TweenLite.fromTo($('.mapboxgl-ctrl-geocoder'),3,{x:500}, {x:0,y:0,opacity: 1});
-TweenLite.fromTo($('.map-overlay-inner'),3,{x:-500}, {x:0,y:0,opacity: 1});
-});
-</script>
