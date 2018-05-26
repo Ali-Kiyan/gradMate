@@ -33,7 +33,7 @@ border-left: solid 0.6vh #f2ec9c;
 }
 .sideLinks li > a{
   width: 100%;
-    color: rgba(#595959, 0.71) !important;
+    color: rgba(89, 89, 89, 0.71) !important;
     border-radius: 0px;
     background-color: #191a1a;
     border-width: 0;
