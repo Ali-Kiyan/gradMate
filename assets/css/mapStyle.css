@@ -38,7 +38,7 @@ body{
 .mapboxgl-ctrl-geocoder {
     width: 100vw;
     border-radius: 0px;
-    top: -10;
+    top: -10px;
 }
 
 .hamburger{
