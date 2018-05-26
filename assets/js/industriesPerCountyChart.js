@@ -4,9 +4,10 @@ var vs;
   TweenLite.fromTo($('#cityPicker'),1.5,{x:1000,opacity:0, rotationX: "+=140"}, {x:0,opacity:1, rotationX: "-=140"});
   TweenLite.fromTo($('#chartType'),1.5,{x:1000,opacity:0, rotationX: "-=210"}, {x:0,opacity:1, rotationX: "+=210"});
   $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
-    var counties = data.map(function(element){
-      return element.County
-    })
+    var counties = [];
+    for (var i=0; i<data.length; i++) {
+     counties.push(data[i].County);
+    }
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
     });

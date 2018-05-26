@@ -3,9 +3,10 @@ $(document).ready(function(){
   var chartData;
 
   $.getJSON("./Web_Service/companyPerCountyAPI.php", function(data){
-    var counties = data.map(function(element){
-      return element.County
-    })
+    var counties = [];
+    for (var i=0; i<data.length; i++) {
+     counties.push(data[i].County);
+    }
     counties.forEach(function(element){
       $('#citySelect').append('<option val="'+ element +'">'+ element +'</option>');
       $('#citySelect2').append('<option val="'+ element +'">'+ element +'</option>');
