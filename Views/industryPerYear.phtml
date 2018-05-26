@@ -5,6 +5,7 @@ require_once "./Views/Template/sideNav.phtml";
 ?>
 
   <link rel="stylesheet" href="./assets/css/userStyle.css"/>
+  <link rel="stylesheet" href="./assets/css/ham.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
   <div class="container bluredSection">
@@ -26,18 +27,14 @@ require_once "./Views/Template/sideNav.phtml";
 
     <div class="chart-container col-xs-12">
 
-        <canvas id="chart" class="fade" width="100vw" height="60vh"></canvas>
+        <canvas id="chart" class="fade"></canvas>
 
     </div>
 
     </div>
 
   </div>
-
-
-
+  <script src="./assets/js/industryPerYear.js"></script>
 <?php
 require_once "./Views/Template/footer.phtml";
 ?>
-<script src="./assets/js/industryPerYear.js"></script>
-<link rel="stylesheet" href="./assets/css/ham.css">
