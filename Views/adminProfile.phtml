@@ -7,7 +7,7 @@ require('Template/adminSideNav.phtml');
 
       <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="adminProfile">
 
-          <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+          <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                 <div class="form-group">
                   <label for="email" class=" control-label">User Name</label>
@@ -23,14 +23,9 @@ require('Template/adminSideNav.phtml');
                 <br>
                 <br>
                     <?php echo $view->result; ?>
-                </div>
-
-          </form>
-
-
+            </form>
+        </div>
       </div>
-      </div>
-    </div>
       <script>
       $(document).ready(function(){
       TweenLite.fromTo($('#adminProfile'),6.7,{z: -550, rotationX: "+=30",rotationY: "+=40",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
