@@ -713,3 +713,7 @@ background-color: rgba(255,255,255,0.3);
 position: absolute;
 bottom: 10px;
 }
+convas{
+  width: 100vw;
+  height: 60vh;
+}
