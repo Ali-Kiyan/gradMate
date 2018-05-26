@@ -48,7 +48,7 @@ border-left: solid 0.6vh #f2ec9c;
 #charts a{
   width: 100%;
   border-radius: 0px;
-  background-color: #191a1a
+  background-color: #191a1a;
   border-width: 0;
   border-color: black;
   text-align: left;
@@ -62,7 +62,7 @@ border-left: solid 0.6vh #f2ec9c;
 #cvs a{
   width: 100%;
   border-radius: 0px;
-  background-color: #ddefee
+  background-color: #ddefee;
   border-width: 0;
   border-color: black;
   text-align: left;
