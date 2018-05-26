@@ -10,7 +10,7 @@ require_once "./Views/Template/sideNav.phtml";
 
       <div class="well col-sm-6 col-sm-offset-3 bluredSection fade" id="userProfile">
 
-          <form class="form-horizontal" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+          <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                 <div class="col-xs-5">
 
@@ -77,15 +77,13 @@ require_once "./Views/Template/sideNav.phtml";
                 <br>
                     <?php echo $view->result; ?>
                 </div>
-
-          </form>
+                </form>
 
 
 
 
       </div>
       </div>
-    </div>
       <script>
       $(document).ready(function(){
       TweenLite.fromTo($('#userProfile'),4.7,{y: 850, rotationX: "-=130",rotationY: "-=70",ease: "Power4.easeOut"}, {y:50,opacity:1,rotationX: "0",rotationY: "0",ease: "Power4.easeOut"});
