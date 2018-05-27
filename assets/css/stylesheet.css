@@ -717,7 +717,8 @@ canvas{
   width: 100vw;
   height: 60vh;
 }
-canvas #chart{
+
+#demo-canvas{
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
 }
