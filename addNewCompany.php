@@ -14,10 +14,9 @@ if(isset($_POST['Asubmit'])){
 
       $locationHandle = new jobWizardProject\LocationTable();
       $locations = $locationHandle->fetchLocations(0,1000000);
-      
       if(isset($_POST['Isubmit']))
       {
-      $_POST['Location_Id'] = settype($_POST['Location_Id'], int);
+          settype($_POST['Location_Id'], int);
           $companydb = new jobWizardProject\CompanyTable();
           $respond = $companydb->insertCompany($_POST);
           if($respond)
