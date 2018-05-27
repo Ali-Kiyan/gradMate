@@ -32,7 +32,9 @@ if(isset($_GET['page']))
 $_SESSION['page'] = $_SESSION['page'] + $rowCount;
 $companydb->pageStart  = $_SESSION['page'];
 $companyList = $companydb->fetchOutdatedCompanies($companydb->pageStart, $rowCount);
-
+if(empty($companyList)){
+$_SESSION['page'] = 0;
+}
 }
 
 
