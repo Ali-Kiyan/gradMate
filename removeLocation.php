@@ -30,6 +30,9 @@ $_SESSION['page'] = $_SESSION['page'] + $rowCount;
 $locationdb->pageStart  = $_SESSION['page'];
 $locationList = $locationdb->fetchLocations($locationdb->pageStart, $rowCount);
 
+if(empty($locationList)){
+$_SESSION['page'] = 0;
+}
 }
 
 
