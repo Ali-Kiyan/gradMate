@@ -29,7 +29,3 @@
         $this->dbh = null;
       }
     }
-    // $host = "us-cdbr-iron-east-04.cleardb.net";
-    // $dbname = "heroku_a312c5cedb491ff";
-    // $username = "b0ee8bc257d496";
-    // $password = "a2999f12";

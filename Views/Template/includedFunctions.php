@@ -7,16 +7,16 @@ function redirectTo($new_location) {
 }
 
 function confirmLoggedIn () {
-    // if (!isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
-    //   redirectTo("./Views/Template/logout.php");
-    // }
+    if (!isset($_SESSION['Username']) && !isset($_SESSION['Password'])) {
+      redirectTo("./Views/Template/logout.php");
+    }
 }
 function confirmAdmin () {
 
-    // if (!$_SESSION['Is_Admin'] || !isset($_SESSION['Username']) || !isset($_SESSION['Password'])) {
-    //     redirectTo("./Views/Template/logout.php");
-    //
-    // }
+    if (!$_SESSION['Is_Admin'] || !isset($_SESSION['Username']) || !isset($_SESSION['Password'])) {
+        redirectTo("./Views/Template/logout.php");
+
+    }
 }
 function authRedirect(){
   if($_SESSION['Is_Admin'] && isset($_SESSION['Username']) && isset($_SESSION['Password']))
