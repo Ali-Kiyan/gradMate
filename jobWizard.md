@@ -7,5 +7,5 @@ Responsive web application for analysing job market in the United Kingdom
 
 
 ```
-http://job-wizard.herokuapp.com
+[http://job-wizard.herokuapp.com](http://job-wizard.herokuapp.com)
 ```
