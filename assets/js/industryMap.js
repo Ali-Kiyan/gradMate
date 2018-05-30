@@ -53,7 +53,7 @@ map.on('load', function() {
 
     map.flyTo({
         // These options control the ending camera position: centered at
-        // the target, at zoom level 9, and north up.
+        // the target, at zoom level 6.5, and north up.
         center: [-2, 53],
         zoom: 6.5,
         bearing: 0,
@@ -76,7 +76,6 @@ map.on('load', function() {
       features:[]
     };
     data.forEach(function(element){
-      // console.log(element);
            obj.features.push({
              "type": "Feature",
              "geometry": {
@@ -99,7 +98,7 @@ map.on('load', function() {
     event.preventDefault();
     map.flyTo({
         // These options control the ending camera position: centered at
-        // the target, at zoom level 9, and north up.
+        // the target, at zoom level 5.4, and north up.
         center: [-2, 53],
         zoom: 5.4,
         // These options control the flight curve, making it move
@@ -179,7 +178,7 @@ map.on('load', function() {
      setTimeout(function() {
        map.flyTo({
                    // These options control the ending camera position: centered at
-                   // the target, at zoom level 9, and north up.
+                   // the target, at zoom level 6.5, and north up.
                    center: [-2, 53],
                    zoom: 6.5,
                    bearing: 0,

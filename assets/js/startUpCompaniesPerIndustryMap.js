@@ -54,7 +54,7 @@ map.on('load', function() {
 
     map.flyTo({
         // These options control the ending camera position: centered at
-        // the target, at zoom level 9, and north up.
+        // the target, at zoom level 6.5, and north up.
         center: [-2, 53],
         zoom: 6.5,
         bearing: 0,
@@ -78,7 +78,6 @@ map.on('load', function() {
       features:[]
     };
     data.forEach(function(element){
-      // console.log(element);
            obj.features.push({
              "type": "Feature",
              "geometry": {
@@ -101,7 +100,7 @@ map.on('load', function() {
     event.preventDefault();
     map.flyTo({
         // These options control the ending camera position: centered at
-        // the target, at zoom level 9, and north up.
+        // the target, at zoom level 5.3, and north up.
         center: [-2, 53],
         zoom: 5.3,
         // These options control the flight curve, making it move
@@ -116,24 +115,12 @@ map.on('load', function() {
     var apiURL = "./Web_Service/startUpCompaniesCoordinates.php?Industry=" + this.value ;
 
     $.getJSON(apiURL, function(data){
-      // if(map.getLayer('point')){
-      //   map.removeLayer('point');
-      // }
       if(map.getLayer('points')){
         map.removeLayer('points');
       }
       if(map.getSource('points')){
         map.removeSource('points');
       }
-      // map.removeLayer('point');
-      // map.removeSource('point');
-      console.log(map.getSource('points'));
-      // console.log(map.getStyle().layers);
-      // console.log(map.getStyle().sources);
-
-      console.log(map.getLayer('point'));
-      console.log(map.getLayer('points'));
-
          map.addLayer({
              "id": "points",
              "source": {
@@ -192,8 +179,6 @@ map.on('load', function() {
      });
      setTimeout(function() {
        map.flyTo({
-                   // These options control the ending camera position: centered at
-                   // the target, at zoom level 9, and north up.
                    center: [-2, 53],
                    zoom: 6.5,
                    bearing: 0,

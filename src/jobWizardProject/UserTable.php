@@ -1,5 +1,4 @@
 <?php
-
 namespace jobWizardProject;
 session_start();
 require_once __DIR__ . '/tableAbstract.php';

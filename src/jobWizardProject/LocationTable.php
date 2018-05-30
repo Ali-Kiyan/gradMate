@@ -1,5 +1,4 @@
 <?php
-
 namespace jobWizardProject;
 require_once __DIR__ . '/Location.php';
 require_once __DIR__ . '/tableAbstract.php';
